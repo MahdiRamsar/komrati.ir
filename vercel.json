@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "package.json",
+      "src": "kamorati-source/package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "kamorati-source/.output"
