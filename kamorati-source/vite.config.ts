@@ -11,5 +11,21 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // فعال‌سازی پریرندر برای تولید صفحات ایستا
+    prerender: {
+      routes: ["/"], // تمام مسیرهای اصلی که می‌خواهید ایستا شوند
+      // اگر مسیرهای دیگری دارید، آنها را به این آرایه اضافه کنید
+      // مثال: routes: ["/", "/about", "/contact"]
+    },
+  },
+  vite: {
+    // تنظیم مسیر پایه برای GitHub Pages
+    base: '/komrati.ir/',
+    build: {
+      // خروجی در پوشه dist (پیش‌فرض)
+      outDir: 'dist',
+      // غیرفعال کردن سورس‌مپ برای کاهش حجم (اختیاری)
+      sourcemap: false,
+    },
   },
 });
