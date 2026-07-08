@@ -1,6 +1,13 @@
 {
   "builds": [
     {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "kamorati-source/.output"
+      }
+    },
+    {
       "src": "kamorati-source/.output/server/index.mjs",
       "use": "@vercel/node"
     }
