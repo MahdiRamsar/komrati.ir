@@ -232,16 +232,18 @@
             color: #64748b;
         }
 
-        /* ===== تغییر: عکس هدر با تصویر شما ===== */
+        /* ===== تغییر: عکس عمودی در هدر ===== */
         .hero-image {
             background-color: #e2e8f0;
             border-radius: 20px;
-            height: 400px;
+            height: 500px;
+            /* افزایش ارتفاع برای نمایش عمودی */
             display: flex;
             align-items: center;
             justify-content: center;
             background-image: url('images/vakil.png');
-            background-size: cover;
+            background-size: contain;
+            /* تغییر از cover به contain برای نمایش کامل عکس عمودی */
             background-position: center;
             background-repeat: no-repeat;
             color: #64748b;
@@ -322,13 +324,15 @@
             align-items: center;
         }
 
-        /* ===== تغییر: عکس درباره ما با تصویر شما ===== */
+        /* ===== تغییر: عکس عمودی در درباره ما ===== */
         .about-image {
             background: #e2e8f0;
             border-radius: 20px;
-            height: 350px;
+            height: 450px;
+            /* افزایش ارتفاع برای نمایش عمودی */
             background-image: url('images/vakil.png');
-            background-size: cover;
+            background-size: contain;
+            /* تغییر از cover به contain برای نمایش کامل عکس عمودی */
             background-position: center;
             background-repeat: no-repeat;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -600,6 +604,14 @@
                 gap: 24px;
                 flex-wrap: wrap;
             }
+
+            .hero-image {
+                height: 400px;
+            }
+
+            .about-image {
+                height: 400px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -631,11 +643,11 @@
             }
 
             .hero-image {
-                height: 250px;
+                height: 350px;
             }
 
             .about-image {
-                height: 250px;
+                height: 350px;
             }
         }
 
@@ -659,6 +671,14 @@
 
             .contact-grid {
                 gap: 30px;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .about-image {
+                height: 300px;
             }
 
             .floating-whatsapp {
