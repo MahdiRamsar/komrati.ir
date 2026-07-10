@@ -13,15 +13,15 @@
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     <meta name="author" content="سید داود کمراتی">
     <meta name="theme-color" content="#111111">
+    
+    <!-- ===== گوگل سرچ کنسول (هر دو کد برای اطمینان) ===== -->
     <meta name="google-site-verification" content="M2-VCzxnEQreMQ3IJfMnRTSrCJKufFsmnQy5WmSTEGk">
+    <meta name="google-site-verification" content="0XTPrkebyW3zsjPxcbvajiJhGnNVIV6J_YyZPSNIGoo" />
 
     <!-- ===== CANONICAL ===== -->
     <link rel="canonical" href="https://komrati.ir/">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-    <!-- ===== MANIFEST (PWA) ===== -->
-    <link rel="manifest" href="/manifest.json">
 
     <!-- ===== PRELOAD & PRECONNECT (سرعت) ===== -->
     <link rel="preload" as="image" href="images/vakil.png" fetchpriority="high">
@@ -1516,7 +1516,7 @@
                 <div class="about-image" data-aos="fade-right">
                     <img
                     src="images/vakil.png"
-                    alt="سید داود کمراتی"
+                    alt="سید داود کمراتی - وکیل پایه یک دادگستری"
                     width="550"
                     height="650"
                     loading="lazy"
@@ -1974,14 +1974,10 @@
         });
 
         // ================================================================
-        // ========== 8. CONTACT FORM (ارسال به تلگرام) ==========
+        // ========== 8. CONTACT FORM (ارسال به ایمیل با Formspree) ==========
         // ================================================================
-        // 🔴 مهم: توکن و Chat ID خود را در زیر وارد کنید
-        const BOT_TOKEN = 'توکن_ربات_خودت_اینجا'; // مثال: 123456789:ABCdefGHIjklMNOpqrsTUVwxyz
-        const CHAT_ID = 'آیدی_چت_خودت_اینجا'; // مثال: 123456789
-
-        // اگر توکن و چت آیدی ندارید، یک ربات از @BotFather در تلگرام بسازید
-        // و با @userinfobot chat id خود را بگیرید.
+        // 🔴 مهم: آدرس Formspree خود را در خط زیر جایگزین کنید
+        // برای دریافت آدرس، به سایت formspree.io بروید و ثبت‌نام کنید
 
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1999,26 +1995,16 @@
                 message: formData.get('message') || 'ندارد'
             };
 
-            // ساخت پیام
-            let text = '📩 *درخواست مشاوره جدید*\n\n';
-            text += `👤 نام: ${data.name}\n`;
-            text += `📞 تلفن: ${data.phone}\n`;
-            text += `✉️ ایمیل: ${data.email}\n`;
-            text += `📝 پیام: ${data.message}`;
+            // ⚠️ آدرس زیر را با آدرسی که از Formspree دریافت می‌کنید جایگزین کنید
+            const FORMSPREE_URL = 'https://formspree.io/f/آدرس_دریافتی_اینجا';
 
-            // ارسال به تلگرام
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            fetch(FORMSPREE_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: CHAT_ID,
-                        text: text,
-                        parse_mode: 'Markdown'
-                    })
+                    body: JSON.stringify(data)
                 })
-                .then(res => res.json())
-                .then(result => {
-                    if (result.ok) {
+                .then(res => {
+                    if (res.ok) {
                         alert('✅ پیام شما با موفقیت ارسال شد. به زودی با شما تماس گرفته می‌شود.');
                         this.reset();
                     } else {
@@ -2033,27 +2019,6 @@
                     btn.disabled = false;
                 });
         });
-
-        // ========== 9. SERVICE WORKER (PWA) ==========
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(() => console.log('✅ Service Worker ثبت شد'))
-                .catch(() => console.log('⚠️ Service Worker ثبت نشد'));
-        }
-
-        // ========== 10. Lazy Load برای تصاویر پس‌زمینه (اختیاری) ==========
-        // اگر بخشی تصویر پس‌زمینه داشتید، این کد فعالش می‌کنه
-        // document.querySelectorAll('[data-bg]').forEach(el => {
-        //     const observerBg = new IntersectionObserver((entries) => {
-        //         entries.forEach(entry => {
-        //             if (entry.isIntersecting) {
-        //                 el.style.backgroundImage = `url(${el.dataset.bg})`;
-        //                 observerBg.unobserve(el);
-        //             }
-        //         });
-        //     });
-        //     observerBg.observe(el);
-        // });
 
     });
 </script>
