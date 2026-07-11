@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://komrati.ir/sitemap.xml
-
-Disallow: /admin/
-Disallow: /wp-admin/
