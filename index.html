@@ -675,7 +675,7 @@
                 <!-- مقاله ۳ -->
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
                     <span class="blog-tag">خانواده</span>
-                    <h3><a href="blog/mehrieh-1405.html">قوانین جدید مهریه و نحوه محاسبه </a></h3>
+                    <h3><a href="blog/mehrieh-1405.html">قوانین جدید مهریه و نحوه محاسبه آن در سال ۱۴۰۵</a></h3>
                     <p>نحوه محاسبه مهریه بر اساس قیمت روز سکه، شرایط مطالبه و نکات حقوقی مهم.</p>
                     <a href="blog/mehrieh-1405.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
                 </article>
@@ -821,7 +821,7 @@
     </button>
 
     <!-- ============================================= -->
-    <!-- ===== SCRIPTS (همان اسکریپت‌های قبلی) ===== -->
+    <!-- ===== SCRIPTS ===== -->
     <!-- ============================================= -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
@@ -975,5 +975,48 @@
             });
         });
     </script>
+
+    <!-- ============================================= -->
+    <!-- ===== مدیریت بازگشت (Back/Forward Cache) ===== -->
+    <!-- ============================================= -->
+    <script>
+        // ===== تابع کمکی برای اسکرول به بخش مقالات =====
+        function scrollToBlog() {
+            const blogSection = document.getElementById('blog');
+            if (blogSection) {
+                setTimeout(function() {
+                    blogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
+        // ===== ۱. مدیریت بازگشت از صفحه‌ی مقاله (pageshow) =====
+        window.addEventListener('pageshow', function(event) {
+            // اگر صفحه از حافظه‌ی کش بارگذاری شده باشد
+            if (event.persisted) {
+                const hash = window.location.hash;
+                if (hash === '#blog') {
+                    scrollToBlog();
+                }
+            }
+        });
+
+        // ===== ۲. مدیریت تغییر هش (hashchange) برای لینک‌های منو =====
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash;
+            if (hash === '#blog') {
+                scrollToBlog();
+            } else if (hash === '' || hash === '#home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        // ===== ۳. هنگام بارگذاری اولیه، اگر هش #blog باشد =====
+        if (window.location.hash === '#blog') {
+            // تأخیر برای اطمینان از بارگذاری کامل صفحه
+            setTimeout(scrollToBlog, 300);
+        }
+    </script>
+
 </body>
 </html>
