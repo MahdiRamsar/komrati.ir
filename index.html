@@ -24,8 +24,8 @@
 
     <!-- ===== PRELOAD & PRECONNECT (بهینه) ===== -->
     <link rel="preload" as="image" href="images/vakil.png" fetchpriority="high">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//unpkg.com">
 
@@ -38,7 +38,7 @@
     <!-- ===== AOS (اسکرول انیمیشن) ===== -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <!-- ===== OPEN GRAPH ===== -->
+    <!-- ===== OPEN GRAPH (استاندارد) ===== -->
     <meta property="og:locale" content="fa_IR">
     <meta property="og:type" content="website">
     <meta property="og:title" content="سید داود کمراتی | وکیل پایه یک دادگستری در تنکابن">
@@ -49,10 +49,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="سید داود کمراتی - وکیل پایه یک دادگستری">
-    <meta property="og:phone_number" content="09113940378">
     <meta property="og:email" content="info@komrati.ir">
-    <meta property="og:latitude" content="36.8161">
-    <meta property="og:longitude" content="50.8738">
 
     <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
@@ -171,7 +168,7 @@
         }
     </script>
 
-    <!-- 4. AggregateRating با نظرات واقعی‌تر -->
+    <!-- 4. AggregateRating -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -203,11 +200,10 @@
     </script>
 
     <!-- ============================================= -->
-    <!-- ===== STYLES (همان استایل‌های قبلی، بدون تغییر) ===== -->
+    <!-- ===== STYLES ===== -->
     <!-- ============================================= -->
     <style>
-        /* تمام استایل‌های قبلی دقیقاً به همین صورت باقی می‌مانند */
-        /* (برای جلوگیری از طولانی شدن کد، آن‌ها را دوباره نمی‌نویسم، اما شما باید همان استایل‌های خود را کپی کنید) */
+        /* ===== RESET & BASE (همان استایل‌های قبلی) ===== */
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior: smooth; }
         body { font-family:'Vazirmatn','Segoe UI',sans-serif; direction:rtl; background:#0f172a; color:#f8fafc; line-height:1.8; overflow-x:hidden; }
@@ -304,6 +300,20 @@
         .testimonial-card>p { color:#d1d5db; font-size:16px; line-height:1.9; margin:12px 0 20px; }
         .testimonial-card h4 { font-size:18px; font-weight:700; }
         .testimonial-card>span { color:#bfc8d5; font-size:14px; }
+
+        /* ===== BLOG / ARTICLES (جدید) ===== */
+        #blog { padding:100px 0; background:#0f172a; }
+        .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+        .blog-card { background:#1e293b; padding:30px 25px; border-radius:20px; border:1px solid rgba(255,255,255,0.05); transition:0.35s; display:flex; flex-direction:column; }
+        .blog-card:hover { transform:translateY(-8px); border-color:#d4a13e; box-shadow:0 15px 40px rgba(212,161,62,0.1); }
+        .blog-tag { display:inline-block; font-size:12px; font-weight:700; color:#d4a13e; background:rgba(212,161,62,0.12); padding:4px 14px; border-radius:30px; margin-bottom:14px; align-self:flex-start; letter-spacing:0.5px; }
+        .blog-card h3 { font-size:20px; font-weight:700; line-height:1.5; margin-bottom:12px; }
+        .blog-card h3 a { color:#fff; transition:0.3s; }
+        .blog-card h3 a:hover { color:#d4a13e; }
+        .blog-card p { color:#bfc8d5; font-size:15px; line-height:1.8; margin-bottom:20px; flex-grow:1; }
+        .blog-readmore { display:inline-flex; align-items:center; gap:8px; color:#d4a13e; font-weight:600; transition:0.3s; font-size:14px; align-self:flex-start; }
+        .blog-readmore:hover { gap:14px; color:#e7c97a; }
+
         #faq { padding:100px 0; background:#0f172a; }
         .faq { max-width:800px; margin:0 auto; }
         .faq-item { background:#1e293b; border-radius:16px; margin-bottom:16px; border:1px solid rgba(255,255,255,0.05); overflow:hidden; }
@@ -345,15 +355,67 @@
         .floating-whatsapp:hover { transform:scale(1.1); }
         #backToTop { display:none; position:fixed; bottom:100px; left:30px; z-index:999; border:none; background:#d4a13e; color:#fff; padding:14px 18px; border-radius:50%; font-size:20px; cursor:pointer; transition:0.3s; box-shadow:0 6px 25px rgba(212,161,62,0.4); }
         #backToTop:hover { transform:translateY(-4px); }
-        @media (max-width:1024px) { .hero-grid { grid-template-columns:1fr; gap:50px; text-align:center; } .hero-description { max-width:100%; margin-left:auto; margin-right:auto; } .hero-buttons { justify-content:center; } .hero-stats { justify-content:center; } .hero-image { max-width:500px; margin:0 auto; } .image-frame { width:100%; height:auto; aspect-ratio:3/4; } .experience-card { right:10px; bottom:10px; } .services-grid { grid-template-columns:1fr 1fr; } .about-grid { grid-template-columns:1fr; gap:40px; text-align:center; } .about-list { grid-template-columns:1fr; justify-items:center; } .about-counter { justify-content:center; } .case-grid { grid-template-columns:1fr 1fr; } .timeline { grid-template-columns:1fr 1fr; } .testimonial-grid { grid-template-columns:1fr 1fr; } .contact-wrapper { grid-template-columns:1fr; gap:40px; } .footer-grid { grid-template-columns:1fr 1fr; } }
-        @media (max-width:768px) { .nav-links { display:none; flex-direction:column; background:rgba(10,10,10,0.98); padding:20px; border-radius:16px; position:absolute; top:90px; right:20px; left:20px; gap:16px; border:1px solid rgba(255,255,255,0.05); } .nav-links.open { display:flex; } .mobile-toggle { display:block; } .header-buttons .call-btn { display:none; } .hero-content h1 { font-size:40px; } #typing-text { font-size:20px; height:30px; } .hero-description { font-size:16px; } .hero-buttons { flex-direction:column; align-items:center; } .hero-stats { flex-direction:column; align-items:center; gap:16px; } .stat { min-width:auto; text-align:center; } .floating-card { display:none; } .services-grid { grid-template-columns:1fr; } .case-grid { grid-template-columns:1fr; } .timeline { grid-template-columns:1fr; } .testimonial-grid { grid-template-columns:1fr; } .section-title { font-size:30px; } .footer-grid { grid-template-columns:1fr; text-align:center; } .contact-form { padding:25px; } #map iframe { height:300px; } }
-        @media (max-width:480px) { .hero-content h1 { font-size:32px; } #typing-text { font-size:18px; } .logo-text strong { font-size:16px; } .logo-text span { font-size:11px; } .logo-circle { width:48px; height:48px; font-size:18px; } .image-frame { padding:6px; } .experience-card { padding:12px 18px; } .experience-card strong { font-size:28px; } .about-content h2 { font-size:28px; } .about-counter { flex-direction:column; align-items:center; gap:16px; } }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width:1024px) {
+            .hero-grid { grid-template-columns:1fr; gap:50px; text-align:center; }
+            .hero-description { max-width:100%; margin-left:auto; margin-right:auto; }
+            .hero-buttons { justify-content:center; }
+            .hero-stats { justify-content:center; }
+            .hero-image { max-width:500px; margin:0 auto; }
+            .image-frame { width:100%; height:auto; aspect-ratio:3/4; }
+            .experience-card { right:10px; bottom:10px; }
+            .services-grid { grid-template-columns:1fr 1fr; }
+            .about-grid { grid-template-columns:1fr; gap:40px; text-align:center; }
+            .about-list { grid-template-columns:1fr; justify-items:center; }
+            .about-counter { justify-content:center; }
+            .case-grid { grid-template-columns:1fr 1fr; }
+            .timeline { grid-template-columns:1fr 1fr; }
+            .testimonial-grid { grid-template-columns:1fr 1fr; }
+            .blog-grid { grid-template-columns:repeat(2,1fr); }
+            .contact-wrapper { grid-template-columns:1fr; gap:40px; }
+            .footer-grid { grid-template-columns:1fr 1fr; }
+        }
+        @media (max-width:768px) {
+            .nav-links { display:none; flex-direction:column; background:rgba(10,10,10,0.98); padding:20px; border-radius:16px; position:absolute; top:90px; right:20px; left:20px; gap:16px; border:1px solid rgba(255,255,255,0.05); }
+            .nav-links.open { display:flex; }
+            .mobile-toggle { display:block; }
+            .header-buttons .call-btn { display:none; }
+            .hero-content h1 { font-size:40px; }
+            #typing-text { font-size:20px; height:30px; }
+            .hero-description { font-size:16px; }
+            .hero-buttons { flex-direction:column; align-items:center; }
+            .hero-stats { flex-direction:column; align-items:center; gap:16px; }
+            .stat { min-width:auto; text-align:center; }
+            .floating-card { display:none; }
+            .services-grid { grid-template-columns:1fr; }
+            .case-grid { grid-template-columns:1fr; }
+            .timeline { grid-template-columns:1fr; }
+            .testimonial-grid { grid-template-columns:1fr; }
+            .blog-grid { grid-template-columns:1fr; }
+            .section-title { font-size:30px; }
+            .footer-grid { grid-template-columns:1fr; text-align:center; }
+            .contact-form { padding:25px; }
+            #map iframe { height:300px; }
+        }
+        @media (max-width:480px) {
+            .hero-content h1 { font-size:32px; }
+            #typing-text { font-size:18px; }
+            .logo-text strong { font-size:16px; }
+            .logo-text span { font-size:11px; }
+            .logo-circle { width:48px; height:48px; font-size:18px; }
+            .image-frame { padding:6px; }
+            .experience-card { padding:12px 18px; }
+            .experience-card strong { font-size:28px; }
+            .about-content h2 { font-size:28px; }
+            .about-counter { flex-direction:column; align-items:center; gap:16px; }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- ===== HEADER (بدون تغییر) ===== -->
+    <!-- ===== HEADER (با آیتم مقالات اضافه شد) ===== -->
     <header id="header">
         <div class="container navbar">
             <a href="#" class="logo">
@@ -369,6 +431,7 @@
                     <li><a href="#services">خدمات</a></li>
                     <li><a href="#about">درباره من</a></li>
                     <li><a href="#testimonials">نظرات</a></li>
+                    <li><a href="#blog">مقالات</a></li>  <!-- آیتم جدید -->
                     <li><a href="#faq">سوالات</a></li>
                     <li><a href="#contact">تماس</a></li>
                 </ul>
@@ -385,7 +448,7 @@
         </div>
     </header>
 
-    <!-- ===== HERO (با محتوای جدید و غنی) ===== -->
+    <!-- ===== HERO ===== -->
     <section id="home" aria-label="معرفی وکیل">
         <div class="container hero-grid">
             <div class="hero-content" data-aos="fade-up">
@@ -402,26 +465,13 @@
                     هدف من در هر پرونده، <strong>دفاع هوشمندانه و پیگیرانه</strong> برای احقاق حق موکل با بالاترین سطح کیفیت و صداقت است.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">
-                        درخواست مشاوره
-                    </a>
-                    <a href="tel:09113940378" class="btn-outline">
-                        تماس فوری
-                    </a>
+                    <a href="#contact" class="btn-primary">درخواست مشاوره</a>
+                    <a href="tel:09113940378" class="btn-outline">تماس فوری</a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat">
-                        <h2 data-count="15">0</h2>
-                        <span>سال تجربه</span>
-                    </div>
-                    <div class="stat">
-                        <h2 data-count="1200">0</h2>
-                        <span>پرونده موفق</span>
-                    </div>
-                    <div class="stat">
-                        <h2 data-count="980">0</h2>
-                        <span>موکل راضی</span>
-                    </div>
+                    <div class="stat"><h2 data-count="15">0</h2><span>سال تجربه</span></div>
+                    <div class="stat"><h2 data-count="1200">0</h2><span>پرونده موفق</span></div>
+                    <div class="stat"><h2 data-count="980">0</h2><span>موکل راضی</span></div>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left">
@@ -438,14 +488,11 @@
         </div>
     </section>
 
-    <!-- ===== SERVICES (با توضیحات کامل و منحصربه‌فرد) ===== -->
+    <!-- ===== SERVICES ===== -->
     <section id="services" aria-label="خدمات حقوقی">
         <div class="container">
             <span class="section-mini" data-aos="fade-up">خدمات تخصصی</span>
-            <h2 class="section-title" data-aos="fade-up">
-                خدمات حقوقی دفتر وکالت
-                <span>سید داود کمراتی</span>
-            </h2>
+            <h2 class="section-title" data-aos="fade-up">خدمات حقوقی دفتر وکالت <span>سید داود کمراتی</span></h2>
             <p class="section-subtitle" data-aos="fade-up">
                 در این دفتر، با بهره‌گیری از دانش حقوقی به‌روز و تجربه‌ی عملی، به طیف گسترده‌ای از پرونده‌ها رسیدگی می‌شود. 
                 هر حوزه‌ای تخصص و رویکرد خاص خود را دارد که در ادامه تشریح شده است.
@@ -454,74 +501,44 @@
                 <article class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon"><i class="fas fa-scale-balanced"></i></div>
                     <h3>دعاوی حقوقی (مطالبه وجه، فسخ قرارداد و ...)</h3>
-                    <p>
-                        در دعاوی حقوقی مانند <strong>مطالبه وجه، فسخ قرارداد، الزام به تنظیم سند رسمی، 
-                        خسارت و مطالبه دیون</strong>، با تحلیل دقیق اسناد و مدارک و با استناد به قوانین مدنی و رویه‌ی دادگاه‌ها، 
-                        بهترین راهکار را برای احقاق حق موکل ارائه می‌دهیم. از تنظیم دادخواست تا اجرای رأی، تمام مراحل به‌صورت 
-                        تخصصی پیگیری می‌شود.
-                    </p>
+                    <p>در دعاوی حقوقی مانند <strong>مطالبه وجه، فسخ قرارداد، الزام به تنظیم سند رسمی، خسارت و مطالبه دیون</strong>، با تحلیل دقیق اسناد و مدارک و با استناد به قوانین مدنی و رویه‌ی دادگاه‌ها، بهترین راهکار را برای احقاق حق موکل ارائه می‌دهیم. از تنظیم دادخواست تا اجرای رأی، تمام مراحل به‌صورت تخصصی پیگیری می‌شود.</p>
                     <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left"></i></a>
                 </article>
                 <article class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon"><i class="fas fa-gavel"></i></div>
                     <h3>دعاوی کیفری (کلاهبرداری، سرقت، جعل و ...)</h3>
-                    <p>
-                        در حوزه‌ی <strong>کیفری</strong>، با تسلط بر قوانین مجازات، آیین دادرسی کیفری و جرایم خاص (مانند 
-                        <strong>کلاهبرداری، خیانت در امانت، سرقت، جعل اسناد، جرایم رایانه‌ای و مواد مخدر</strong>)، 
-                        دفاعی اصولی و مستدل در مراحل تحقیق، دادسرا و دادگاه ارائه می‌شود. هدف کاهش مجازات یا تبرئه‌ی موکل 
-                        با استفاده از دلایل و شواهد قانونی است.
-                    </p>
+                    <p>در حوزه‌ی <strong>کیفری</strong>، با تسلط بر قوانین مجازات، آیین دادرسی کیفری و جرایم خاص (مانند <strong>کلاهبرداری، خیانت در امانت، سرقت، جعل اسناد، جرایم رایانه‌ای و مواد مخدر</strong>)، دفاعی اصولی و مستدل در مراحل تحقیق، دادسرا و دادگاه ارائه می‌شود. هدف کاهش مجازات یا تبرئه‌ی موکل با استفاده از دلایل و شواهد قانونی است.</p>
                     <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left"></i></a>
                 </article>
                 <article class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon"><i class="fas fa-users"></i></div>
                     <h3>دعاوی خانواده (طلاق، مهریه، حضانت و ...)</h3>
-                    <p>
-                        پرونده‌های <strong>خانواده</strong> از حساسیت عاطفی و حقوقی بالایی برخوردارند. در این حوزه، 
-                        خدمات شامل <strong>طلاق (توافقی و غیرتوافقی)، مهریه، نفقه، حضانت فرزند، تمکین و اجرت‌المثل</strong> 
-                        می‌شود. با رویکردی دلسوزانه و در عین حال قانونی، سعی در کاهش تنش‌ها و دستیابی به توافقی منصفانه 
-                        یا اخذ بهترین رأی ممکن برای موکل داریم.
-                    </p>
+                    <p>پرونده‌های <strong>خانواده</strong> از حساسیت عاطفی و حقوقی بالایی برخوردارند. در این حوزه، خدمات شامل <strong>طلاق (توافقی و غیرتوافقی)، مهریه، نفقه، حضانت فرزند، تمکین و اجرت‌المثل</strong> می‌شود. با رویکردی دلسوزانه و در عین حال قانونی، سعی در کاهش تنش‌ها و دستیابی به توافقی منصفانه یا اخذ بهترین رأی ممکن برای موکل داریم.</p>
                     <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left"></i></a>
                 </article>
                 <article class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon"><i class="fas fa-building"></i></div>
                     <h3>امور ملکی (خلع ید، افراز، تخلیه و ...)</h3>
-                    <p>
-                        دعاوی ملکی از پیچیده‌ترین پرونده‌ها هستند. ما در زمینه‌های <strong>خلع ید، تصرف عدوانی، 
-                        افراز و تقسیم ملک، تخلیه‌ی اجاره، سرقفلی، مشارکت در ساخت و دعاوی مربوط به اسناد مالکیت</strong> 
-                        فعالیت داریم. با بررسی اسناد ثبتی، نقشه‌ها و مدارک، بهترین استراتژی برای دفاع از حقوق مالکانه‌ی 
-                        موکل ارائه می‌شود.
-                    </p>
+                    <p>دعاوی ملکی از پیچیده‌ترین پرونده‌ها هستند. ما در زمینه‌های <strong>خلع ید، تصرف عدوانی، افراز و تقسیم ملک، تخلیه‌ی اجاره، سرقفلی، مشارکت در ساخت و دعاوی مربوط به اسناد مالکیت</strong> فعالیت داریم. با بررسی اسناد ثبتی، نقشه‌ها و مدارک، بهترین استراتژی برای دفاع از حقوق مالکانه‌ی موکل ارائه می‌شود.</p>
                     <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left"></i></a>
                 </article>
                 <article class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon"><i class="fas fa-file-signature"></i></div>
                     <h3>تنظیم و بررسی قراردادهای تخصصی</h3>
-                    <p>
-                        قراردادها نقش کلیدی در پیشگیری از دعاوی آینده دارند. خدمات ما شامل <strong>تنظیم، بازبینی و 
-                        اصلاح انواع قراردادهای ملکی، تجاری، مشارکت مدنی، پیمانکاری، اجاره، وکالت و هر نوع توافقنامه‌ی 
-                        اختصاصی</strong> است. با شناسایی مواد خطرناک و ابهام‌آمیز، قراردادی منصفانه و شفاف تدوین می‌شود 
-                        که از حقوق طرفین به‌خوبی حمایت کند.
-                    </p>
+                    <p>قراردادها نقش کلیدی در پیشگیری از دعاوی آینده دارند. خدمات ما شامل <strong>تنظیم، بازبینی و اصلاح انواع قراردادهای ملکی، تجاری، مشارکت مدنی، پیمانکاری، اجاره، وکالت و هر نوع توافقنامه‌ی اختصاصی</strong> است. با شناسایی مواد خطرناک و ابهام‌آمیز، قراردادی منصفانه و شفاف تدوین می‌شود که از حقوق طرفین به‌خوبی حمایت کند.</p>
                     <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left"></i></a>
                 </article>
                 <article class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon"><i class="fas fa-briefcase"></i></div>
                     <h3>حقوق تجارت و اسناد تجاری (چک، سفته، ورشکستگی)</h3>
-                    <p>
-                        در حوزه‌ی <strong>حقوق تجارت</strong>، به پرونده‌های مربوط به <strong>شرکت‌ها (تأسیس، انحلال، 
-                        دعاوی سهامداران)، چک، سفته، برات، مطالبه‌ی وجه اسناد تجاری، ورشکستگی و اختلافات بازرگانی</strong> 
-                        رسیدگی می‌شود. همچنین در داوری‌های تجاری و رسیدگی به دعاوی مربوط به ثبت شرکت‌ها و دفاتر تجاری، 
-                        مشاوره و وکالت ارائه می‌گردد.
-                    </p>
+                    <p>در حوزه‌ی <strong>حقوق تجارت</strong>، به پرونده‌های مربوط به <strong>شرکت‌ها (تأسیس، انحلال، دعاوی سهامداران)، چک، سفته، برات، مطالبه‌ی وجه اسناد تجاری، ورشکستگی و اختلافات بازرگانی</strong> رسیدگی می‌شود. همچنین در داوری‌های تجاری و رسیدگی به دعاوی مربوط به ثبت شرکت‌ها و دفاتر تجاری، مشاوره و وکالت ارائه می‌گردد.</p>
                     <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left"></i></a>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- ===== ABOUT (با بیوگرافی جامع و منحصربه‌فرد) ===== -->
+    <!-- ===== ABOUT ===== -->
     <section id="about" aria-label="درباره وکیل">
         <div class="container">
             <div class="about-grid">
@@ -535,18 +552,8 @@
                 <div class="about-content" data-aos="fade-left">
                     <span class="section-mini">درباره وکیل</span>
                     <h2>سید داود کمراتی<br><span>وکیل پایه یک دادگستری</span></h2>
-                    <p>
-                        <strong>سید داود کمراتی</strong>، فارغ‌التحصیل حقوق از دانشگاه‌های معتبر کشور و دارنده‌ی پروانه‌ی 
-                        وکالت پایه یک دادگستری از کانون وکلای دادگستری مرکز، فعالیت حرفه‌ای خود را از بیش از پانزده سال 
-                        پیش آغاز کرده است. در این سال‌ها، با حضور مستمر در دادگاه‌های عمومی، انقلاب، دیوان عالی کشور و 
-                        دادگاه‌های تجدیدنظر، تجربه‌ای ارزشمند در حوزه‌های مختلف حقوقی اندوخته است.
-                    </p>
-                    <p>
-                        رویکرد کاری ایشان بر <strong>صداقت، شفافیت و پیگیری مستمر</strong> استوار است. هر پرونده با 
-                        دقت و وسواس مورد بررسی قرار می‌گیرد و موکل در تمام مراحل از روند کار آگاه می‌شود. 
-                        تعهد به <strong>حفظ محرمانگی اطلاعات</strong> و <strong>دفاع بی‌وقفه از حقوق موکل</strong>، 
-                        از اصول ثابت این دفتر وکالت است.
-                    </p>
+                    <p><strong>سید داود کمراتی</strong>، فارغ‌التحصیل حقوق از دانشگاه‌های معتبر کشور و دارنده‌ی پروانه‌ی وکالت پایه یک دادگستری از کانون وکلای دادگستری مرکز، فعالیت حرفه‌ای خود را از بیش از پانزده سال پیش آغاز کرده است. در این سال‌ها، با حضور مستمر در دادگاه‌های عمومی، انقلاب، دیوان عالی کشور و دادگاه‌های تجدیدنظر، تجربه‌ای ارزشمند در حوزه‌های مختلف حقوقی اندوخته است.</p>
+                    <p>رویکرد کاری ایشان بر <strong>صداقت، شفافیت و پیگیری مستمر</strong> استوار است. هر پرونده با دقت و وسواس مورد بررسی قرار می‌گیرد و موکل در تمام مراحل از روند کار آگاه می‌شود. تعهد به <strong>حفظ محرمانگی اطلاعات</strong> و <strong>دفاع بی‌وقفه از حقوق موکل</strong>، از اصول ثابت این دفتر وکالت است.</p>
                     <div class="about-list">
                         <div><i class="fas fa-check-circle"></i> مشاوره تخصصی قبل از طرح دعوا</div>
                         <div><i class="fas fa-check-circle"></i> پیگیری کامل پرونده تا صدور رأی نهایی</div>
@@ -566,7 +573,7 @@
         </div>
     </section>
 
-    <!-- ===== CASES + TIMELINE (با توضیحات کامل‌تر) ===== -->
+    <!-- ===== CASES + TIMELINE ===== -->
     <section id="cases" aria-label="دلایل انتخاب ما">
         <div class="container">
             <span class="section-mini" data-aos="fade-up">افتخارات</span>
@@ -584,8 +591,8 @@
                 </div>
                 <div class="case-card" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-clock"></i>
-                    <p>با ارائه‌ی گزارش‌های دوره‌ای و اطلاع‌رسانی لحظه‌ای از تغییرات پرونده، موکل از همه‌ی مراحل آگاه می‌شود.</p>
                     <h3>پیگیری مستمر و شفاف</h3>
+                    <p>با ارائه‌ی گزارش‌های دوره‌ای و اطلاع‌رسانی لحظه‌ای از تغییرات پرونده، موکل از همه‌ی مراحل آگاه می‌شود.</p>
                 </div>
                 <div class="case-card" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-award"></i>
@@ -593,41 +600,28 @@
                     <p>سال‌ها حضور در محاکم دادگستری و آشنایی کامل با رویه‌های قضایی و قوانین روز.</p>
                 </div>
             </div>
-
             <div class="timeline">
                 <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="timeline-icon"><i class="fas fa-comments"></i></div>
-                    <div class="timeline-content">
-                        <h3>مشاوره اولیه</h3>
-                        <p>بررسی دقیق مدارک و ارائه‌ی راهکارهای قانونی متناسب با شرایط خاص پرونده.</p>
-                    </div>
+                    <div class="timeline-content"><h3>مشاوره اولیه</h3><p>بررسی دقیق مدارک و ارائه‌ی راهکارهای قانونی متناسب با شرایط خاص پرونده.</p></div>
                 </div>
                 <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="timeline-icon"><i class="fas fa-file-alt"></i></div>
-                    <div class="timeline-content">
-                        <h3>تنظیم دادخواست یا لایحه</h3>
-                        <p>نگارش حرفه‌ای اوراق قضایی با استناد به مواد قانونی و رویه‌ی دادگاه‌ها.</p>
-                    </div>
+                    <div class="timeline-content"><h3>تنظیم دادخواست یا لایحه</h3><p>نگارش حرفه‌ای اوراق قضایی با استناد به مواد قانونی و رویه‌ی دادگاه‌ها.</p></div>
                 </div>
                 <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="timeline-icon"><i class="fas fa-gavel"></i></div>
-                    <div class="timeline-content">
-                        <h3>حضور در دادگاه</h3>
-                        <p>دفاع مستدل و پیگیری مستمر در تمامی جلسات دادگاه و مراجع قضایی.</p>
-                    </div>
+                    <div class="timeline-content"><h3>حضور در دادگاه</h3><p>دفاع مستدل و پیگیری مستمر در تمامی جلسات دادگاه و مراجع قضایی.</p></div>
                 </div>
                 <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
                     <div class="timeline-icon"><i class="fas fa-check-circle"></i></div>
-                    <div class="timeline-content">
-                        <h3>اجرای حکم</h3>
-                        <p>پیگیری اجرای رأی تا احقاق کامل حقوق موکل و اطمینان از حصول نتیجه.</p>
-                    </div>
+                    <div class="timeline-content"><h3>اجرای حکم</h3><p>پیگیری اجرای رأی تا احقاق کامل حقوق موکل و اطمینان از حصول نتیجه.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== TESTIMONIALS (بدون تغییر) ===== -->
+    <!-- ===== TESTIMONIALS ===== -->
     <section id="testimonials" aria-label="نظرات موکلان">
         <div class="container">
             <span class="section-mini" data-aos="fade-up">رضایت موکلان</span>
@@ -655,63 +649,85 @@
         </div>
     </section>
 
-    <!-- ===== FAQ (با سوالات کامل‌تر و پاسخ‌های جامع) ===== -->
+    <!-- ===== BLOG / ARTICLES (بخش جدید) ===== -->
+    <section id="blog" aria-label="مقالات حقوقی">
+        <div class="container">
+            <span class="section-mini" data-aos="fade-up">مجله حقوقی</span>
+            <h2 class="section-title" data-aos="fade-up">جدیدترین <span>مقالات حقوقی</span></h2>
+            <p class="section-subtitle" data-aos="fade-up">
+                با مطالعه‌ی مقالات تخصصی، از آخرین قوانین و رویه‌های دادگاه‌ها در حوزه‌های خانواده، کیفری، ملکی و تجاری مطلع شوید.
+            </p>
+            <div class="blog-grid">
+                <!-- مقاله ۱ -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="blog-tag">خانواده</span>
+                    <h3><a href="blog/talaagh-tavaaghi.html">راهنمای جامع طلاق توافقی در تنکابن</a></h3>
+                    <p>مراحل، مدارک، هزینه‌ها و نکات حقوقی طلاق توافقی در دادگستری تنکابن و استان مازندران.</p>
+                    <a href="blog/talaagh-tavaaghi.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
+                </article>
+                <!-- مقاله ۲ -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="blog-tag">کیفری</span>
+                    <h3><a href="blog/kelahbari-interneti.html">مراحل شکایت کیفری برای کلاهبرداری اینترنتی</a></h3>
+                    <p>راهنمای گام‌به‌گام ثبت شکایت در پلیس فتا، مدارک لازم و مجازات کلاهبرداران اینترنتی.</p>
+                    <a href="blog/kelahbari-interneti.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
+                </article>
+                <!-- مقاله ۳ -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="blog-tag">خانواده</span>
+                    <h3><a href="blog/mehrieh-1404.html">قوانین جدید مهریه و نحوه محاسبه آن در سال ۱۴۰۴</a></h3>
+                    <p>نحوه محاسبه مهریه بر اساس قیمت روز سکه، شرایط مطالبه و نکات حقوقی مهم.</p>
+                    <a href="blog/mehrieh-1404.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
+                </article>
+                <!-- مقاله ۴ -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                    <span class="blog-tag">ملکی</span>
+                    <h3><a href="blog/khal-e-yad.html">مراحل خلع ید و تخلیه ملک در مازندران</a></h3>
+                    <p>راهنمای حقوقی خلع ید، تخلیه مستأجر و نکات کلیدی در دعاوی املاک.</p>
+                    <a href="blog/khal-e-yad.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
+                </article>
+                <!-- مقاله ۵ -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="500">
+                    <span class="blog-tag">تجاری</span>
+                    <h3><a href="blog/chek-safteh.html">تفاوت چک و سفته در دعاوی تجاری و حقوقی</a></h3>
+                    <p>آشنایی با تفاوت‌های حقوقی چک و سفته، نحوه وصول و ضمانت اجرای کیفری و حقوقی آن‌ها.</p>
+                    <a href="blog/chek-safteh.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
     <section id="faq" aria-label="سوالات متداول">
         <div class="container">
             <span class="section-mini" data-aos="fade-up">سوالات متداول</span>
             <h2 class="section-title" data-aos="fade-up">پرسش‌های <span>رایج موکلان</span></h2>
-
             <div class="faq" data-aos="fade-up">
                 <div class="faq-item active">
-                    <button class="faq-question">
-                        <span>اولین جلسه مشاوره با وکیل چگونه برگزار می‌شود و چه مدارکی نیاز است؟</span>
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>در اولین جلسه، وکیل پس از بررسی مدارک (کارت ملی، شناسنامه، مدارک مرتبط با پرونده مانند سند، قرارداد، ابلاغیه و...) به تحلیل دقیق وضعیت حقوقی شما پرداخته و بهترین راهکار قانونی را با توجه به قوانین روز و رویه‌ی دادگاه‌ها به شما پیشنهاد می‌دهد. این جلسه به صورت حضوری در دفتر یا آنلاین برگزار می‌شود.</p>
-                    </div>
+                    <button class="faq-question"><span>اولین جلسه مشاوره با وکیل چگونه برگزار می‌شود و چه مدارکی نیاز است؟</span><i class="fas fa-plus"></i></button>
+                    <div class="faq-answer"><p>در اولین جلسه، وکیل پس از بررسی مدارک (کارت ملی، شناسنامه، مدارک مرتبط با پرونده مانند سند، قرارداد، ابلاغیه و...) به تحلیل دقیق وضعیت حقوقی شما پرداخته و بهترین راهکار قانونی را با توجه به قوانین روز و رویه‌ی دادگاه‌ها به شما پیشنهاد می‌دهد. این جلسه به صورت حضوری در دفتر یا آنلاین برگزار می‌شود.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>هزینه‌های وکالت (حق‌الوکاله) چگونه محاسبه می‌شود؟</span>
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>تعیین حق‌الوکاله بر اساس نوع پرونده (کیفری، حقوقی، خانواده، ملکی)، میزان پیچیدگی، حجم کار، ارزش ریالی موضوع دعوا و تعرفه‌ی مصوب کانون وکلای دادگستری صورت می‌گیرد. پس از بررسی اولیه، مبلغ به‌صورت توافقی و شفاف تعیین می‌شود تا هیچ ابهامی برای موکل باقی نماند.</p>
-                    </div>
+                    <button class="faq-question"><span>هزینه‌های وکالت (حق‌الوکاله) چگونه محاسبه می‌شود؟</span><i class="fas fa-plus"></i></button>
+                    <div class="faq-answer"><p>تعیین حق‌الوکاله بر اساس نوع پرونده (کیفری، حقوقی، خانواده، ملکی)، میزان پیچیدگی، حجم کار، ارزش ریالی موضوع دعوا و تعرفه‌ی مصوب کانون وکلای دادگستری صورت می‌گیرد. پس از بررسی اولیه، مبلغ به‌صورت توافقی و شفاف تعیین می‌شود تا هیچ ابهامی برای موکل باقی نماند.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>آیا امکان پیگیری پرونده به‌صورت غیرحضوری و از طریق تلفن یا اینترنت وجود دارد؟</span>
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>بله، به دلیل شرایط مختلف، مشاوره و پیگیری غیرحضوری از طریق تماس تلفنی، پیام‌رسان‌هایی مانند واتساپ و تلگرام، و همچنین جلسات آنلاین (ویدئو کنفرانس) ارائه می‌شود. موکلان می‌توانند مدارک را به‌صورت الکترونیکی ارسال کنند و وکیل اقدامات لازم را انجام دهد.</p>
-                    </div>
+                    <button class="faq-question"><span>آیا امکان پیگیری پرونده به‌صورت غیرحضوری و از طریق تلفن یا اینترنت وجود دارد؟</span><i class="fas fa-plus"></i></button>
+                    <div class="faq-answer"><p>بله، به دلیل شرایط مختلف، مشاوره و پیگیری غیرحضوری از طریق تماس تلفنی، پیام‌رسان‌هایی مانند واتساپ و تلگرام، و همچنین جلسات آنلاین (ویدئو کنفرانس) ارائه می‌شود. موکلان می‌توانند مدارک را به‌صورت الکترونیکی ارسال کنند و وکیل اقدامات لازم را انجام دهد.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>آیا وکالت پرونده‌هایی که خارج از شهر تنکابن (استان مازندران) هستند را قبول می‌کنید؟</span>
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>بله، با توجه به پروانه‌ی وکالت پایه یک دادگستری که امکان فعالیت در سراسر کشور را فراهم می‌کند، پذیرش و پیگیری پرونده‌های حقوقی و کیفری از تمامی استان‌های ایران میسر است. همچنین امکان اعزام وکیل به دادگاه‌های سایر شهرها وجود دارد.</p>
-                    </div>
+                    <button class="faq-question"><span>آیا وکالت پرونده‌هایی که خارج از شهر تنکابن (استان مازندران) هستند را قبول می‌کنید؟</span><i class="fas fa-plus"></i></button>
+                    <div class="faq-answer"><p>بله، با توجه به پروانه‌ی وکالت پایه یک دادگستری که امکان فعالیت در سراسر کشور را فراهم می‌کند، پذیرش و پیگیری پرونده‌های حقوقی و کیفری از تمامی استان‌های ایران میسر است. همچنین امکان اعزام وکیل به دادگاه‌های سایر شهرها وجود دارد.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>مدت زمان رسیدگی به پرونده‌های حقوقی و کیفری چقدر است؟</span>
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>زمان رسیدگی به پرونده به عوامل متعددی از جمله نوع دعوا، پیچیدگی موضوع، شعب دادگاه، تعداد جلسات و زمان ابلاغ اوراق بستگی دارد. وکیل با پیگیری مستمر و ارائه‌ی لایحه‌های به‌موقع، سعی در کوتاه‌ترین زمان ممکن برای رسیدگی و صدور رأی دارد. با این حال، هیچ‌گاه نمی‌توان زمان دقیقی را پیش‌بینی کرد.</p>
-                    </div>
+                    <button class="faq-question"><span>مدت زمان رسیدگی به پرونده‌های حقوقی و کیفری چقدر است؟</span><i class="fas fa-plus"></i></button>
+                    <div class="faq-answer"><p>زمان رسیدگی به پرونده به عوامل متعددی از جمله نوع دعوا، پیچیدگی موضوع، شعب دادگاه، تعداد جلسات و زمان ابلاغ اوراق بستگی دارد. وکیل با پیگیری مستمر و ارائه‌ی لایحه‌های به‌موقع، سعی در کوتاه‌ترین زمان ممکن برای رسیدگی و صدور رأی دارد. با این حال، هیچ‌گاه نمی‌توان زمان دقیقی را پیش‌بینی کرد.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CONTACT (بدون تغییر) ===== -->
+    <!-- ===== CONTACT ===== -->
     <section id="contact" aria-label="تماس با ما">
         <div class="container">
             <div class="contact-wrapper">
@@ -775,6 +791,7 @@
                         <li><a href="#about">درباره من</a></li>
                         <li><a href="#services">خدمات</a></li>
                         <li><a href="#testimonials">نظرات</a></li>
+                        <li><a href="#blog">مقالات</a></li>
                         <li><a href="#faq">سوالات</a></li>
                         <li><a href="#contact">تماس</a></li>
                     </ul>
@@ -789,9 +806,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                © ۲۰۲۶ سید داود کمراتی | تمامی حقوق محفوظ است.
-            </div>
+            <div class="copyright">© ۲۰۲۶ سید داود کمراتی | تمامی حقوق محفوظ است.</div>
         </div>
     </footer>
 
@@ -816,11 +831,8 @@
 
             // Typing
             const texts = ['وکیل پایه یک دادگستری', 'متخصص دعاوی کیفری و خانواده', 'مشاوره حقوقی تخصصی'];
-            let textIndex = 0,
-                charIndex = 0,
-                isDeleting = false;
+            let textIndex = 0, charIndex = 0, isDeleting = false;
             const typingEl = document.getElementById('typing-text');
-
             function typeEffect() {
                 if (!typingEl) return;
                 const current = texts[textIndex];
@@ -842,7 +854,6 @@
 
             // Counters
             const counters = document.querySelectorAll('[data-count]');
-
             function animateCounter(el) {
                 const target = parseInt(el.getAttribute('data-count'));
                 let current = 0;
@@ -872,9 +883,7 @@
             const navLinks = document.getElementById('navLinks');
             toggleBtn.addEventListener('click', function() {
                 navLinks.classList.toggle('open');
-                this.innerHTML = navLinks.classList.contains('open') ?
-                    '<i class="fas fa-times"></i>' :
-                    '<i class="fas fa-bars"></i>';
+                this.innerHTML = navLinks.classList.contains('open') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             });
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', function() {
