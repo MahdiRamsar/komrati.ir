@@ -22,7 +22,7 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <!-- ===== PRELOAD & PRECONNECT (بهینه) ===== -->
+    <!-- ===== PRELOAD & PRECONNECT ===== -->
     <link rel="preload" as="image" href="images/vakil.png" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,10 +35,10 @@
     <!-- ===== FONT AWESOME ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- ===== AOS (اسکرول انیمیشن) ===== -->
+    <!-- ===== AOS ===== -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <!-- ===== OPEN GRAPH (استاندارد) ===== -->
+    <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:locale" content="fa_IR">
     <meta property="og:type" content="website">
     <meta property="og:title" content="سید داود کمراتی | وکیل پایه یک دادگستری در تنکابن">
@@ -62,10 +62,10 @@
     <meta name="mobile-web-app-capable" content="yes">
 
     <!-- ============================================= -->
-    <!-- ===== SCHEDMA MARKUP (دیتاهای ساختاریافته) ===== -->
+    <!-- ===== SCHEDMA MARKUP ===== -->
     <!-- ============================================= -->
 
-    <!-- 1. LocalBusiness کامل -->
+    <!-- 1. LocalBusiness -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -124,7 +124,7 @@
         }
     </script>
 
-    <!-- 3. FAQ (با سوالات کامل‌تر) -->
+    <!-- 3. FAQ -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -138,7 +138,7 @@
                 }
             }, {
                 "@type": "Question",
-                "name": "هزینه‌های وکالت (حق‌الوکاله) چگونه محاسبه می‌شود؟",
+                "name": "هزینه‌های وکالت (حق‌الوکاله) چگونه محاسبه می‌شود？",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "تعیین حق‌الوکاله بر اساس نوع پرونده (کیفری، حقوقی، خانواده، ملکی)، میزان پیچیدگی، حجم کار، ارزش ریالی موضوع دعوا و تعرفه‌ی مصوب کانون وکلای دادگستری صورت می‌گیرد. پس از بررسی اولیه، مبلغ به‌صورت توافقی و شفاف تعیین می‌شود تا هیچ ابهامی برای موکل باقی نماند."
@@ -199,7 +199,7 @@
         }
     </script>
 
-    <!-- 5. Statistics / Professional Service (داده‌های آماری) -->
+    <!-- 5. Statistics (آمار) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -236,7 +236,7 @@
     <!-- ===== STYLES ===== -->
     <!-- ============================================= -->
     <style>
-        /* ===== RESET & BASE (همان استایل‌های قبلی) ===== */
+        /* ===== RESET & BASE ===== */
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior: smooth; }
         body { font-family:'Vazirmatn','Segoe UI',sans-serif; direction:rtl; background:#0f172a; color:#f8fafc; line-height:1.8; overflow-x:hidden; }
@@ -259,6 +259,8 @@
         .call-btn { display:flex; align-items:center; gap:10px; padding:13px 28px; background:linear-gradient(135deg,#d4a13e,#b88b2d); border-radius:60px; color:#fff; font-weight:700; transition:0.35s; box-shadow:0 15px 35px rgba(212,161,62,0.35); }
         .call-btn:hover { transform:translateY(-4px); box-shadow:0 20px 45px rgba(212,161,62,0.45); }
         .mobile-toggle { display:none; background:none; border:none; color:#fff; font-size:30px; cursor:pointer; }
+
+        /* ===== HERO (بدون آمار) ===== */
         #home { padding-top:170px; padding-bottom:110px; background:radial-gradient(circle at top right,#f2dfb5 0%,transparent 30%),linear-gradient(135deg,#0f172a,#1e293b); overflow:hidden; position:relative; }
         #home::before { content:""; position:absolute; width:700px; height:700px; border-radius:50%; background:rgba(212,161,62,0.08); top:-250px; left:-250px; filter:blur(70px); }
         .hero-grid { display:grid; grid-template-columns:1fr 520px; gap:80px; align-items:center; }
@@ -272,10 +274,6 @@
         .btn-primary:hover { transform:translateY(-5px); box-shadow:0 20px 40px rgba(212,161,62,0.45); }
         .btn-outline { display:flex; align-items:center; justify-content:center; padding:16px 34px; border:2px solid #d4a13e; border-radius:50px; color:#d4a13e; font-weight:700; transition:0.35s; background:transparent; cursor:pointer; }
         .btn-outline:hover { background:#d4a13e; color:#fff; }
-        .hero-stats { display:flex; gap:40px; }
-        .stat { min-width:120px; }
-        .stat h2 { font-size:46px; color:#fff; margin-bottom:6px; }
-        .stat span { color:#bfc8d5; font-size:15px; }
         .hero-image { position:relative; display:flex; justify-content:center; align-items:center; }
         .image-frame { width:470px; height:600px; border-radius:40px; overflow:hidden; background:#fff; padding:10px; box-shadow:0 40px 80px rgba(0,0,0,0.35); }
         .image-frame img { width:100%; height:100%; object-fit:cover; border-radius:30px; }
@@ -286,10 +284,13 @@
         .floating-card.one { top:80px; left:-25px; }
         .floating-card.two { bottom:160px; left:30px; animation-delay:1.5s; }
         @keyframes float { 0%{transform:translateY(0);} 50%{transform:translateY(-18px);} 100%{transform:translateY(0);} }
+
         .section-mini { display:inline-block; font-size:14px; font-weight:600; color:#d4a13e; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
         .section-title { font-size:40px; font-weight:800; color:#fff; margin-bottom:16px; }
         .section-title span { color:#d4a13e; }
         .section-subtitle { font-size:18px; color:#bfc8d5; max-width:720px; margin:0 auto 50px; text-align:center; }
+
+        /* ===== SERVICES ===== */
         #services { padding:100px 0; background:#0f172a; }
         .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
         .service-card { background:#1e293b; padding:35px 30px; border-radius:24px; text-align:center; transition:0.35s; border:1px solid rgba(255,255,255,0.05); }
@@ -299,6 +300,8 @@
         .service-card p { color:#bfc8d5; font-size:15px; line-height:1.9; margin-bottom:22px; }
         .service-card a { display:inline-flex; align-items:center; gap:10px; color:#d4a13e; font-weight:600; transition:0.3s; }
         .service-card a:hover { gap:18px; }
+
+        /* ===== ABOUT (بدون آمار) ===== */
         #about { padding:100px 0; background:#0a0f1a; }
         .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
         .about-image { position:relative; }
@@ -312,18 +315,14 @@
         .about-list { display:grid; grid-template-columns:1fr 1fr; gap:12px 20px; margin-bottom:35px; }
         .about-list div { display:flex; align-items:center; gap:10px; color:#d1d5db; font-size:15px; }
         .about-list i { color:#d4a13e; font-size:18px; }
-        .about-counter { display:flex; gap:40px; margin-bottom:40px; }
-        .about-counter h3 { font-size:36px; font-weight:800; color:#fff; }
-        .about-counter span { color:#bfc8d5; font-size:14px; }
 
-        /* ===== STATISTICS / سابقه فعالیت حرفه‌ای (جدید) ===== */
+        /* ===== STATISTICS ===== */
         #statistics { padding: 100px 0; background: #0f172a; }
         .stats-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 60px; }
         .stat-card { background: #1e293b; padding: 30px 20px; border-radius: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .stat-card:hover { transform: translateY(-4px); border-color: #d4a13e; }
         .stat-number { display: block; font-size: 42px; font-weight: 800; color: #fff; line-height: 1.2; }
         .stat-label { display: block; font-size: 15px; color: #bfc8d5; margin-top: 8px; }
-
         .stats-table-wrapper { background: #1e293b; border-radius: 24px; padding: 30px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 50px; }
         .stats-table-title { font-size: 22px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 20px; }
         .stats-table { width: 100%; border-collapse: collapse; text-align: center; }
@@ -332,7 +331,6 @@
         .stats-table tbody tr:hover { background: rgba(212,161,62,0.05); }
         .stats-table tfoot td { padding: 14px 10px; background: #0f172a; color: #d4a13e; font-weight: 700; border-top: 2px solid #d4a13e; }
         .stats-table tbody td:first-child { text-align: right; font-weight: 500; color: #fff; }
-
         .stats-chart { background: #1e293b; border-radius: 24px; padding: 30px; border: 1px solid rgba(255,255,255,0.05); }
         .stats-chart-title { font-size: 22px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 30px; }
         .chart-bars { display: flex; flex-direction: column; gap: 18px; }
@@ -342,6 +340,7 @@
         .chart-bar { height: 100%; background: linear-gradient(90deg, #d4a13e, #e7c97a); border-radius: 30px; display: flex; align-items: center; justify-content: flex-end; padding-left: 12px; transition: width 0.6s ease; min-width: 40px; }
         .chart-value { color: #0f172a; font-weight: 700; font-size: 14px; }
 
+        /* ===== OTHER SECTIONS ===== */
         #cases { padding: 100px 0; background:#0f172a; }
         .case-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; margin-bottom:80px; }
         .case-card { background:#1e293b; padding:30px 25px; border-radius:20px; text-align:center; transition:0.35s; border:1px solid rgba(255,255,255,0.05); }
@@ -361,7 +360,7 @@
         .testimonial-card h4 { font-size:18px; font-weight:700; }
         .testimonial-card>span { color:#bfc8d5; font-size:14px; }
 
-        /* ===== BLOG / ARTICLES ===== */
+        /* ===== BLOG ===== */
         #blog { padding:100px 0; background:#0f172a; }
         .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
         .blog-card { background:#1e293b; padding:30px 25px; border-radius:20px; border:1px solid rgba(255,255,255,0.05); transition:0.35s; display:flex; flex-direction:column; }
@@ -374,6 +373,7 @@
         .blog-readmore { display:inline-flex; align-items:center; gap:8px; color:#d4a13e; font-weight:600; transition:0.3s; font-size:14px; align-self:flex-start; }
         .blog-readmore:hover { gap:14px; color:#e7c97a; }
 
+        /* ===== FAQ ===== */
         #faq { padding:100px 0; background:#0f172a; }
         .faq { max-width:800px; margin:0 auto; }
         .faq-item { background:#1e293b; border-radius:16px; margin-bottom:16px; border:1px solid rgba(255,255,255,0.05); overflow:hidden; }
@@ -384,6 +384,8 @@
         .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.4s ease,padding 0.3s ease; padding:0 25px; }
         .faq-item.active .faq-answer { max-height:400px; padding:0 25px 25px; }
         .faq-answer p { color:#bfc8d5; font-size:16px; line-height:1.8; }
+
+        /* ===== CONTACT ===== */
         #contact { padding:100px 0; background:#0a0f1a; }
         .contact-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:60px; }
         .contact-info h2 { font-size:34px; font-weight:800; margin-bottom:30px; }
@@ -402,6 +404,8 @@
         .contact-form textarea { height:150px; resize:vertical; }
         .contact-form .btn-primary { width:100%; }
         #map iframe { width:100%; height:400px; border:none; display:block; }
+
+        /* ===== FOOTER ===== */
         footer { background:#05080f; padding:60px 0 30px; border-top:1px solid rgba(255,255,255,0.05); }
         .footer-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; margin-bottom:40px; }
         .footer-grid h3 { font-size:22px; font-weight:800; color:#fff; }
@@ -411,6 +415,9 @@
         .footer-grid ul li a { color:#bfc8d5; transition:0.3s; }
         .footer-grid ul li a:hover { color:#d4a13e; }
         .copyright { text-align:center; padding-top:30px; border-top:1px solid rgba(255,255,255,0.05); color:#64748b; font-size:14px; }
+        .copyright small { color:#64748b; font-size:12px; }
+
+        /* ===== FLOATING ===== */
         .floating-whatsapp { position:fixed; bottom:30px; left:30px; background:#25D366; color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; box-shadow:0 6px 25px rgba(37,211,102,0.4); z-index:999; transition:0.3s; }
         .floating-whatsapp:hover { transform:scale(1.1); }
         #backToTop { display:none; position:fixed; bottom:100px; left:30px; z-index:999; border:none; background:#d4a13e; color:#fff; padding:14px 18px; border-radius:50%; font-size:20px; cursor:pointer; transition:0.3s; box-shadow:0 6px 25px rgba(212,161,62,0.4); }
@@ -421,14 +428,12 @@
             .hero-grid { grid-template-columns:1fr; gap:50px; text-align:center; }
             .hero-description { max-width:100%; margin-left:auto; margin-right:auto; }
             .hero-buttons { justify-content:center; }
-            .hero-stats { justify-content:center; }
             .hero-image { max-width:500px; margin:0 auto; }
             .image-frame { width:100%; height:auto; aspect-ratio:3/4; }
             .experience-card { right:10px; bottom:10px; }
             .services-grid { grid-template-columns:1fr 1fr; }
             .about-grid { grid-template-columns:1fr; gap:40px; text-align:center; }
             .about-list { grid-template-columns:1fr; justify-items:center; }
-            .about-counter { justify-content:center; }
             .case-grid { grid-template-columns:1fr 1fr; }
             .timeline { grid-template-columns:1fr 1fr; }
             .testimonial-grid { grid-template-columns:1fr 1fr; }
@@ -446,8 +451,6 @@
             #typing-text { font-size:20px; height:30px; }
             .hero-description { font-size:16px; }
             .hero-buttons { flex-direction:column; align-items:center; }
-            .hero-stats { flex-direction:column; align-items:center; gap:16px; }
-            .stat { min-width:auto; text-align:center; }
             .floating-card { display:none; }
             .services-grid { grid-template-columns:1fr; }
             .case-grid { grid-template-columns:1fr; }
@@ -477,7 +480,6 @@
             .experience-card { padding:12px 18px; }
             .experience-card strong { font-size:28px; }
             .about-content h2 { font-size:28px; }
-            .about-counter { flex-direction:column; align-items:center; gap:16px; }
             .stats-summary { grid-template-columns:1fr 1fr; gap:12px; }
             .stat-card { padding:20px 12px; }
             .stat-number { font-size:28px; }
@@ -489,7 +491,7 @@
 
 <body>
 
-    <!-- ===== HEADER (با آیتم مقالات اضافه شد) ===== -->
+    <!-- ===== HEADER ===== -->
     <header id="header">
         <div class="container navbar">
             <a href="#" class="logo">
@@ -523,7 +525,7 @@
         </div>
     </header>
 
-    <!-- ===== HERO ===== -->
+    <!-- ===== HERO (بدون آمار) ===== -->
     <section id="home" aria-label="معرفی وکیل">
         <div class="container hero-grid">
             <div class="hero-content" data-aos="fade-up">
@@ -542,11 +544,6 @@
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">دریافت مشاوره</a>
                     <a href="tel:09113940378" class="btn-outline">تماس با دفتر</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat"><h2 data-count="15">0</h2><span>سال تجربه</span></div>
-                    <div class="stat"><h2 data-count="1200">0</h2><span>پرونده موفق</span></div>
-                    <div class="stat"><h2 data-count="980">0</h2><span>موکل راضی</span></div>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left">
@@ -613,7 +610,7 @@
         </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
+    <!-- ===== ABOUT (بدون آمار) ===== -->
     <section id="about" aria-label="درباره وکیل">
         <div class="container">
             <div class="about-grid">
@@ -637,18 +634,13 @@
                         <div><i class="fas fa-check-circle"></i> مشاوره آنلاین و حضوری با انعطاف زمانی</div>
                         <div><i class="fas fa-check-circle"></i> پاسخگویی سریع و به‌موقع به موکلان</div>
                     </div>
-                    <div class="about-counter">
-                        <div><h3 data-count="1200">0</h3><span>پرونده موفق</span></div>
-                        <div><h3 data-count="980">0</h3><span>موکل راضی</span></div>
-                        <div><h3 data-count="15">0</h3><span>سال تجربه</span></div>
-                    </div>
                     <a href="#contact" class="btn-primary">دریافت مشاوره حقوقی</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== STATISTICS / سابقه فعالیت حرفه‌ای ===== -->
+    <!-- ===== STATISTICS ===== -->
     <section id="statistics" aria-label="سابقه فعالیت حرفه‌ای">
         <div class="container">
             <span class="section-mini" data-aos="fade-up">سابقه فعالیت</span>
@@ -720,7 +712,7 @@
                 </table>
             </div>
 
-            <!-- ===== نمودار میله‌ای ساده (CSS) ===== -->
+            <!-- ===== نمودار میله‌ای ===== -->
             <div class="stats-chart" data-aos="fade-up" data-aos-delay="200">
                 <h3 class="stats-chart-title">نمایش گرافیکی پرونده‌های مختومه</h3>
                 <div class="chart-bars">
@@ -753,7 +745,7 @@
         </div>
     </section>
 
-    <!-- ===== CASES + TIMELINE ===== -->
+    <!-- ===== CASES ===== -->
     <section id="cases" aria-label="دلایل اعتماد موکلان">
         <div class="container">
             <span class="section-mini" data-aos="fade-up">افتخارات</span>
@@ -829,7 +821,7 @@
         </div>
     </section>
 
-    <!-- ===== BLOG / ARTICLES ===== -->
+    <!-- ===== BLOG ===== -->
     <section id="blog" aria-label="مقالات حقوقی">
         <div class="container">
             <span class="section-mini" data-aos="fade-up">مجله حقوقی</span>
@@ -985,19 +977,15 @@
             <div class="copyright">
                 © ۲۰۲۶ سید داود کمراتی | تمامی حقوق محفوظ است.
                 <br>
-                <small style="color:#64748b; font-size:12px;">
-                    کلیه مطالب سایت صرفاً جنبه اطلاع‌رسانی دارد و جایگزین مشاوره حقوقی حضوری نمی‌باشد.
-                </small>
+                <small>کلیه مطالب سایت صرفاً جنبه اطلاع‌رسانی دارد و جایگزین مشاوره حقوقی حضوری نمی‌باشد.</small>
             </div>
         </div>
     </footer>
 
-    <!-- ===== FLOATING WHATSAPP ===== -->
+    <!-- ===== FLOATING ===== -->
     <a href="https://wa.me/989113940378" target="_blank" class="floating-whatsapp" aria-label="مشاوره در واتساپ">
         <i class="fab fa-whatsapp"></i>
     </a>
-
-    <!-- ===== BACK TO TOP ===== -->
     <button id="backToTop" aria-label="بازگشت به بالا">
         <i class="fas fa-arrow-up"></i>
     </button>
@@ -1034,8 +1022,8 @@
             }
             setTimeout(typeEffect, 800);
 
-            // Counters
-            const counters = document.querySelectorAll('[data-count]');
+            // Counter (فقط برای بخش آمار)
+            const counters = document.querySelectorAll('#statistics [data-count]');
             function animateCounter(el) {
                 const target = parseInt(el.getAttribute('data-count'), 10);
                 if (isNaN(target)) return;
@@ -1117,7 +1105,7 @@
                 });
             });
 
-            // Contact form (Formspree)
+            // Contact form
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const btn = this.querySelector('button[type="submit"]');
@@ -1133,7 +1121,7 @@
                     message: formData.get('message') || 'ندارد'
                 };
 
-                const FORMSPREE_URL = 'https://formspree.io/f/آدرس_دریافتی_اینجا'; // ← این را تغییر دهید
+                const FORMSPREE_URL = 'https://formspree.io/f/آدرس_دریافتی_اینجا';
 
                 fetch(FORMSPREE_URL, {
                         method: 'POST',
@@ -1163,7 +1151,6 @@
     <!-- ===== مدیریت بازگشت (Back/Forward Cache) ===== -->
     <!-- ============================================= -->
     <script>
-        // ===== تابع کمکی برای اسکرول به بخش مقالات =====
         function scrollToBlog() {
             const blogSection = document.getElementById('blog');
             if (blogSection) {
@@ -1172,19 +1159,12 @@
                 }, 100);
             }
         }
-
-        // ===== ۱. مدیریت بازگشت از صفحه‌ی مقاله (pageshow) =====
         window.addEventListener('pageshow', function(event) {
-            // اگر صفحه از حافظه‌ی کش بارگذاری شده باشد
             if (event.persisted) {
                 const hash = window.location.hash;
-                if (hash === '#blog') {
-                    scrollToBlog();
-                }
+                if (hash === '#blog') scrollToBlog();
             }
         });
-
-        // ===== ۲. مدیریت تغییر هش (hashchange) برای لینک‌های منو =====
         window.addEventListener('hashchange', function() {
             const hash = window.location.hash;
             if (hash === '#blog') {
@@ -1193,10 +1173,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
-
-        // ===== ۳. هنگام بارگذاری اولیه، اگر هش #blog باشد =====
         if (window.location.hash === '#blog') {
-            // تأخیر برای اطمینان از بارگذاری کامل صفحه
             setTimeout(scrollToBlog, 300);
         }
     </script>
