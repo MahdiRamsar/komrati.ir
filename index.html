@@ -199,6 +199,39 @@
         }
     </script>
 
+    <!-- 5. Statistics / Professional Service (داده‌های آماری) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "دفتر وکالت سید داود کمراتی",
+            "description": "سابقه فعالیت حرفه‌ای با بیش از ۷۱۵ پرونده در حوزه‌های حقوقی، کیفری و خانواده.",
+            "numberOfEmployees": "1",
+            "hasOccupation": {
+                "@type": "Occupation",
+                "name": "وکیل دادگستری",
+                "occupationLocation": {
+                    "@type": "City",
+                    "name": "تنکابن"
+                }
+            },
+            "statistics": [
+                {
+                    "@type": "StatisticalPopulation",
+                    "name": "پرونده‌های جاری",
+                    "populationType": "LegalCase",
+                    "numConstraints": "28"
+                },
+                {
+                    "@type": "StatisticalPopulation",
+                    "name": "پرونده‌های مختومه",
+                    "populationType": "LegalCase",
+                    "numConstraints": "687"
+                }
+            ]
+        }
+    </script>
+
     <!-- ============================================= -->
     <!-- ===== STYLES ===== -->
     <!-- ============================================= -->
@@ -282,7 +315,34 @@
         .about-counter { display:flex; gap:40px; margin-bottom:40px; }
         .about-counter h3 { font-size:36px; font-weight:800; color:#fff; }
         .about-counter span { color:#bfc8d5; font-size:14px; }
-        #cases { padding:100px 0; background:#0f172a; }
+
+        /* ===== STATISTICS / سابقه فعالیت حرفه‌ای (جدید) ===== */
+        #statistics { padding: 100px 0; background: #0f172a; }
+        .stats-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 60px; }
+        .stat-card { background: #1e293b; padding: 30px 20px; border-radius: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .stat-card:hover { transform: translateY(-4px); border-color: #d4a13e; }
+        .stat-number { display: block; font-size: 42px; font-weight: 800; color: #fff; line-height: 1.2; }
+        .stat-label { display: block; font-size: 15px; color: #bfc8d5; margin-top: 8px; }
+
+        .stats-table-wrapper { background: #1e293b; border-radius: 24px; padding: 30px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 50px; }
+        .stats-table-title { font-size: 22px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 20px; }
+        .stats-table { width: 100%; border-collapse: collapse; text-align: center; }
+        .stats-table thead th { background: #0f172a; color: #d4a13e; font-weight: 700; padding: 14px 12px; border-bottom: 2px solid #d4a13e; }
+        .stats-table tbody td { padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,0.06); color: #d1d5db; }
+        .stats-table tbody tr:hover { background: rgba(212,161,62,0.05); }
+        .stats-table tfoot td { padding: 14px 10px; background: #0f172a; color: #d4a13e; font-weight: 700; border-top: 2px solid #d4a13e; }
+        .stats-table tbody td:first-child { text-align: right; font-weight: 500; color: #fff; }
+
+        .stats-chart { background: #1e293b; border-radius: 24px; padding: 30px; border: 1px solid rgba(255,255,255,0.05); }
+        .stats-chart-title { font-size: 22px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 30px; }
+        .chart-bars { display: flex; flex-direction: column; gap: 18px; }
+        .chart-item { display: flex; align-items: center; gap: 16px; }
+        .chart-label { min-width: 60px; font-weight: 600; color: #d1d5db; text-align: right; }
+        .chart-bar-wrapper { flex: 1; background: #0f172a; border-radius: 30px; height: 36px; overflow: hidden; position: relative; }
+        .chart-bar { height: 100%; background: linear-gradient(90deg, #d4a13e, #e7c97a); border-radius: 30px; display: flex; align-items: center; justify-content: flex-end; padding-left: 12px; transition: width 0.6s ease; min-width: 40px; }
+        .chart-value { color: #0f172a; font-weight: 700; font-size: 14px; }
+
+        #cases { padding: 100px 0; background:#0f172a; }
         .case-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; margin-bottom:80px; }
         .case-card { background:#1e293b; padding:30px 25px; border-radius:20px; text-align:center; transition:0.35s; border:1px solid rgba(255,255,255,0.05); }
         .case-card:hover { transform:translateY(-8px); border-color:#d4a13e; }
@@ -301,7 +361,7 @@
         .testimonial-card h4 { font-size:18px; font-weight:700; }
         .testimonial-card>span { color:#bfc8d5; font-size:14px; }
 
-        /* ===== BLOG / ARTICLES (جدید) ===== */
+        /* ===== BLOG / ARTICLES ===== */
         #blog { padding:100px 0; background:#0f172a; }
         .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
         .blog-card { background:#1e293b; padding:30px 25px; border-radius:20px; border:1px solid rgba(255,255,255,0.05); transition:0.35s; display:flex; flex-direction:column; }
@@ -375,6 +435,7 @@
             .blog-grid { grid-template-columns:repeat(2,1fr); }
             .contact-wrapper { grid-template-columns:1fr; gap:40px; }
             .footer-grid { grid-template-columns:1fr 1fr; }
+            .stats-summary { grid-template-columns:repeat(2,1fr); gap:20px; }
         }
         @media (max-width:768px) {
             .nav-links { display:none; flex-direction:column; background:rgba(10,10,10,0.98); padding:20px; border-radius:16px; position:absolute; top:90px; right:20px; left:20px; gap:16px; border:1px solid rgba(255,255,255,0.05); }
@@ -397,6 +458,14 @@
             .footer-grid { grid-template-columns:1fr; text-align:center; }
             .contact-form { padding:25px; }
             #map iframe { height:300px; }
+            .stats-summary { grid-template-columns:1fr 1fr; gap:16px; }
+            .stat-number { font-size:32px; }
+            .stats-table-wrapper { padding:16px; }
+            .stats-table thead th, .stats-table tbody td, .stats-table tfoot td { padding:10px 8px; font-size:14px; }
+            .stats-chart { padding:16px; }
+            .chart-bar-wrapper { height:28px; }
+            .chart-label { min-width:50px; font-size:14px; }
+            .chart-value { font-size:12px; }
         }
         @media (max-width:480px) {
             .hero-content h1 { font-size:32px; }
@@ -409,6 +478,11 @@
             .experience-card strong { font-size:28px; }
             .about-content h2 { font-size:28px; }
             .about-counter { flex-direction:column; align-items:center; gap:16px; }
+            .stats-summary { grid-template-columns:1fr 1fr; gap:12px; }
+            .stat-card { padding:20px 12px; }
+            .stat-number { font-size:28px; }
+            .stats-table thead th, .stats-table tbody td, .stats-table tfoot td { font-size:12px; padding:8px 4px; }
+            .chart-label { min-width:40px; font-size:12px; }
         }
     </style>
 </head>
@@ -430,6 +504,7 @@
                     <li><a href="#home" class="active">خانه</a></li>
                     <li><a href="#services">خدمات</a></li>
                     <li><a href="#about">درباره من</a></li>
+                    <li><a href="#statistics">آمار پرونده‌ها</a></li>
                     <li><a href="#testimonials">تجربیات موکلان</a></li>
                     <li><a href="#blog">مقالات</a></li>
                     <li><a href="#faq">سوالات</a></li>
@@ -573,6 +648,111 @@
         </div>
     </section>
 
+    <!-- ===== STATISTICS / سابقه فعالیت حرفه‌ای ===== -->
+    <section id="statistics" aria-label="سابقه فعالیت حرفه‌ای">
+        <div class="container">
+            <span class="section-mini" data-aos="fade-up">سابقه فعالیت</span>
+            <h2 class="section-title" data-aos="fade-up">آمار <span>پرونده‌ها</span></h2>
+            <p class="section-subtitle" data-aos="fade-up">
+                خلاصه‌ای از پرونده‌های حقوقی، کیفری و خانواده که در طول سال‌های فعالیت حرفه‌ای در این دفتر رسیدگی شده‌اند.
+            </p>
+
+            <!-- ===== کارت‌های خلاصه ===== -->
+            <div class="stats-summary" data-aos="fade-up">
+                <div class="stat-card">
+                    <span class="stat-number" data-count="28">0</span>
+                    <span class="stat-label">پرونده‌های جاری</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="687">0</span>
+                    <span class="stat-label">پرونده‌های مختومه</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">۱۵+</span>
+                    <span class="stat-label">سال سابقه</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">وکیل پایه ۱</span>
+                    <span class="stat-label">درجه وکالت</span>
+                </div>
+            </div>
+
+            <!-- ===== جدول تفکیکی ===== -->
+            <div class="stats-table-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="stats-table-title">تفکیک پرونده‌ها بر اساس حوزه‌ی تخصصی</h3>
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>حوزه تخصصی</th>
+                            <th>جاری</th>
+                            <th>مختومه</th>
+                            <th>مجموع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>دعاوی عمومی حقوقی</strong></td>
+                            <td>۱۵</td>
+                            <td>۴۲۰</td>
+                            <td><strong>۴۳۵</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>جرائم عمومی کیفری</strong></td>
+                            <td>۱۲</td>
+                            <td>۲۲۵</td>
+                            <td><strong>۲۳۷</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>دعاوی خانواده</strong></td>
+                            <td>۱</td>
+                            <td>۴۲</td>
+                            <td><strong>۴۳</strong></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>جمع کل</strong></td>
+                            <td><strong>۲۸</strong></td>
+                            <td><strong>۶۸۷</strong></td>
+                            <td><strong>۷۱۵</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <!-- ===== نمودار میله‌ای ساده (CSS) ===== -->
+            <div class="stats-chart" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="stats-chart-title">نمایش گرافیکی پرونده‌های مختومه</h3>
+                <div class="chart-bars">
+                    <div class="chart-item">
+                        <span class="chart-label">حقوقی</span>
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar" style="width: 61%;">
+                                <span class="chart-value">۴۲۰</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-item">
+                        <span class="chart-label">کیفری</span>
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar" style="width: 33%;">
+                                <span class="chart-value">۲۲۵</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-item">
+                        <span class="chart-label">خانواده</span>
+                        <div class="chart-bar-wrapper">
+                            <div class="chart-bar" style="width: 6%;">
+                                <span class="chart-value">۴۲</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== CASES + TIMELINE ===== -->
     <section id="cases" aria-label="دلایل اعتماد موکلان">
         <div class="container">
@@ -658,35 +838,30 @@
                 با مطالعه‌ی مقالات تخصصی، از آخرین قوانین و رویه‌های دادگاه‌ها در حوزه‌های خانواده، کیفری، ملکی و تجاری مطلع شوید.
             </p>
             <div class="blog-grid">
-                <!-- مقاله ۱ -->
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
                     <span class="blog-tag">خانواده</span>
                     <h3><a href="blog/talaagh-tavaaghi.html">راهنمای جامع طلاق توافقی در تنکابن</a></h3>
                     <p>مراحل، مدارک، هزینه‌ها و نکات حقوقی طلاق توافقی در دادگستری تنکابن و استان مازندران.</p>
                     <a href="blog/talaagh-tavaaghi.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
                 </article>
-                <!-- مقاله ۲ -->
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
                     <span class="blog-tag">کیفری</span>
                     <h3><a href="blog/kelahbari-interneti.html">مراحل شکایت کیفری برای کلاهبرداری اینترنتی</a></h3>
                     <p>راهنمای گام‌به‌گام ثبت شکایت در پلیس فتا، مدارک لازم و مجازات کلاهبرداران اینترنتی.</p>
                     <a href="blog/kelahbari-interneti.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
                 </article>
-                <!-- مقاله ۳ -->
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
                     <span class="blog-tag">خانواده</span>
                     <h3><a href="blog/mehrieh-1405.html">قوانین جدید مهریه و نحوه محاسبه آن در سال ۱۴۰۵</a></h3>
                     <p>نحوه محاسبه مهریه بر اساس قیمت روز سکه، شرایط مطالبه و نکات حقوقی مهم.</p>
                     <a href="blog/mehrieh-1405.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
                 </article>
-                <!-- مقاله ۴ -->
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
                     <span class="blog-tag">ملکی</span>
                     <h3><a href="blog/khal-e-yad.html">مراحل خلع ید و تخلیه ملک در مازندران</a></h3>
                     <p>راهنمای حقوقی خلع ید، تخلیه مستأجر و نکات کلیدی در دعاوی املاک.</p>
                     <a href="blog/khal-e-yad.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left"></i></a>
                 </article>
-                <!-- مقاله ۵ -->
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="500">
                     <span class="blog-tag">تجاری</span>
                     <h3><a href="blog/chek-safteh.html">تفاوت چک و سفته در دعاوی تجاری و حقوقی</a></h3>
@@ -790,6 +965,7 @@
                         <li><a href="#home">خانه</a></li>
                         <li><a href="#about">درباره من</a></li>
                         <li><a href="#services">خدمات</a></li>
+                        <li><a href="#statistics">آمار پرونده‌ها</a></li>
                         <li><a href="#testimonials">تجربیات موکلان</a></li>
                         <li><a href="#blog">مقالات</a></li>
                         <li><a href="#faq">سوالات</a></li>
