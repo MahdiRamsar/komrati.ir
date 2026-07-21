@@ -24,7 +24,7 @@
     <title>سید داود کمراتی | وکیل پایه یک دادگستری در تنکابن | مشاوره تخصصی حقوقی</title>
 
     <!-- ===== METADATA ===== -->
-    <meta name="description" content="سید داود کمراتی، وکیل پایه یک دادگستری در تنکابن (شهسوار)، متخصص دعاوی کیفری، خانواده، ملکی، قراردادها، چک، سفته و مشاوره تخصصی حقوقی با بیش از 20 سال تجربه.">
+    <meta name="description" content="سید داود کمراتی، وکیل پایه یک دادگستری در تنکابن (شهسوار)، متخصص دعاوی کیفری، خانواده، ملکی، قراردادها، چک، سفته و مشاوره تخصصی حقوقی با بیش از ۲۰ سال تجربه.">
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     <meta name="author" content="سید داود کمراتی">
     <meta name="theme-color" content="#d4a13e">
@@ -59,7 +59,7 @@
     <meta property="og:locale" content="fa_IR">
     <meta property="og:type" content="website">
     <meta property="og:title" content="سید داود کمراتی | وکیل پایه یک دادگستری در تنکابن">
-    <meta property="og:description" content="وکیل پایه یک دادگستری در تنکابن با 20 سال تجربه در دعاوی کیفری، خانواده، ملکی و قراردادها.">
+    <meta property="og:description" content="وکیل پایه یک دادگستری در تنکابن با ۲۰ سال تجربه در دعاوی کیفری، خانواده، ملکی و قراردادها.">
     <meta property="og:url" content="https://komrati.ir/">
     <meta property="og:site_name" content="دفتر وکالت سید داود کمراتی">
     <meta property="og:image" content="https://komrati.ir/images/vakil.webp">
@@ -71,7 +71,7 @@
     <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="سید داود کمراتی | وکیل پایه یک دادگستری">
-    <meta name="twitter:description" content="مشاوره تخصصی حقوقی در تنکابن">
+    <meta name="twitter:description" content="مشاوره تخصصی حقوقی در تنکابن با ۲۰ سال تجربه">
     <meta name="twitter:image" content="https://komrati.ir/images/vakil.webp">
 
     <!-- ===== OTHER ===== -->
@@ -88,7 +88,7 @@
             "@context": "https://schema.org",
             "@type": "LegalService",
             "name": "سید داود کمراتی - دفتر وکالت",
-            "description": "وکیل پایه یک دادگستری در تنکابن با 20 سال تجربه در دعاوی کیفری، خانواده، ملکی و قراردادها.",
+            "description": "وکیل پایه یک دادگستری در تنکابن با ۲۰ سال تجربه در دعاوی کیفری، خانواده، ملکی و قراردادها.",
             "image": "https://komrati.ir/images/vakil.webp",
             "telephone": "+989113940378",
             "email": "info@komrati.ir",
@@ -247,7 +247,7 @@
     </script>
 
     <!-- ============================================= -->
-    <!-- ===== STYLES (کامل و بدون تغییر) ===== -->
+    <!-- ===== STYLES (کامل با اصلاحات ریسپانسیو) ===== -->
     <!-- ============================================= -->
     <style nonce="abc123">
         /* ===== RESET & BASE ===== */
@@ -383,6 +383,7 @@
             color: #fff;
             font-size: 30px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         /* ===== HERO ===== */
@@ -1231,8 +1232,8 @@
         /* ===== FLOATING ===== */
         .floating-whatsapp {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 100px;
+            left: 24px;
             background: #25D366;
             color: #fff;
             width: 60px;
@@ -1247,13 +1248,14 @@
             transition: 0.3s;
         }
         .floating-whatsapp:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
         }
         #backToTop {
             display: none;
             position: fixed;
-            bottom: 100px;
-            left: 30px;
+            bottom: 32px;
+            left: 24px;
             z-index: 999;
             border: none;
             background: #d4a13e;
@@ -1267,6 +1269,7 @@
         }
         #backToTop:hover {
             transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(212, 161, 62, 0.5);
         }
 
         /* ===== RESPONSIVE ===== */
@@ -1430,6 +1433,19 @@
             .chart-value {
                 font-size: 12px;
             }
+            .floating-whatsapp {
+                bottom: 80px;
+                left: 16px;
+                width: 50px;
+                height: 50px;
+                font-size: 26px;
+            }
+            #backToTop {
+                bottom: 20px;
+                left: 16px;
+                padding: 12px 16px;
+                font-size: 18px;
+            }
         }
         @media (max-width:480px) {
             .hero-content h1 {
@@ -1481,6 +1497,35 @@
                 min-width: 40px;
                 font-size: 12px;
             }
+            .floating-whatsapp {
+                bottom: 70px;
+                width: 44px;
+                height: 44px;
+                font-size: 22px;
+                left: 12px;
+            }
+            #backToTop {
+                bottom: 16px;
+                left: 12px;
+                padding: 10px 14px;
+                font-size: 16px;
+            }
+            .hero-badge {
+                font-size: 12px;
+                padding: 6px 14px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .section-subtitle {
+                font-size: 15px;
+            }
+            .service-card h3 {
+                font-size: 18px;
+            }
+            .service-card p {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -1527,12 +1572,12 @@
             <div class="hero-content" data-aos="fade-up">
                 <span class="hero-badge">
                     <i class="fas fa-award"></i>
-                    بیش از 20 سال تجربه حقوقی
+                    بیش از ۲۰ سال تجربه حقوقی
                 </span>
                 <h1>سید داود <span>کمراتی</span></h1>
                 <div id="typing-text"></div>
                 <p class="hero-description">
-                    <strong>وکیل پایه یک دادگستری</strong> با بیش از یک دهه و نیم فعالیت حرفه‌ای در محاکم قضایی سراسر کشور.
+                    <strong>وکیل پایه یک دادگستری</strong> با بیش از دو دهه فعالیت حرفه‌ای در محاکم قضایی سراسر کشور.
                     تخصص من در <strong>دعاوی کیفری</strong> (کلاهبرداری، سرقت، جعل، جرایم سایبری)، <strong>دعاوی خانواده</strong> (طلاق، مهریه، نفقه، حضانت)،
                     <strong>امور ملکی</strong> (خلع ید، افراز، تخلیه) و <strong>قراردادهای تجاری و حقوقی</strong> است.
                     هدف من در هر پرونده، <strong>دفاع هوشمندانه و پیگیرانه</strong> برای احقاق حق موکل با کیفیت بالا و صداقت است.
@@ -1547,7 +1592,7 @@
                     <img src="images/vakil.webp" alt="سید داود کمراتی - وکیل پایه یک دادگستری در تنکابن" width="470" height="600" loading="eager" fetchpriority="high">
                 </div>
                 <div class="experience-card">
-                    <strong>20+</strong>
+                    <strong>۲۰+</strong>
                     <span>سال تجربه حقوقی</span>
                 </div>
                 <div class="floating-card one"><i class="fas fa-scale-balanced"></i></div>
@@ -1611,16 +1656,16 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image" data-aos="fade-right">
-                    <img src="images/vakil.webp" alt="سید داود کمراتی - وکیل پایه یک دادگستری با 20 سال سابقه" width="550" height="650" loading="lazy" decoding="async">
+                    <img src="images/vakil.webp" alt="سید داود کمراتی - وکیل پایه یک دادگستری با ۲۰ سال سابقه" width="550" height="650" loading="lazy" decoding="async">
                     <div class="experience-box">
-                        <h2>20+</h2>
+                        <h2>۲۰+</h2>
                         <span>سال سابقه وکالت</span>
                     </div>
                 </div>
                 <div class="about-content" data-aos="fade-left">
                     <span class="section-mini">درباره وکیل</span>
                     <h2>سید داود کمراتی<br><span>وکیل پایه یک دادگستری</span></h2>
-                    <p><strong>سید داود کمراتی</strong>، فارغ‌التحصیل حقوق از دانشگاه‌های معتبر کشور و دارنده‌ی پروانه‌ی وکالت پایه یک دادگستری از کانون وکلای دادگستری مرکز، فعالیت حرفه‌ای خود را از بیش از پانزده سال پیش آغاز کرده است. در این سال‌ها، با حضور مستمر در دادگاه‌های عمومی، انقلاب، دیوان عالی کشور و دادگاه‌های تجدیدنظر، تجربه‌ای ارزشمند در حوزه‌های مختلف حقوقی اندوخته است.</p>
+                    <p><strong>سید داود کمراتی</strong>، فارغ‌التحصیل حقوق از دانشگاه‌های معتبر کشور و دارنده‌ی پروانه‌ی وکالت پایه یک دادگستری از کانون وکلای دادگستری مرکز، فعالیت حرفه‌ای خود را از بیش از بیست سال پیش آغاز کرده است. در این سال‌ها، با حضور مستمر در دادگاه‌های عمومی، انقلاب، دیوان عالی کشور و دادگاه‌های تجدیدنظر، تجربه‌ای ارزشمند در حوزه‌های مختلف حقوقی اندوخته است.</p>
                     <p>رویکرد کاری ایشان بر <strong>صداقت، شفافیت و پیگیری مستمر</strong> استوار است. هر پرونده با دقت و وسواس مورد بررسی قرار می‌گیرد و موکل در تمام مراحل از روند کار آگاه می‌شود. تعهد به <strong>حفظ محرمانگی اطلاعات</strong> و <strong>دفاع بی‌وقفه از حقوق موکل</strong>، از اصول ثابت این دفتر وکالت است.</p>
                     <div class="about-list">
                         <div><i class="fas fa-check-circle"></i> مشاوره تخصصی قبل از طرح دعوا</div>
@@ -1655,7 +1700,7 @@
                     <span class="stat-label">پرونده‌های مختومه</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">20+</span>
+                    <span class="stat-number">۲۰+</span>
                     <span class="stat-label">سال سابقه</span>
                 </div>
                 <div class="stat-card">
@@ -1747,7 +1792,7 @@
                 <div class="case-card" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-scale-balanced"></i>
                     <h3>بیش از ۱۲۰۰ پرونده موفق</h3>
-                    <p>رسیدگی موفق به پرونده‌های کیفری، خانواده، ملکی، ثبتی و حقوقی در طول 20 سال فعالیت مستمر.</p>
+                    <p>رسیدگی موفق به پرونده‌های کیفری، خانواده، ملکی، ثبتی و حقوقی در طول ۲۰ سال فعالیت مستمر.</p>
                 </div>
                 <div class="case-card" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-user-shield"></i>
@@ -1761,7 +1806,7 @@
                 </div>
                 <div class="case-card" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-award"></i>
-                    <h3>20 سال تجربه‌ی حرفه‌ای</h3>
+                    <h3>۲۰ سال تجربه‌ی حرفه‌ای</h3>
                     <p>سال‌ها حضور در محاکم دادگستری و آشنایی کامل با رویه‌های قضایی و قوانین روز.</p>
                 </div>
             </div>
@@ -1905,7 +1950,7 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT (با reCAPTCHA v3) ===== -->
+    <!-- ===== CONTACT ===== -->
     <section id="contact" aria-label="تماس با ما">
         <div class="container">
             <div class="contact-wrapper">
@@ -1918,7 +1963,7 @@
                     </div>
                     <div class="contact-box">
                         <i class="fab fa-whatsapp"></i>
-                        <div><h4>مشاوره در واتساپ</h4><p><a href="https://wa.me/989113940378" target="_blank">کلیک کنید</a></p></div>
+                        <div><h4>مشاوره در واتساپ</h4><p><a href="https://wa.me/989113940378?text=سلام%20من%20برای%20مشاوره%20حقوقی%20پیام%20میدم" target="_blank">کلیک کنید</a></p></div>
                     </div>
                     <div class="contact-box">
                         <i class="fas fa-location-dot"></i>
@@ -1964,7 +2009,7 @@
                     <h3>سید داود کمراتی</h3>
                     <p>وکیل پایه یک دادگستری</p>
                     <div style="margin-top:16px;">
-                        <a href="https://wa.me/989113940378" target="_blank" style="color:#d4a13e; margin-left:12px;"><i class="fab fa-whatsapp fa-lg"></i></a>
+                        <a href="https://wa.me/989113940378?text=سلام%20من%20برای%20مشاوره%20حقوقی%20پیام%20میدم" target="_blank" style="color:#d4a13e; margin-left:12px;"><i class="fab fa-whatsapp fa-lg"></i></a>
                         <a href="tel:09113940378" style="color:#d4a13e; margin-left:12px;"><i class="fas fa-phone fa-lg"></i></a>
                         <a href="mailto:info@komrati.ir" style="color:#d4a13e;"><i class="fas fa-envelope fa-lg"></i></a>
                     </div>
@@ -2005,7 +2050,7 @@
     </footer>
 
     <!-- ===== FLOATING ===== -->
-    <a href="https://wa.me/989113940378" target="_blank" class="floating-whatsapp" aria-label="مشاوره در واتساپ">
+    <a href="https://wa.me/989113940378?text=سلام%20من%20برای%20مشاوره%20حقوقی%20پیام%20میدم" target="_blank" class="floating-whatsapp" aria-label="مشاوره در واتساپ">
         <i class="fab fa-whatsapp"></i>
     </a>
     <button id="backToTop" aria-label="بازگشت به بالا">
@@ -2024,11 +2069,11 @@
             // ===== 1. AOS =====
             AOS.init({ duration: 700, once: true, offset: 50 });
 
-            // ===== 2. تایپ‌رایتر (متن‌های جدید برای تنوع و سئو) =====
+            // ===== 2. تایپ‌رایتر با ۲۰ سال سابقه =====
             const texts = [
                 'وکیل پایه یک دادگستری در تنکابن',
                 'متخصص دعاوی کیفری، خانواده و ملکی',
-                'مشاوره حقوقی تخصصی با 20 سال تجربه'
+                'مشاوره حقوقی تخصصی با ۲۰ سال تجربه'
             ];
             let textIndex = 0,
                 charIndex = 0,
@@ -2082,7 +2127,7 @@
             }, { threshold: 0.5 });
             counters.forEach(c => observer.observe(c));
 
-            // ===== 4. منوی موبایل =====
+            // ===== 4. منوی موبایل (با تبدیل آیکون به ضربدر) =====
             const toggleBtn = document.getElementById('mobileToggle');
             const navLinks = document.getElementById('navLinks');
             toggleBtn.addEventListener('click', function() {
@@ -2148,7 +2193,6 @@
                 btn.textContent = 'در حال ارسال...';
                 btn.disabled = true;
 
-                // دریافت توکن reCAPTCHA
                 grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }).then(function(token) {
                     document.getElementById('g-recaptcha-response').value = token;
 
@@ -2161,7 +2205,6 @@
                         'g-recaptcha-response': token
                     };
 
-                    // آدرس Formspree (باید با آدرس پروژه خود در formspree.io جایگزین شود)
                     const FORMSPREE_URL = 'https://formspree.io/f/your-valid-endpoint';
 
                     fetch(FORMSPREE_URL, {
