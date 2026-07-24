@@ -1,92 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- صفحه اصلی -->
+  <!-- ===== صفحه اصلی ===== -->
   <url>
     <loc>https://komrati.ir/</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- بخش‌های اصلی (لنگرها) -->
+  <!-- ===== بخش‌های اصلی (لنگرها) ===== -->
   <url>
     <loc>https://komrati.ir/#services</loc>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://komrati.ir/#about</loc>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://komrati.ir/#statistics</loc>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://komrati.ir/#testimonials</loc>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://komrati.ir/#blog</loc>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://komrati.ir/#faq</loc>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://komrati.ir/#contact</loc>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- مقالات (همه ۸ مقاله) -->
+  <!-- ===== مقالات (۹ مقاله) ===== -->
+
+  <!-- ۱. راهنمای جامع طلاق توافقی در تنکابن -->
   <url>
     <loc>https://komrati.ir/blog/talaagh-tavaaghi.html</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- ۲. مراحل شکایت کیفری برای کلاهبرداری اینترنتی -->
   <url>
     <loc>https://komrati.ir/blog/kelahbari-interneti.html</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- ۳. قوانین جدید مهریه و نحوه محاسبه آن در سال ۱۴۰۵ -->
   <url>
     <loc>https://komrati.ir/blog/mehrieh-1405.html</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- ۴. مراحل خلع ید و تخلیه ملک در مازندران -->
   <url>
     <loc>https://komrati.ir/blog/khal-e-yad.html</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- ۵. تفاوت چک و سفته در دعاوی تجاری و حقوقی -->
   <url>
     <loc>https://komrati.ir/blog/chek-safteh.html</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- ۶. راهنمای جامع تمدید خودکار قرارداد اجاره ۱۴۰۵ -->
   <url>
     <loc>https://komrati.ir/blog/ejareh-1405.html</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- ۷. بررسی رأی وحدت رویه ۸۷۷ - ورشکستگی و خسارت تورم -->
   <url>
     <loc>https://komrati.ir/blog/vahdat-877.html</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- ۸. بررسی رأی وحدت رویه ۸۷۸ - قاچاق ارز و تخلفات ارزی -->
   <url>
     <loc>https://komrati.ir/blog/vahdat-878.html</loc>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- ۹. بررسی آخرین تحولات حقوق خانواده در سال ۱۴۰۵ (جدید) -->
+  <url>
+    <loc>https://komrati.ir/blog/tahavolat-khanevadeh-1405.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
