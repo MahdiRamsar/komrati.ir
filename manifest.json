@@ -1,7 +1,7 @@
 {
     "name": "دفتر وکالت سید داود کمراتی",
     "short_name": "وکیل کمراتی",
-    "description": "وکیل پایه یک دادگستری در تنکابن - مشاوره حقوقی تخصصی",
+    "description": "وکیل پایه یک دادگستری در تنکابن - مشاوره حقوقی تخصصی با ۲۰ سال تجربه",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#0f172a",
@@ -20,6 +20,21 @@
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
+        },
+        {
+            "src": "/images/logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshot-mobile.jpg",
+            "sizes": "1080x1920",
+            "type": "image/jpeg",
+            "platform": "narrow",
+            "label": "صفحه اصلی دفتر وکالت سید داود کمراتی"
         }
     ]
 }
