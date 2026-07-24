@@ -1,4 +1,4 @@
-const CACHE_NAME = 'komrati-v2';
+const CACHE_NAME = 'komrati-v3';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -6,7 +6,7 @@ const urlsToCache = [
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
     'https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap',
     '/manifest.json',
-    // افزودن فایل‌های مقالات (در صورت نیاز)
+    // مقالات (۹ مقاله)
     '/blog/talaagh-tavaaghi.html',
     '/blog/kelahbari-interneti.html',
     '/blog/mehrieh-1405.html',
@@ -14,14 +14,15 @@ const urlsToCache = [
     '/blog/chek-safteh.html',
     '/blog/ejareh-1405.html',
     '/blog/vahdat-877.html',
-    '/blog/vahdat-878.html'
+    '/blog/vahdat-878.html',
+    '/blog/tahavolat-khanevadeh-1405.html'  // مقاله جدید
 ];
 
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => {
-                console.log('📦 Caching assets');
+                console.log('📦 Caching assets - version', CACHE_NAME);
                 return cache.addAll(urlsToCache);
             })
             .catch(err => console.warn('⚠️ Cache addAll failed:', err))
