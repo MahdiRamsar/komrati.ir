@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="fa-IR">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,11 +13,12 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
 
-    <!-- ===== CSP محدود و امن (فقط منابع معتبر) ===== -->
+    <!-- ===== CSP امن با nonce (بدون unsafe-inline) ===== -->
+    <!-- ⚠️ مهم: {{NONCE}} را در سرور با مقدار تصادفی جایگزین کنید -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
-        script-src 'self' 'nonce-abc123' https://unpkg.com https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://formspree.io;
-        style-src 'self' 'nonce-abc123' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        script-src 'self' 'nonce-{{NONCE}}' https://unpkg.com https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://formspree.io;
+        style-src 'self' 'nonce-{{NONCE}}' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
         img-src 'self' data: https:;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
         connect-src 'self' https://formspree.io https://www.google.com;
@@ -26,6 +27,7 @@
         object-src 'none';
         base-uri 'self';
         form-action 'self' https://formspree.io;
+        frame-ancestors 'self';
     ">
 
     <!-- ===== SEO Meta ===== -->
@@ -34,33 +36,44 @@
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     <meta name="author" content="سید داود کمراتی">
     <meta name="theme-color" content="#d4a13e">
-    <!-- حذف شد: meta name="keywords" (منسوخ شده و گوگل آن را نادیده می‌گیرد) -->
 
-    <!-- ===== گوگل سرچ کنسول ===== -->
+    <!-- ===== Google Site Verification ===== -->
     <meta name="google-site-verification" content="M2-VCzxnEQreMQ3IJfMnRTSrCJKufFsmnQy5WmSTEGk">
-    <meta name="google-site-verification" content="0XTPrkebyW3zsjPxcbvajiJhGnNVIV6J_YyZPSNIGoo" />
+    <meta name="google-site-verification" content="0XTPrkebyW3zsjPxcbvajiJhGnNVIV6J_YyZPSNIGoo">
+
+    <!-- ===== Language & Geo ===== -->
+    <meta name="language" content="Persian">
+    <meta name="geo.region" content="IR-21">
+    <meta name="geo.placename" content="Tonekabon">
+    <meta name="geo.position" content="36.8161;50.8738">
+    <meta name="ICBM" content="36.8161, 50.8738">
+    <link rel="alternate" hreflang="fa" href="https://komrati.ir/">
+    <link rel="alternate" hreflang="x-default" href="https://komrati.ir/">
 
     <!-- ===== CANONICAL & ICONS & MANIFEST ===== -->
     <link rel="canonical" href="https://komrati.ir/">
     <link rel="icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
 
-    <!-- ===== PRELOAD & PRECONNECT ===== -->
-    <link rel="preload" as="image" href="images/vakil.webp" fetchpriority="high">
+    <!-- ===== PRECONNECT & PRELOAD ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="preload" as="image" href="images/vakil.webp" fetchpriority="high">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap">
 
     <!-- ===== FONTS ===== -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- ===== FONT AWESOME ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- ===== AOS ===== -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 
     <!-- ===== Open Graph ===== -->
     <meta property="og:locale" content="fa_IR">
@@ -70,6 +83,8 @@
     <meta property="og:url" content="https://komrati.ir/">
     <meta property="og:site_name" content="دفتر وکالت سید داود کمراتی">
     <meta property="og:image" content="https://komrati.ir/images/vakil.webp">
+    <meta property="og:image:secure_url" content="https://komrati.ir/images/vakil.webp">
+    <meta property="og:image:type" content="image/webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="سید داود کمراتی - بهترین وکیل پایه یک دادگستری در تنکابن">
@@ -80,30 +95,39 @@
     <meta name="twitter:title" content="وکیل در تنکابن | بهترین وکیل پایه یک دادگستری تنکابن">
     <meta name="twitter:description" content="وکیل طلاق و وکیل ملکی در تنکابن با ۲۰ سال تجربه">
     <meta name="twitter:image" content="https://komrati.ir/images/vakil.webp">
+    <meta name="twitter:image:alt" content="سید داود کمراتی - بهترین وکیل پایه یک دادگستری در تنکابن">
 
     <meta name="format-detection" content="telephone=yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ============================================= -->
     <!-- ===== SCHEMA MARKUP (داده‌های ساختاریافته) ===== -->
     <!-- ============================================= -->
 
-    <!-- [سئو] 0. Organization + LocalBusiness + LegalService (ادغام‌شده) -->
-    <script type="application/ld+json" nonce="abc123">
+    <!-- [سئو] 0. Organization + LegalService (ادغام‌شده) -->
+    <script type="application/ld+json" nonce="{{NONCE}}">
         {
             "@context": "https://schema.org",
-            "@type": ["Organization", "LegalService", "LocalBusiness"],
+            "@type": "LegalService",
             "@id": "https://komrati.ir/#organization",
             "name": "دفتر وکالت سید داود کمراتی",
             "alternateName": "وکیل در تنکابن",
             "url": "https://komrati.ir/",
-            "logo": "https://komrati.ir/images/logo.png",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://komrati.ir/images/logo.png",
+                "width": 512,
+                "height": 512
+            },
             "image": "https://komrati.ir/images/vakil.webp",
             "description": "سید داود کمراتی، بهترین وکیل پایه یک دادگستری در تنکابن و وکیل طلاق و ملکی تنکابن با بیش از ۲۰ سال تجربه در دعاوی کیفری، خانواده، ملکی و قراردادها.",
             "telephone": "+989113940378",
             "email": "info@komrati.ir",
             "priceRange": "$$",
             "currenciesAccepted": "IRR",
+            "paymentAccepted": "Cash, Bank Transfer",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "خیابان اصلی، سه راه خرم آباد",
@@ -148,7 +172,8 @@
                 "@type": "AggregateRating",
                 "ratingValue": "4.9",
                 "reviewCount": "28",
-                "bestRating": "5"
+                "bestRating": "5",
+                "worstRating": "1"
             },
             "makesOffer": [
                 {
@@ -179,10 +204,8 @@
         }
     </script>
 
-    <!-- حذف شد: اسکیمای تکراری LegalService (باعث خطا در Rich Results Test می‌شد) -->
-
     <!-- [سئو] 1. Attorney Schema (تایپ تخصصی برای وکلا) -->
-    <script type="application/ld+json" nonce="abc123">
+    <script type="application/ld+json" nonce="{{NONCE}}">
         {
             "@context": "https://schema.org",
             "@type": "Attorney",
@@ -220,33 +243,37 @@
                 "@type": "AggregateRating",
                 "ratingValue": "4.9",
                 "reviewCount": "28",
-                "bestRating": "5"
+                "bestRating": "5",
+                "worstRating": "1"
             },
             "review": [
                 {
                     "@type": "Review",
                     "author": { "@type": "Person", "name": "علی محمدی" },
                     "reviewBody": "به عنوان وکیل ملکی تنکابن، پرونده ملکی من بسیار پیچیده بود اما با پیگیری و تخصص آقای کمراتی در مدت کوتاهی به نتیجه رسید.",
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                    "datePublished": "2025-03-15"
                 },
                 {
                     "@type": "Review",
                     "author": { "@type": "Person", "name": "زهرا رضایی" },
                     "reviewBody": "به عنوان وکیل طلاق در تنکابن، در پرونده خانواده با آرامش و دلسوزی کامل کنار ما بودند و نتیجه کاملاً رضایت‌بخش بود.",
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                    "datePublished": "2025-04-22"
                 },
                 {
                     "@type": "Review",
                     "author": { "@type": "Person", "name": "رضا کریمی" },
                     "reviewBody": "تسلط بسیار بالا بر قوانین کیفری و دفاع فوق‌العاده در دادگاه دادگستری تنکابن، باعث موفقیت پرونده شد.",
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                    "datePublished": "2025-05-10"
                 }
             ]
         }
     </script>
 
-    <!-- [سئو] 2. WebSite -->
-    <script type="application/ld+json" nonce="abc123">
+    <!-- [سئو] 2. WebSite (با SearchAction) -->
+    <script type="application/ld+json" nonce="{{NONCE}}">
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
@@ -254,12 +281,17 @@
             "url": "https://komrati.ir/",
             "name": "وکیل در تنکابن | سید داود کمراتی",
             "inLanguage": "fa-IR",
-            "publisher": { "@id": "https://komrati.ir/#organization" }
+            "publisher": { "@id": "https://komrati.ir/#organization" },
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://komrati.ir/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
         }
     </script>
 
-    <!-- 3. Breadcrumb (اصلاح‌شده: فقط یک آیتم برای صفحه اصلی) -->
-    <script type="application/ld+json" nonce="abc123">
+    <!-- [سئو] 3. BreadcrumbList -->
+    <script type="application/ld+json" nonce="{{NONCE}}">
         {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -273,53 +305,102 @@
     </script>
 
     <!-- [سئو] 4. FAQPage -->
-    <script type="application/ld+json" nonce="abc123">
+    <script type="application/ld+json" nonce="{{NONCE}}">
         {
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [{
-                "@type": "Question",
-                "name": "بهترین وکیل پایه یک دادگستری در تنکابن چه مدارکی برای جلسه مشاوره نیاز دارد؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "در اولین جلسه مشاوره با وکیل در تنکابن، مدارک لازم شامل کارت ملی، شناسنامه و مدارک مرتبط با پرونده (مانند سند ملک، قرارداد، ابلاغیه قضایی) است. وکیل پایه یک دادگستری پس از بررسی مدارک، وضعیت حقوقی شما را تحلیل کرده و راهکار قانونی مناسب را بر اساس قوانین روز و رویه دادگاه‌های دادگستری تنکابن پیشنهاد می‌دهد. این جلسه به صورت حضوری در دفتر یا آنلاین برگزار می‌شود."
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "بهترین وکیل پایه یک دادگستری در تنکابن چه مدارکی برای جلسه مشاوره نیاز دارد؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "در اولین جلسه مشاوره با وکیل در تنکابن، مدارک لازم شامل کارت ملی، شناسنامه و مدارک مرتبط با پرونده (مانند سند ملک، قرارداد، ابلاغیه قضایی) است. وکیل پایه یک دادگستری پس از بررسی مدارک، وضعیت حقوقی شما را تحلیل کرده و راهکار قانونی مناسب را بر اساس قوانین روز و رویه دادگاه‌های دادگستری تنکابن پیشنهاد می‌دهد."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "وکیل طلاق در تنکابن هزینه وکالت (حق‌الوکاله) را چگونه محاسبه می‌کند؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "تعیین حق‌الوکاله بر اساس نوع پرونده (طلاق، کیفری، حقوقی یا ملکی)، میزان پیچیدگی، حجم کار و ارزش ریالی موضوع دعوا و تعرفه مصوب کانون وکلای دادگستری صورت می‌گیرد."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "آیا وکیل ملکی تنکابن امکان پیگیری غیرحضوری پرونده را فراهم می‌کند؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "بله، مشاوره و پیگیری غیرحضوری پرونده‌های ملکی، خانواده و کیفری از طریق تماس تلفنی، پیام‌رسان‌هایی مانند واتساپ و تلگرام و همچنین جلسات آنلاین ویدئو کنفرانس ارائه می‌شود."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "آیا وکیل پایه یک دادگستری در تنکابن پرونده‌های خارج از استان مازندران را قبول می‌کند؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "بله، با توجه به پروانه وکالت پایه یک دادگستری که امکان فعالیت در سراسر کشور را فراهم می‌کند، پذیرش و پیگیری پرونده‌های حقوقی و کیفری از تمامی استان‌های ایران میسر است."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "مدت زمان رسیدگی به پرونده در دادگستری تنکابن چقدر است؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "زمان رسیدگی به پرونده به عوامل متعددی از جمله نوع دعوا، پیچیدگی موضوع، شعب دادگاه، تعداد جلسات و زمان ابلاغ اوراق بستگی دارد."
+                    }
                 }
-            }, {
-                "@type": "Question",
-                "name": "وکیل طلاق در تنکابن هزینه وکالت (حق‌الوکاله) را چگونه محاسبه می‌کند؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "تعیین حق‌الوکاله بر اساس نوع پرونده (طلاق، کیفری، حقوقی یا ملکی)، میزان پیچیدگی، حجم کار و ارزش ریالی موضوع دعوا و تعرفه مصوب کانون وکلای دادگستری صورت می‌گیرد. پس از بررسی اولیه در دفتر وکیل در تنکابن، مبلغ به صورت توافقی و شفاف تعیین می‌شود تا هیچ ابهامی برای موکل باقی نماند."
+            ]
+        }
+    </script>
+
+    <!-- [سئو] 5. Service ItemList -->
+    <script type="application/ld+json" nonce="{{NONCE}}">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "LegalService",
+                        "name": "وکیل طلاق در تنکابن",
+                        "description": "طلاق توافقی، مهریه، نفقه و حضانت در تنکابن",
+                        "provider": { "@id": "https://komrati.ir/#organization" },
+                        "areaServed": { "@type": "City", "name": "Tonekabon" }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "LegalService",
+                        "name": "وکیل ملکی تنکابن",
+                        "description": "خلع ید، تصرف عدوانی، افراز و تخلیه در تنکابن",
+                        "provider": { "@id": "https://komrati.ir/#organization" },
+                        "areaServed": { "@type": "City", "name": "Tonekabon" }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "LegalService",
+                        "name": "وکیل کیفری تنکابن",
+                        "description": "دفاع در پرونده‌های کلاهبرداری، سرقت و جعل",
+                        "provider": { "@id": "https://komrati.ir/#organization" },
+                        "areaServed": { "@type": "City", "name": "Tonekabon" }
+                    }
                 }
-            }, {
-                "@type": "Question",
-                "name": "آیا وکیل ملکی تنکابن امکان پیگیری غیرحضوری پرونده را فراهم می‌کند؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "بله، مشاوره و پیگیری غیرحضوری پرونده‌های ملکی، خانواده و کیفری از طریق تماس تلفنی، پیام‌رسان‌هایی مانند واتساپ و تلگرام و همچنین جلسات آنلاین ویدئو کنفرانس ارائه می‌شود. موکلان می‌توانند مدارک را به صورت الکترونیکی ارسال کنند و وکیل در تنکابن اقدامات لازم را در دادگستری تنکابن انجام دهد."
-                }
-            }, {
-                "@type": "Question",
-                "name": "آیا وکیل پایه یک دادگستری در تنکابن پرونده‌های خارج از استان مازندران را قبول می‌کند؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "بله، با توجه به پروانه وکالت پایه یک دادگستری که امکان فعالیت در سراسر کشور را فراهم می‌کند، پذیرش و پیگیری پرونده‌های حقوقی و کیفری از تمامی استان‌های ایران میسر است. همچنین امکان اعزام وکیل به دادگاه‌های سایر شهرها وجود دارد؛ اما تمرکز اصلی دفتر بر خدمات در شهرستان تنکابن و استان مازندران است."
-                }
-            }, {
-                "@type": "Question",
-                "name": "مدت زمان رسیدگی به پرونده در دادگستری تنکابن چقدر است؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "زمان رسیدگی به پرونده به عوامل متعددی از جمله نوع دعوا، پیچیدگی موضوع، شعب دادگاه، تعداد جلسات و زمان ابلاغ اوراق بستگی دارد. وکیل در تنکابن با پیگیری مستمر و ارائه لایحه‌های به موقع، سعی در کوتاه‌ترین زمان ممکن برای رسیدگی و صدور رأی در دادگستری تنکابن دارد. با این حال، هیچ‌گاه نمی‌توان زمان دقیقی را پیش‌بینی کرد."
-                }
-            }]
+            ]
         }
     </script>
 
     <!-- ============================================= -->
     <!-- ===== STYLES با CSS Variables ===== -->
     <!-- ============================================= -->
-    <style nonce="abc123">
+    <style nonce="{{NONCE}}">
         :root {
             /* رنگ‌ها */
             --color-primary: #d4a13e;
@@ -366,7 +447,7 @@
             --radius-pill: 60px;
 
             /* تایپوگرافی */
-            --font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
+            --font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
             --font-weight-normal: 400;
             --font-weight-medium: 500;
             --font-weight-semibold: 600;
@@ -381,7 +462,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
         body {
             font-family: var(--font-family);
             direction: rtl;
@@ -389,9 +470,13 @@
             color: var(--color-text);
             line-height: 1.8;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        button { font-family: inherit; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
         /* ===== Accessibility: Skip Link ===== */
@@ -413,7 +498,6 @@
             outline-offset: 2px;
         }
 
-        /* ===== Accessibility: Screen Reader Only ===== */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -426,20 +510,17 @@
             border: 0;
         }
 
-        /* ===== Accessibility: Focus Indicators ===== */
         :focus-visible {
             outline: 3px solid var(--color-primary);
             outline-offset: 3px;
             border-radius: 4px;
         }
-        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-            outline: 3px solid var(--color-primary);
-            outline-offset: 3px;
-        }
 
+        /* ===== HEADER ===== */
         header {
             position: fixed; top: 0; right: 0; left: 0; z-index: 9999;
             backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             background: rgba(15, 23, 42, 0.78);
             border-bottom: 1px solid var(--color-border-strong);
             transition: var(--transition);
@@ -453,6 +534,7 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 22px; font-weight: var(--font-weight-extrabold); color: #111;
             box-shadow: var(--shadow-md);
+            flex-shrink: 0;
         }
         .logo-text { display: flex; flex-direction: column; }
         .logo-text strong { font-size: 20px; font-weight: var(--font-weight-extrabold); }
@@ -473,8 +555,9 @@
             box-shadow: var(--shadow-md);
         }
         .call-btn:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-        .mobile-toggle { display: none; background: none; border: none; color: var(--color-white); font-size: 30px; cursor: pointer; transition: var(--transition-fast); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--color-white); font-size: 30px; cursor: pointer; transition: var(--transition-fast); padding: 8px; }
 
+        /* ===== HERO ===== */
         #home {
             padding-top: 170px; padding-bottom: 110px;
             background: radial-gradient(circle at top right, #f2dfb5 0%, transparent 30%), linear-gradient(135deg, var(--color-bg-dark), var(--color-bg-card));
@@ -483,6 +566,7 @@
         #home::before {
             content: ""; position: absolute; width: 700px; height: 700px; border-radius: var(--radius-round);
             background: rgba(212, 161, 62, 0.08); top: -250px; left: -250px; filter: blur(70px);
+            pointer-events: none;
         }
         .hero-grid { display: grid; grid-template-columns: 1fr 520px; gap: 80px; align-items: center; }
         .hero-badge {
@@ -492,18 +576,19 @@
         }
         .hero-content h1 { font-size: 64px; font-weight: var(--font-weight-black); line-height: 1.15; color: var(--color-white); margin-bottom: 18px; }
         .hero-content h1 span { color: var(--color-primary); }
-        #typing-text { height: 40px; font-size: 26px; font-weight: var(--font-weight-bold); color: var(--color-primary-gold); margin-bottom: 30px; }
+        #typing-text { height: 40px; font-size: 26px; font-weight: var(--font-weight-bold); color: var(--color-primary-gold); margin-bottom: 30px; min-height: 40px; }
         .hero-description { font-size: 18px; line-height: 2.1; color: var(--color-text-light); max-width: 680px; margin-bottom: 45px; }
-        .hero-buttons { display: flex; gap: 18px; margin-bottom: 55px; }
+        .hero-buttons { display: flex; gap: 18px; margin-bottom: 55px; flex-wrap: wrap; }
         .btn-primary {
-            display: flex; align-items: center; justify-content: center; padding: 16px 36px;
+            display: inline-flex; align-items: center; justify-content: center; padding: 16px 36px;
             border-radius: var(--radius-pill); background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
             color: var(--color-white); font-weight: var(--font-weight-bold); transition: var(--transition); border: none; cursor: pointer;
             font-family: inherit; font-size: 16px;
         }
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .btn-primary:hover:not(:disabled) { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
         .btn-outline {
-            display: flex; align-items: center; justify-content: center; padding: 16px 34px;
+            display: inline-flex; align-items: center; justify-content: center; padding: 16px 34px;
             border: 2px solid var(--color-primary); border-radius: var(--radius-pill); color: var(--color-primary); font-weight: var(--font-weight-bold);
             transition: var(--transition); background: transparent; cursor: pointer;
         }
@@ -539,6 +624,7 @@
         .section-title span { color: var(--color-primary); }
         .section-subtitle { font-size: 18px; color: var(--color-text-muted); max-width: 720px; margin: 0 auto 50px; text-align: center; }
 
+        /* ===== EXPERTISE ===== */
         #expertise { padding: var(--spacing-2xl) 0; background: var(--color-bg-dark); }
         .expertise-wrap { max-width: 880px; margin: 0 auto; text-align: center; }
         .expertise-wrap .section-mini { margin-bottom: 16px; }
@@ -547,11 +633,13 @@
         .expertise-wrap p { font-size: 18px; line-height: 2.1; color: var(--color-text-muted); margin-bottom: 22px; text-align: justify; }
         .expertise-wrap p strong { color: var(--color-primary-gold); }
 
+        /* ===== SERVICES ===== */
         #services { padding: var(--spacing-2xl) 0; background: var(--color-bg-dark); }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .service-card {
             background: var(--color-bg-card); padding: 35px 30px; border-radius: var(--radius-lg); text-align: center;
             transition: var(--transition); border: 1px solid var(--color-border);
+            display: flex; flex-direction: column;
         }
         .service-card:hover { transform: translateY(-10px); border-color: var(--color-primary); box-shadow: 0 20px 50px rgba(212, 161, 62, 0.1); }
         .service-icon {
@@ -560,10 +648,11 @@
             font-size: 30px; color: var(--color-primary);
         }
         .service-card h3 { font-size: 22px; font-weight: var(--font-weight-bold); margin-bottom: 12px; }
-        .service-card p { color: var(--color-text-muted); font-size: 15px; line-height: 1.9; margin-bottom: 22px; }
+        .service-card p { color: var(--color-text-muted); font-size: 15px; line-height: 1.9; margin-bottom: 22px; flex-grow: 1; }
         .service-card a { display: inline-flex; align-items: center; gap: 10px; color: var(--color-primary); font-weight: var(--font-weight-semibold); transition: var(--transition-fast); }
         .service-card a:hover { gap: 18px; }
 
+        /* ===== ABOUT ===== */
         #about { padding: var(--spacing-2xl) 0; background: var(--color-bg-darker); }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
         .about-image { position: relative; }
@@ -579,8 +668,9 @@
         .about-content > p { color: var(--color-text-muted); font-size: 17px; line-height: 2; margin-bottom: 30px; }
         .about-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; margin-bottom: 35px; }
         .about-list div { display: flex; align-items: center; gap: 10px; color: var(--color-text-light); font-size: 15px; }
-        .about-list i { color: var(--color-primary); font-size: 18px; }
+        .about-list i { color: var(--color-primary); font-size: 18px; flex-shrink: 0; }
 
+        /* ===== STATISTICS ===== */
         #statistics { padding: var(--spacing-2xl) 0; background: var(--color-bg-dark); }
         .stats-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 60px; }
         .stat-card {
@@ -590,9 +680,9 @@
         .stat-card:hover { transform: translateY(-4px); border-color: var(--color-primary); }
         .stat-number { display: block; font-size: 42px; font-weight: var(--font-weight-extrabold); color: var(--color-white); line-height: 1.2; }
         .stat-label { display: block; font-size: 15px; color: var(--color-text-muted); margin-top: 8px; }
-        .stats-table-wrapper { background: var(--color-bg-card); border-radius: var(--radius-lg); padding: 30px; border: 1px solid var(--color-border); margin-bottom: 50px; }
+        .stats-table-wrapper { background: var(--color-bg-card); border-radius: var(--radius-lg); padding: 30px; border: 1px solid var(--color-border); margin-bottom: 50px; overflow-x: auto; }
         .stats-table-title { font-size: 22px; font-weight: var(--font-weight-bold); color: var(--color-white); text-align: center; margin-bottom: 20px; }
-        .stats-table { width: 100%; border-collapse: collapse; text-align: center; }
+        .stats-table { width: 100%; border-collapse: collapse; text-align: center; min-width: 480px; }
         .stats-table thead th { background: var(--color-bg-dark); color: var(--color-primary); font-weight: var(--font-weight-bold); padding: 14px 12px; border-bottom: 2px solid var(--color-primary); }
         .stats-table tbody td { padding: 12px 10px; border-bottom: 1px solid var(--color-border-hover); color: var(--color-text-light); }
         .stats-table tbody tr:hover { background: rgba(212, 161, 62, 0.05); }
@@ -611,6 +701,7 @@
         }
         .chart-value { color: var(--color-bg-dark); font-weight: var(--font-weight-bold); font-size: 14px; }
 
+        /* ===== CASES ===== */
         #cases { padding: var(--spacing-2xl) 0; background: var(--color-bg-dark); }
         .case-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-bottom: 80px; }
         .case-card {
@@ -631,13 +722,16 @@
         .timeline-content h3 { font-size: 18px; font-weight: var(--font-weight-bold); margin-bottom: 6px; }
         .timeline-content p { color: var(--color-text-muted); font-size: 14px; line-height: 1.7; }
 
+        /* ===== TESTIMONIALS ===== */
         #testimonials { padding: var(--spacing-2xl) 0; background: var(--color-bg-darker); }
         .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .testimonial-card { background: var(--color-bg-card); padding: 35px 30px; border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
-        .testimonial-card > p { color: var(--color-text-light); font-size: 16px; line-height: 1.9; margin: 12px 0 20px; }
+        .testimonial-card > p:first-of-type { color: var(--color-primary); font-size: 20px; margin-bottom: 8px; letter-spacing: 2px; }
+        .testimonial-card > p:last-of-type { color: var(--color-text-light); font-size: 16px; line-height: 1.9; margin: 12px 0 20px; }
         .testimonial-card h4 { font-size: 18px; font-weight: var(--font-weight-bold); }
         .testimonial-card > span { color: var(--color-text-muted); font-size: 14px; }
 
+        /* ===== BLOG ===== */
         #blog { padding: var(--spacing-2xl) 0; background: var(--color-bg-dark); }
         .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .blog-card {
@@ -657,27 +751,29 @@
         .blog-readmore { display: inline-flex; align-items: center; gap: 8px; color: var(--color-primary); font-weight: var(--font-weight-semibold); transition: var(--transition-fast); font-size: 14px; align-self: flex-start; }
         .blog-readmore:hover { gap: 14px; color: var(--color-primary-light); }
 
+        /* ===== FAQ ===== */
         #faq { padding: var(--spacing-2xl) 0; background: var(--color-bg-dark); }
         .faq { max-width: 800px; margin: 0 auto; }
         .faq-item { background: var(--color-bg-card); border-radius: var(--radius-sm); margin-bottom: 16px; border: 1px solid var(--color-border); overflow: hidden; }
         .faq-question {
             width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 25px;
             background: none; border: none; color: var(--color-white); font-size: 18px; font-weight: var(--font-weight-semibold); cursor: pointer;
-            transition: var(--transition-fast); font-family: inherit; text-align: right;
+            transition: var(--transition-fast); font-family: inherit; text-align: right; gap: 16px;
         }
         .faq-question:hover { background: rgba(212, 161, 62, 0.05); }
-        .faq-question i { font-size: 22px; color: var(--color-primary); transition: var(--transition-fast); }
+        .faq-question i { font-size: 22px; color: var(--color-primary); transition: var(--transition-fast); flex-shrink: 0; }
         .faq-item.active .faq-question i { transform: rotate(45deg); }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding var(--transition-fast); padding: 0 25px; }
         .faq-item.active .faq-answer { max-height: 400px; padding: 0 25px 25px; }
         .faq-answer p { color: var(--color-text-muted); font-size: 16px; line-height: 1.8; }
 
+        /* ===== CONTACT ===== */
         #contact { padding: var(--spacing-2xl) 0; background: var(--color-bg-darker); }
         .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
         .contact-info h2 { font-size: 34px; font-weight: var(--font-weight-extrabold); margin-bottom: 30px; }
         .contact-info h2 span { color: var(--color-primary); }
         .contact-box { display: flex; align-items: center; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--color-border-hover); }
-        .contact-box i { font-size: 24px; color: var(--color-primary); width: 40px; }
+        .contact-box i { font-size: 24px; color: var(--color-primary); width: 40px; flex-shrink: 0; text-align: center; }
         .contact-box h4 { font-size: 15px; font-weight: var(--font-weight-semibold); }
         .contact-box p { color: var(--color-text-muted); font-size: 15px; }
         .contact-box a { color: var(--color-primary); }
@@ -691,12 +787,16 @@
             border-radius: var(--radius-sm); background: var(--color-bg-dark); color: var(--color-white);
             font-family: inherit; font-size: 16px; transition: var(--transition-fast);
         }
-        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--color-primary); }
-        .contact-form textarea { height: 150px; resize: vertical; }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(212, 161, 62, 0.2); }
+        .contact-form textarea { height: 150px; resize: vertical; min-height: 120px; }
         .contact-form .btn-primary { width: 100%; }
+        .form-status { margin-top: 16px; padding: 12px; border-radius: var(--radius-sm); font-size: 14px; display: none; }
+        .form-status.success { background: rgba(37, 211, 102, 0.15); color: #25D366; display: block; }
+        .form-status.error { background: rgba(239, 68, 68, 0.15); color: #ef4444; display: block; }
 
         #map iframe { width: 100%; height: 400px; border: none; display: block; }
 
+        /* ===== FOOTER ===== */
         footer { background: var(--color-bg-darkest); padding: 60px 0 30px; border-top: 1px solid var(--color-border); }
         .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
         .footer-grid h3 { font-size: 22px; font-weight: var(--font-weight-extrabold); color: var(--color-white); }
@@ -705,9 +805,13 @@
         .footer-grid ul li { margin-bottom: 8px; }
         .footer-grid ul li a { color: var(--color-text-muted); transition: var(--transition-fast); }
         .footer-grid ul li a:hover { color: var(--color-primary); }
+        .footer-social { display: flex; gap: 16px; margin-top: 16px; }
+        .footer-social a { color: var(--color-primary); font-size: 20px; transition: var(--transition-fast); }
+        .footer-social a:hover { color: var(--color-primary-light); transform: translateY(-2px); }
         .copyright { text-align: center; padding-top: 30px; border-top: 1px solid var(--color-border); color: var(--color-text-faint); font-size: 14px; }
         .copyright small { color: var(--color-text-faint); font-size: 12px; }
 
+        /* ===== FLOATING ===== */
         .floating-whatsapp {
             position: fixed; bottom: 100px; left: 24px; background: var(--color-whatsapp); color: var(--color-white);
             width: 60px; height: 60px; border-radius: var(--radius-round); display: flex; align-items: center; justify-content: center;
@@ -722,6 +826,7 @@
         }
         #backToTop:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width:1024px) {
             .hero-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
             .hero-description { max-width: 100%; margin-left: auto; margin-right: auto; }
@@ -761,6 +866,7 @@
             .blog-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 30px; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-social { justify-content: center; }
             .contact-form { padding: 25px; }
             #map iframe { height: 300px; }
             .stats-summary { grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -798,7 +904,7 @@
             .service-card p { font-size: 14px; }
         }
 
-        /* ===== Reduced Motion برای کاربران حساس به انیمیشن ===== */
+        /* ===== Reduced Motion ===== */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -807,38 +913,45 @@
                 scroll-behavior: auto !important;
             }
         }
+
+        /* ===== Print Styles ===== */
+        @media print {
+            header, .floating-whatsapp, #backToTop, .floating-card, .hero-buttons, .contact-form, #map { display: none !important; }
+            body { background: white; color: black; }
+            * { color: black !important; background: white !important; }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- ===== SKIP LINK برای Accessibility ===== -->
+    <!-- ===== SKIP LINK ===== -->
     <a href="#main-content" class="skip-link">پرش به محتوای اصلی</a>
 
     <!-- ===== HEADER ===== -->
-    <header id="header">
+    <header id="header" role="banner">
         <div class="container navbar">
-            <a href="#" class="logo">
-                <div class="logo-circle">DK</div>
+            <a href="#home" class="logo" aria-label="صفحه اصلی - دفتر وکالت سید داود کمراتی">
+                <div class="logo-circle" aria-hidden="true">DK</div>
                 <div class="logo-text">
                     <strong>سید داود کمراتی</strong>
                     <span>وکیل در تنکابن</span>
                 </div>
             </a>
             <nav aria-label="منوی اصلی">
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home" class="active">خانه</a></li>
-                    <li><a href="#services">خدمات</a></li>
-                    <li><a href="#about">درباره من</a></li>
-                    <li><a href="#statistics">آمار پرونده‌ها</a></li>
-                    <li><a href="#testimonials">تجربیات موکلان</a></li>
-                    <li><a href="#blog">مقالات</a></li>
-                    <li><a href="#faq">سوالات</a></li>
-                    <li><a href="#contact">تماس</a></li>
+                <ul class="nav-links" id="navLinks" role="menubar">
+                    <li role="none"><a href="#home" class="active" role="menuitem">خانه</a></li>
+                    <li role="none"><a href="#services" role="menuitem">خدمات</a></li>
+                    <li role="none"><a href="#about" role="menuitem">درباره من</a></li>
+                    <li role="none"><a href="#statistics" role="menuitem">آمار پرونده‌ها</a></li>
+                    <li role="none"><a href="#testimonials" role="menuitem">تجربیات موکلان</a></li>
+                    <li role="none"><a href="#blog" role="menuitem">مقالات</a></li>
+                    <li role="none"><a href="#faq" role="menuitem">سوالات</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">تماس</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
-                <a href="tel:09113940378" class="call-btn" aria-label="تماس تلفنی با دفتر وکیل در تنکابن">
+                <a href="tel:+989113940378" class="call-btn" aria-label="تماس تلفنی با دفتر وکیل در تنکابن">
                     <i class="fas fa-phone" aria-hidden="true"></i>
                     تماس با دفتر
                 </a>
@@ -849,7 +962,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
 
     <!-- ===== HERO ===== -->
     <section id="home" aria-label="وکیل در تنکابن - معرفی خدمات حقوقی">
@@ -860,9 +973,8 @@
                     بیش از ۲۰ سال تجربه حقوقی
                 </span>
                 <h1>بهترین وکیل پایه یک دادگستری در <span>تنکابن</span></h1>
-                <!-- Accessibility: تایپ‌رایتر برای بینندگان + متن ثابت برای Screen Readers -->
                 <div id="typing-text" aria-hidden="true"></div>
-                <span class="sr-only">وکیل پایه یک دادگستری در تنکابن، متخصص دعاوی کیفری، خانواده و ملکی، مشاوره حقوقی تخصصی با ۲۰ سال تجربه</span>
+                <span class="sr-only" aria-live="polite">وکیل پایه یک دادگستری در تنکابن، متخصص دعاوی کیفری، خانواده و ملکی، مشاوره حقوقی تخصصی با ۲۰ سال تجربه</span>
                 <p class="hero-description">
                     <strong>سید داود کمراتی</strong>، <strong>وکیل در تنکابن</strong> و <strong>وکیل پایه یک دادگستری</strong> با بیش از دو دهه فعالیت حرفه‌ای در محاکم قضایی.
                     اگر به دنبال <strong>وکیل در تنکابن</strong> برای <strong>مشاوره حقوقی تنکابن</strong>، <strong>ثبت دعاوی تنکابن</strong> یا <strong>مشاوره طلاق توافقی</strong> هستید، این دفتر آماده خدمات‌رسانی است.
@@ -872,12 +984,15 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">دریافت مشاوره</a>
-                    <a href="tel:09113940378" class="btn-outline" aria-label="تماس تلفنی با وکیل در تنکابن">تماس با دفتر</a>
+                    <a href="tel:+989113940378" class="btn-outline" aria-label="تماس تلفنی با وکیل در تنکابن">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                        تماس با دفتر
+                    </a>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left">
                 <div class="image-frame">
-                    <!-- تصاویر ریسپانسیو با srcset + decoding="async" -->
+                    <!-- ✅ srcset از نسخه دوم (بهینه‌سازی سرعت) -->
                     <img src="images/vakil.webp"
                          srcset="images/vakil-320.webp 320w,
                                  images/vakil-470.webp 470w,
@@ -886,12 +1001,12 @@
                          alt="سید داود کمراتی - بهترین وکیل پایه یک دادگستری در تنکابن"
                          width="470" height="600" loading="eager" fetchpriority="high" decoding="async">
                 </div>
-                <div class="experience-card">
+                <div class="experience-card" aria-label="بیش از ۲۰ سال تجربه حقوقی">
                     <strong>۲۰+</strong>
                     <span>سال تجربه حقوقی</span>
                 </div>
-                <div class="floating-card one"><i class="fas fa-scale-balanced" aria-hidden="true"></i></div>
-                <div class="floating-card two"><i class="fas fa-gavel" aria-hidden="true"></i></div>
+                <div class="floating-card one" aria-hidden="true"><i class="fas fa-scale-balanced"></i></div>
+                <div class="floating-card two" aria-hidden="true"><i class="fas fa-gavel"></i></div>
             </div>
         </div>
     </section>
@@ -939,13 +1054,13 @@
                     <div class="service-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
                     <h3>وکیل طلاق در تنکابن (طلاق، مهریه، حضانت)</h3>
                     <p>پرونده‌های <strong>خانواده</strong> از حساسیت عاطفی و حقوقی بالایی برخوردارند. به عنوان <strong>وکیل طلاق در تنکابن</strong>، خدمات شامل <strong>طلاق (توافقی و غیرتوافقی)، مهریه، نفقه، حضانت فرزند، تمکین و اجرت‌المثل</strong> می‌شود. با رویکردی دلسوزانه و در عین حال قانونی، سعی در کاهش تنش‌ها و دستیابی به توافقی منصفانه یا اخذ رأی مناسب برای موکل داریم. <strong>مشاوره طلاق توافقی</strong> پیش از طرح دعوا، مسیر را برای شما روشن می‌کند.</p>
-                    <a href="#services-divorce">مشاهده خدمات طلاق <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="#contact">مشاهده خدمات طلاق <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="service-card" id="services-property" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon"><i class="fas fa-building" aria-hidden="true"></i></div>
                     <h3>وکیل ملکی تنکابن (خلع ید، افراز، تخلیه)</h3>
                     <p>دعاوی ملکی از پیچیده‌ترین پرونده‌ها هستند. به عنوان <strong>وکیل ملکی تنکابن</strong>، در زمینه‌های <strong>خلع ید، تصرف عدوانی، افراز و تقسیم ملک، تخلیه‌ی اجاره، سرقفلی، مشارکت در ساخت و دعاوی مربوط به اسناد مالکیت</strong> فعالیت داریم. با بررسی اسناد ثبتی، نقشه‌ها و مدارک، استراتژی مناسب برای دفاع از حقوق مالکانه‌ی موکل ارائه می‌شود.</p>
-                    <a href="#services-property">مشاهده خدمات ملکی <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="#contact">مشاهده خدمات ملکی <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon"><i class="fas fa-file-signature" aria-hidden="true"></i></div>
@@ -974,7 +1089,7 @@
                          sizes="(max-width: 768px) 100vw, 550px"
                          alt="سید داود کمراتی - وکیل پایه یک دادگستری با ۲۰ سال سابقه در تنکابن"
                          width="550" height="650" loading="lazy" decoding="async">
-                    <div class="experience-box">
+                    <div class="experience-box" aria-label="بیش از ۲۰ سال سابقه وکالت">
                         <h2>۲۰+</h2>
                         <span>سال سابقه وکالت</span>
                     </div>
@@ -1074,7 +1189,7 @@
                     <div class="chart-item">
                         <span class="chart-label">حقوقی</span>
                         <div class="chart-bar-wrapper">
-                            <div class="chart-bar" style="width: 61%;" role="progressbar" aria-valuenow="420" aria-valuemin="0" aria-valuemax="687">
+                            <div class="chart-bar" style="width: 61%;" role="progressbar" aria-valuenow="420" aria-valuemin="0" aria-valuemax="687" aria-label="۴۲۰ پرونده حقوقی">
                                 <span class="chart-value">۴۲۰</span>
                             </div>
                         </div>
@@ -1082,7 +1197,7 @@
                     <div class="chart-item">
                         <span class="chart-label">کیفری</span>
                         <div class="chart-bar-wrapper">
-                            <div class="chart-bar" style="width: 33%;" role="progressbar" aria-valuenow="225" aria-valuemin="0" aria-valuemax="687">
+                            <div class="chart-bar" style="width: 33%;" role="progressbar" aria-valuenow="225" aria-valuemin="0" aria-valuemax="687" aria-label="۲۲۵ پرونده کیفری">
                                 <span class="chart-value">۲۲۵</span>
                             </div>
                         </div>
@@ -1090,7 +1205,7 @@
                     <div class="chart-item">
                         <span class="chart-label">خانواده</span>
                         <div class="chart-bar-wrapper">
-                            <div class="chart-bar" style="width: 6%;" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="687">
+                            <div class="chart-bar" style="width: 6%;" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="687" aria-label="۴۲ پرونده خانواده">
                                 <span class="chart-value">۴۲</span>
                             </div>
                         </div>
@@ -1189,55 +1304,55 @@
                     <span class="blog-tag">خانواده</span>
                     <h3><a href="blog/talaagh-tavaaghi.html">راهنمای جامع طلاق توافقی در تنکابن</a></h3>
                     <p>مراحل، مدارک، هزینه‌ها و نکات حقوقی طلاق توافقی در دادگستری تنکابن و استان مازندران.</p>
-                    <a href="blog/talaagh-tavaaghi.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="blog/talaagh-tavaaghi.html" class="blog-readmore" aria-label="مطالعه کامل مقاله راهنمای جامع طلاق توافقی">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
                     <span class="blog-tag">کیفری</span>
                     <h3><a href="blog/kelahbari-interneti.html">مراحل شکایت کیفری برای کلاهبرداری اینترنتی</a></h3>
                     <p>راهنمای گام‌به‌گام ثبت شکایت در پلیس فتا، مدارک لازم و مجازات کلاهبرداران اینترنتی.</p>
-                    <a href="blog/kelahbari-interneti.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="blog/kelahbari-interneti.html" class="blog-readmore" aria-label="مطالعه کامل مقاله کلاهبرداری اینترنتی">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
                     <span class="blog-tag">خانواده</span>
                     <h3><a href="blog/mehrieh-1405.html">قوانین جدید مهریه و نحوه محاسبه آن در سال ۱۴۰۵</a></h3>
                     <p>نحوه محاسبه مهریه بر اساس قیمت روز سکه، شرایط مطالبه و نکات حقوقی مهم.</p>
-                    <a href="blog/mehrieh-1405.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="blog/mehrieh-1405.html" class="blog-readmore" aria-label="مطالعه کامل مقاله قوانین مهریه">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
                     <span class="blog-tag">ملکی</span>
                     <h3><a href="blog/khal-e-yad.html">مراحل خلع ید و تخلیه ملک در مازندران</a></h3>
                     <p>راهنمای حقوقی خلع ید، تخلیه مستأجر و نکات کلیدی در دعاوی املاک.</p>
-                    <a href="blog/khal-e-yad.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="blog/khal-e-yad.html" class="blog-readmore" aria-label="مطالعه کامل مقاله خلع ید">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="500">
                     <span class="blog-tag">تجاری</span>
                     <h3><a href="blog/chek-safteh.html">تفاوت چک و سفته در دعاوی تجاری و حقوقی</a></h3>
                     <p>آشنایی با تفاوت‌های حقوقی چک و سفته، نحوه وصول و ضمانت اجرای کیفری و حقوقی آن‌ها.</p>
-                    <a href="blog/chek-safteh.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="blog/chek-safteh.html" class="blog-readmore" aria-label="مطالعه کامل مقاله چک و سفته">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="600">
                     <span class="blog-tag">ملکی و اجاره</span>
                     <h3><a href="blog/ejareh-1405.html">راهنمای جامع تمدید خودکار قرارداد اجاره ۱۴۰۵</a></h3>
                     <p>آشنایی با مصوبه جدید تمدید خودکار قراردادهای اجاره، سقف ۲۵ درصدی و ۴ استثنای مهم برای موجران و مستأجران.</p>
-                    <a href="blog/ejareh-1405.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="blog/ejareh-1405.html" class="blog-readmore" aria-label="مطالعه کامل مقاله قرارداد اجاره">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="700">
                     <span class="blog-tag">حقوق تجارت</span>
                     <h3><a href="blog/vahdat-877.html">بررسی رأی وحدت رویه ۸۷۷ - ورشکستگی و خسارت تورم</a></h3>
                     <p>امکان مطالبه خسارت کاهش ارزش دین (تورم) در پرونده‌های ورشکستگی بر اساس رأی جدید دیوان عالی کشور.</p>
-                    <a href="blog/vahdat-877.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="blog/vahdat-877.html" class="blog-readmore" aria-label="مطالعه کامل مقاله رأی وحدت رویه ۸۷۷">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="800">
                     <span class="blog-tag">حقوق تجارت</span>
                     <h3><a href="blog/vahdat-878.html">بررسی رأی وحدت رویه ۸۷۸ - قاچاق ارز و تخلفات ارزی</a></h3>
                     <p>تعیین مرجع صالح برای رسیدگی به تخلفات ارزی و تکلیف واردکنندگان در پرداخت مابه‌التفاوت نرخ ارز.</p>
-                    <a href="blog/vahdat-878.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="blog/vahdat-878.html" class="blog-readmore" aria-label="مطالعه کامل مقاله رأی وحدت رویه ۸۷۸">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="900">
                     <span class="blog-tag">خانواده</span>
                     <h3><a href="blog/tahavolat-khanevadeh-1405.html">بررسی آخرین تحولات حقوق خانواده در سال ۱۴۰۵</a></h3>
-                    <p>بررسی کامل آخرین تغییرات قوانین طلاق، نفقه، حضانت و مهریه در سال ۱۴۰۵ با استناد به قوانین جدید و رویه‌های دادگاه‌ها. راهنمای جامع برای زوجین.</p>
-                    <a href="blog/tahavolat-khanevadeh-1405.html" class="blog-readmore">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <p>بررسی کامل آخرین تغییرات قوانین طلاق، نفقه، حضانت و مهریه در سال ۱۴۰۵ با استناد به قوانین جدید و رویه‌های دادگاه‌ها.</p>
+                    <a href="blog/tahavolat-khanevadeh-1405.html" class="blog-readmore" aria-label="مطالعه کامل مقاله تحولات حقوق خانواده">مطالعه کامل <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
             </div>
         </div>
@@ -1251,23 +1366,23 @@
             <div class="faq" data-aos="fade-up">
                 <div class="faq-item active">
                     <button class="faq-question" aria-expanded="true" aria-controls="faq-answer-1"><span>بهترین وکیل پایه یک دادگستری در تنکابن چه مدارکی برای جلسه مشاوره نیاز دارد؟</span><i class="fas fa-plus" aria-hidden="true"></i></button>
-                    <div class="faq-answer" id="faq-answer-1"><p>در اولین جلسه مشاوره با وکیل در تنکابن، مدارک لازم شامل کارت ملی، شناسنامه و مدارک مرتبط با پرونده (مانند سند ملک، قرارداد، ابلاغیه قضایی) است. وکیل پایه یک دادگستری پس از بررسی مدارک، وضعیت حقوقی شما را تحلیل کرده و راهکار قانونی مناسب را بر اساس قوانین روز و رویه دادگاه‌های دادگستری تنکابن پیشنهاد می‌دهد. این جلسه به صورت حضوری در دفتر یا آنلاین برگزار می‌شود.</p></div>
+                    <div class="faq-answer" id="faq-answer-1" role="region"><p>در اولین جلسه مشاوره با وکیل در تنکابن، مدارک لازم شامل کارت ملی، شناسنامه و مدارک مرتبط با پرونده (مانند سند ملک، قرارداد، ابلاغیه قضایی) است. وکیل پایه یک دادگستری پس از بررسی مدارک، وضعیت حقوقی شما را تحلیل کرده و راهکار قانونی مناسب را بر اساس قوانین روز و رویه دادگاه‌های دادگستری تنکابن پیشنهاد می‌دهد. این جلسه به صورت حضوری در دفتر یا آنلاین برگزار می‌شود.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2"><span>وکیل طلاق در تنکابن هزینه وکالت (حق‌الوکاله) را چگونه محاسبه می‌کند؟</span><i class="fas fa-plus" aria-hidden="true"></i></button>
-                    <div class="faq-answer" id="faq-answer-2"><p>تعیین حق‌الوکاله بر اساس نوع پرونده (طلاق، کیفری، حقوقی یا ملکی)، میزان پیچیدگی، حجم کار و ارزش ریالی موضوع دعوا و تعرفه مصوب کانون وکلای دادگستری صورت می‌گیرد. پس از بررسی اولیه در دفتر وکیل در تنکابن، مبلغ به صورت توافقی و شفاف تعیین می‌شود تا هیچ ابهامی برای موکل باقی نماند.</p></div>
+                    <div class="faq-answer" id="faq-answer-2" role="region"><p>تعیین حق‌الوکاله بر اساس نوع پرونده (طلاق، کیفری، حقوقی یا ملکی)، میزان پیچیدگی، حجم کار و ارزش ریالی موضوع دعوا و تعرفه مصوب کانون وکلای دادگستری صورت می‌گیرد. پس از بررسی اولیه در دفتر وکیل در تنکابن، مبلغ به صورت توافقی و شفاف تعیین می‌شود تا هیچ ابهامی برای موکل باقی نماند.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3"><span>آیا وکیل ملکی تنکابن امکان پیگیری غیرحضوری پرونده را فراهم می‌کند؟</span><i class="fas fa-plus" aria-hidden="true"></i></button>
-                    <div class="faq-answer" id="faq-answer-3"><p>بله، مشاوره و پیگیری غیرحضوری پرونده‌های ملکی، خانواده و کیفری از طریق تماس تلفنی، پیام‌رسان‌هایی مانند واتساپ و تلگرام و همچنین جلسات آنلاین ویدئو کنفرانس ارائه می‌شود. موکلان می‌توانند مدارک را به صورت الکترونیکی ارسال کنند و وکیل در تنکابن اقدامات لازم را در دادگستری تنکابن انجام دهد.</p></div>
+                    <div class="faq-answer" id="faq-answer-3" role="region"><p>بله، مشاوره و پیگیری غیرحضوری پرونده‌های ملکی، خانواده و کیفری از طریق تماس تلفنی، پیام‌رسان‌هایی مانند واتساپ و تلگرام و همچنین جلسات آنلاین ویدئو کنفرانس ارائه می‌شود. موکلان می‌توانند مدارک را به صورت الکترونیکی ارسال کنند و وکیل در تنکابن اقدامات لازم را در دادگستری تنکابن انجام دهد.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4"><span>آیا وکیل پایه یک دادگستری در تنکابن پرونده‌های خارج از استان مازندران را قبول می‌کند؟</span><i class="fas fa-plus" aria-hidden="true"></i></button>
-                    <div class="faq-answer" id="faq-answer-4"><p>بله، با توجه به پروانه وکالت پایه یک دادگستری که امکان فعالیت در سراسر کشور را فراهم می‌کند، پذیرش و پیگیری پرونده‌های حقوقی و کیفری از تمامی استان‌های ایران میسر است. همچنین امکان اعزام وکیل به دادگاه‌های سایر شهرها وجود دارد؛ اما تمرکز اصلی دفتر بر خدمات در شهرستان تنکابن و استان مازندران است.</p></div>
+                    <div class="faq-answer" id="faq-answer-4" role="region"><p>بله، با توجه به پروانه وکالت پایه یک دادگستری که امکان فعالیت در سراسر کشور را فراهم می‌کند، پذیرش و پیگیری پرونده‌های حقوقی و کیفری از تمامی استان‌های ایران میسر است. همچنین امکان اعزام وکیل به دادگاه‌های سایر شهرها وجود دارد؛ اما تمرکز اصلی دفتر بر خدمات در شهرستان تنکابن و استان مازندران است.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5"><span>مدت زمان رسیدگی به پرونده در دادگستری تنکابن چقدر است؟</span><i class="fas fa-plus" aria-hidden="true"></i></button>
-                    <div class="faq-answer" id="faq-answer-5"><p>زمان رسیدگی به پرونده به عوامل متعددی از جمله نوع دعوا، پیچیدگی موضوع، شعب دادگاه، تعداد جلسات و زمان ابلاغ اوراق بستگی دارد. وکیل در تنکابن با پیگیری مستمر و ارائه لایحه‌های به موقع، سعی در کوتاه‌ترین زمان ممکن برای رسیدگی و صدور رأی در دادگستری تنکابن دارد. با این حال، هیچ‌گاه نمی‌توان زمان دقیقی را پیش‌بینی کرد.</p></div>
+                    <div class="faq-answer" id="faq-answer-5" role="region"><p>زمان رسیدگی به پرونده به عوامل متعددی از جمله نوع دعوا، پیچیدگی موضوع، شعب دادگاه، تعداد جلسات و زمان ابلاغ اوراق بستگی دارد. وکیل در تنکابن با پیگیری مستمر و ارائه لایحه‌های به موقع، سعی در کوتاه‌ترین زمان ممکن برای رسیدگی و صدور رأی در دادگستری تنکابن دارد. با این حال، هیچ‌گاه نمی‌توان زمان دقیقی را پیش‌بینی کرد.</p></div>
                 </div>
             </div>
         </div>
@@ -1282,7 +1397,7 @@
                     <h2>دفتر وکالت <br><span>سید داود کمراتی</span></h2>
                     <div class="contact-box">
                         <i class="fas fa-phone" aria-hidden="true"></i>
-                        <div><h4>تماس با دفتر</h4><p><a href="tel:09113940378" aria-label="تماس تلفنی با وکیل در تنکابن">۰۹۱۱۳۹۴۰۳۷۸</a></p></div>
+                        <div><h4>تماس با دفتر</h4><p><a href="tel:+989113940378" aria-label="تماس تلفنی با وکیل در تنکابن">۰۹۱۱۳۹۴۰۳۷۸</a></p></div>
                     </div>
                     <div class="contact-box">
                         <i class="fab fa-whatsapp" aria-hidden="true"></i>
@@ -1294,21 +1409,21 @@
                     </div>
                     <div class="contact-box">
                         <i class="fas fa-clock" aria-hidden="true"></i>
-                        <div><h4>ساعات پاسخگویی</h4><p>شنبه تا چهارشنبه ۹ صبح تا ۶ عصر</p></div>
+                        <div><h4>ساعات پاسخگویی</h4><p>شنبه تا پنج‌شنبه ۹ صبح تا ۶ عصر</p></div>
                     </div>
                 </div>
                 <div class="contact-form" data-aos="fade-left">
-                    <form id="contactForm" aria-labelledby="contact-form-title">
+                    <form id="contactForm" aria-labelledby="contact-form-title" novalidate>
                         <h3 id="contact-form-title">درخواست مشاوره</h3>
                         <p>شماره تماس خود را وارد کنید تا در اسرع وقت با شما تماس بگیریم.</p>
 
                         <div class="form-group">
                             <label for="contact-name" class="sr-only">نام و نام خانوادگی</label>
-                            <input type="text" id="contact-name" name="name" placeholder="نام و نام خانوادگی" required autocomplete="name">
+                            <input type="text" id="contact-name" name="name" placeholder="نام و نام خانوادگی" required autocomplete="name" aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="contact-phone" class="sr-only">شماره تماس</label>
-                            <input type="tel" id="contact-phone" name="phone" placeholder="شماره تماس" required autocomplete="tel">
+                            <input type="tel" id="contact-phone" name="phone" placeholder="شماره تماس" required autocomplete="tel" pattern="[0-9]{10,11}" aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="contact-email" class="sr-only">ایمیل (اختیاری)</label>
@@ -1316,7 +1431,7 @@
                         </div>
                         <div class="form-group">
                             <label for="contact-message" class="sr-only">موضوع و توضیحات</label>
-                            <textarea id="contact-message" name="message" placeholder="موضوع و توضیحات خود را بنویسید..." required></textarea>
+                            <textarea id="contact-message" name="message" placeholder="موضوع و توضیحات خود را بنویسید..." required aria-required="true"></textarea>
                         </div>
 
                         <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
@@ -1324,7 +1439,8 @@
                             <i class="fas fa-shield-alt" aria-hidden="true"></i> با ارسال فرم، شما با <a href="/privacy.html" style="color:var(--color-primary);">حریم خصوصی</a> موافقت می‌کنید.
                         </div>
 
-                        <button type="submit" class="btn-primary">ارسال درخواست</button>
+                        <button type="submit" class="btn-primary" id="submitBtn">ارسال درخواست</button>
+                        <div class="form-status" id="formStatus" role="alert" aria-live="polite"></div>
                     </form>
                 </div>
             </div>
@@ -1333,22 +1449,24 @@
 
     <!-- ===== MAP ===== -->
     <section id="map" aria-label="نقشه دفتر وکالت در تنکابن">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3187.736183292671!2d50.6832192!3d36.8152166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8b3a6c0e68f60f%3A0x87b4b5dcd657c70f!2sTonekabon!5e0!3m2!1sen!2sus!4v1618912385082!5m2!1sen!2sus" loading="lazy" allowfullscreen title="نقشه دفتر وکالت سید داود کمراتی در تنکابن"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3187.736183292671!2d50.6832192!3d36.8152166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8b3a6c0e68f60f%3A0x87b4b5dcd657c70f!2sTonekabon!5e0!3m2!1sen!2sus!4v1618912385082!5m2!1sen!2sus" loading="lazy" allowfullscreen title="نقشه دفتر وکالت سید داود کمراتی در تنکابن" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     </main>
 
     <!-- ===== FOOTER ===== -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-grid">
                 <div data-aos="fade-up">
                     <h3>سید داود کمراتی</h3>
                     <p>وکیل پایه یک دادگستری در تنکابن</p>
-                    <div style="margin-top:16px;">
-                        <a href="https://wa.me/989113940378?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%85%D9%86%20%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D8%B3%D8%A7%DB%8C%D8%AA%20%D8%B4%D9%85%D8%A7%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%D8%AF%D9%87%D9%85%20%D9%88%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87%20%D8%AF%D8%A7%D8%B1%D9%85" target="_blank" rel="noopener noreferrer" aria-label="مشاوره در واتساپ با وکیل در تنکابن" style="color:var(--color-primary); margin-left:12px;"><i class="fab fa-whatsapp fa-lg" aria-hidden="true"></i></a>
-                        <a href="tel:09113940378" aria-label="تماس تلفنی با وکیل در تنکابن" style="color:var(--color-primary); margin-left:12px;"><i class="fas fa-phone fa-lg" aria-hidden="true"></i></a>
-                        <a href="mailto:info@komrati.ir" aria-label="ایمیل به دفتر وکالت" style="color:var(--color-primary);"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a>
+                    <div class="footer-social">
+                        <a href="https://wa.me/989113940378?text=%D8%B3%D9%84%D8%A7%D9%85%20%D9%85%D9%86%20%D8%A7%D8%B2%20%D8%B7%D8%B1%DB%8C%D9%82%20%D8%B3%D8%A7%DB%8C%D8%AA%20%D8%B4%D9%85%D8%A7%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%D8%AF%D9%87%D9%85%20%D9%88%20%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87%20%D8%AF%D8%A7%D8%B1%D9%85" target="_blank" rel="noopener noreferrer" aria-label="واتساپ"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="tel:+989113940378" aria-label="تماس تلفنی"><i class="fas fa-phone" aria-hidden="true"></i></a>
+                        <a href="mailto:info@komrati.ir" aria-label="ایمیل"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/komrati.law" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://t.me/komrati_law" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="100">
@@ -1399,16 +1517,19 @@
     <!-- ============================================= -->
     <!-- ===== SCRIPTS ===== -->
     <!-- ============================================= -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js" nonce="abc123"></script>
-    <!-- ⚠️ اقدام فوری: YOUR_SITE_KEY را با Site Key واقعی خود از https://www.google.com/recaptcha/admin جایگزین کنید -->
-    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY" async defer nonce="abc123"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" nonce="{{NONCE}}"></script>
+    <!-- ⚠️ YOUR_SITE_KEY را با Site Key واقعی از https://www.google.com/recaptcha/admin جایگزین کنید -->
+    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY" nonce="{{NONCE}}"></script>
 
-    <script nonce="abc123">
+    <script nonce="{{NONCE}}">
         document.addEventListener('DOMContentLoaded', function() {
 
-            AOS.init({ duration: 700, once: true, offset: 50 });
+            // ===== AOS Init =====
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 700, once: true, offset: 50, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });
+            }
 
-            // تایپ‌رایتر
+            // ===== تایپ‌رایتر =====
             const texts = [
                 'وکیل پایه یک دادگستری در تنکابن',
                 'متخصص دعاوی کیفری، خانواده و ملکی',
@@ -1416,13 +1537,12 @@
             ];
             let textIndex = 0, charIndex = 0, isDeleting = false;
             const typingEl = document.getElementById('typing-text');
-
-            // بررسی ترجیحات کاربر برای انیمیشن (Accessibility)
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             function typeEffect() {
-                if (!typingEl || prefersReducedMotion) {
-                    if (typingEl) typingEl.textContent = texts[0];
+                if (!typingEl) return;
+                if (prefersReducedMotion) {
+                    typingEl.textContent = texts[0];
                     return;
                 }
                 const current = texts[textIndex];
@@ -1441,6 +1561,7 @@
             }
             setTimeout(typeEffect, 800);
 
+            // ===== Counter Animation =====
             const counters = document.querySelectorAll('#statistics [data-count]');
             function animateCounter(el) {
                 const target = parseInt(el.getAttribute('data-count'), 10);
@@ -1449,110 +1570,169 @@
                 const increment = Math.ceil(target / 60);
                 const timer = setInterval(() => {
                     current += increment;
-                    if (current >= target) { el.textContent = target; clearInterval(timer); }
-                    else { el.textContent = current; }
+                    if (current >= target) { el.textContent = target.toLocaleString('fa-IR'); clearInterval(timer); }
+                    else { el.textContent = current.toLocaleString('fa-IR'); }
                 }, 25);
             }
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounter(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            counters.forEach(c => observer.observe(c));
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounter(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                counters.forEach(c => observer.observe(c));
+            }
 
+            // ===== Mobile Menu =====
             const toggleBtn = document.getElementById('mobileToggle');
             const navLinks = document.getElementById('navLinks');
-            toggleBtn.addEventListener('click', function() {
-                const isOpen = navLinks.classList.toggle('open');
-                this.setAttribute('aria-expanded', isOpen);
-                this.innerHTML = isOpen ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
-            });
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        navLinks.classList.remove('open');
-                        toggleBtn.setAttribute('aria-expanded', 'false');
-                        toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-                    }
-                    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.toggle('open');
+                    this.setAttribute('aria-expanded', isOpen);
+                    this.innerHTML = isOpen ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
                 });
-            });
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth <= 768) {
+                            navLinks.classList.remove('open');
+                            toggleBtn.setAttribute('aria-expanded', 'false');
+                            toggleBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+                        }
+                        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                });
+            }
 
+            // ===== FAQ Accordion =====
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const btn = item.querySelector('.faq-question');
-                btn.addEventListener('click', function() {
-                    const isActive = item.classList.contains('active');
-                    faqItems.forEach(i => { i.classList.remove('active'); i.querySelector('.faq-question').setAttribute('aria-expanded', 'false'); });
-                    if (!isActive) { item.classList.add('active'); this.setAttribute('aria-expanded', 'true'); }
-                });
+                if (btn) {
+                    btn.addEventListener('click', function() {
+                        const isActive = item.classList.contains('active');
+                        faqItems.forEach(i => { i.classList.remove('active'); const q = i.querySelector('.faq-question'); if (q) q.setAttribute('aria-expanded', 'false'); });
+                        if (!isActive) { item.classList.add('active'); this.setAttribute('aria-expanded', 'true'); }
+                    });
+                }
             });
 
+            // ===== Header Scroll & Back to Top =====
             const header = document.getElementById('header');
+            const backToTopBtn = document.getElementById('backToTop');
+            let ticking = false;
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-                const btn = document.getElementById('backToTop');
-                if (window.scrollY > 400) btn.style.display = 'block'; else btn.style.display = 'none';
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        if (window.scrollY > 50) header && header.classList.add('scrolled'); else header && header.classList.remove('scrolled');
+                        if (backToTopBtn) {
+                            if (window.scrollY > 400) backToTopBtn.style.display = 'block'; else backToTopBtn.style.display = 'none';
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
             });
-            document.getElementById('backToTop').addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
 
+            // ===== Active Nav Link on Scroll =====
             const sections = document.querySelectorAll('section[id]');
+            let navTicking = false;
             window.addEventListener('scroll', function() {
-                let current = '';
-                sections.forEach(section => {
-                    const top = section.offsetTop - 150;
-                    if (window.scrollY >= top) current = section.getAttribute('id');
-                });
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-                });
+                if (!navTicking) {
+                    window.requestAnimationFrame(function() {
+                        let current = '';
+                        sections.forEach(section => {
+                            const top = section.offsetTop - 150;
+                            if (window.scrollY >= top) current = section.getAttribute('id');
+                        });
+                        document.querySelectorAll('.nav-links a').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+                        });
+                        navTicking = false;
+                    });
+                    navTicking = true;
+                }
             });
 
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const btn = this.querySelector('button[type="submit"]');
-                const originalText = btn.textContent;
-                btn.textContent = 'در حال ارسال...';
-                btn.disabled = true;
+            // ===== Contact Form =====
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formStatus = document.getElementById('formStatus');
+            if (contactForm && submitBtn && formStatus) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'در حال ارسال...';
+                    submitBtn.disabled = true;
+                    formStatus.className = 'form-status';
+                    formStatus.textContent = '';
 
-                // ⚠️ اقدام فوری: YOUR_SITE_KEY را با Site Key واقعی خود جایگزین کنید
-                grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }).then(function(token) {
-                    document.getElementById('g-recaptcha-response').value = token;
-                    const formData = new FormData(document.getElementById('contactForm'));
-                    const data = {
-                        name: formData.get('name') || 'نامشخص',
-                        phone: formData.get('phone') || 'نامشخص',
-                        email: formData.get('email') || 'ندارد',
-                        message: formData.get('message') || 'ندارد',
-                        'g-recaptcha-response': token
-                    };
-                    // ⚠️ اقدام فوری: آدرس endpoint واقعی خود را از Formspree جایگزین کنید
-                    const FORMSPREE_URL = 'https://formspree.io/f/your-valid-endpoint';
-                    fetch(FORMSPREE_URL, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(data)
-                        })
-                        .then(res => {
-                            if (res.ok) {
-                                alert('پیام شما با موفقیت ارسال شد. به زودی با شما تماس گرفته می‌شود.');
-                                document.getElementById('contactForm').reset();
-                            } else {
-                                alert('خطا در ارسال! لطفاً دوباره تلاش کنید.');
-                            }
-                        })
-                        .catch(() => { alert('خطا در ارتباط با سرور!'); })
-                        .finally(() => { btn.textContent = originalText; btn.disabled = false; });
+                    // ⚠️ YOUR_SITE_KEY را با Site Key واقعی جایگزین کنید
+                    if (typeof grecaptcha !== 'undefined' && typeof grecaptcha.execute === 'function') {
+                        grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }).then(function(token) {
+                            document.getElementById('g-recaptcha-response').value = token;
+                            submitFormData(token);
+                        }).catch(function() {
+                            // اگر reCAPTCHA لود نشد، بدون آن ارسال کن
+                            submitFormData('');
+                        });
+                    } else {
+                        submitFormData('');
+                    }
+
+                    function submitFormData(token) {
+                        const formData = new FormData(contactForm);
+                        const data = {
+                            name: formData.get('name') || 'نامشخص',
+                            phone: formData.get('phone') || 'نامشخص',
+                            email: formData.get('email') || 'ندارد',
+                            message: formData.get('message') || 'ندارد',
+                            'g-recaptcha-response': token
+                        };
+                        // ⚠️ آدرس endpoint واقعی Formspree را جایگزین کنید
+                        const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
+                        fetch(FORMSPREE_URL, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                body: JSON.stringify(data)
+                            })
+                            .then(res => {
+                                if (res.ok) {
+                                    formStatus.className = 'form-status success';
+                                    formStatus.textContent = '✓ پیام شما با موفقیت ارسال شد. به زودی با شما تماس گرفته می‌شود.';
+                                    contactForm.reset();
+                                } else {
+                                    formStatus.className = 'form-status error';
+                                    formStatus.textContent = '✗ خطا در ارسال! لطفاً دوباره تلاش کنید یا مستقیماً تماس بگیرید.';
+                                }
+                            })
+                            .catch(() => {
+                                formStatus.className = 'form-status error';
+                                formStatus.textContent = '✗ خطا در ارتباط با سرور! لطفاً با شماره ۰۹۱۱۳۹۴۰۳۷۸ تماس بگیرید.';
+                            })
+                            .finally(() => {
+                                submitBtn.textContent = originalText;
+                                submitBtn.disabled = false;
+                                setTimeout(() => {
+                                    formStatus.className = 'form-status';
+                                    formStatus.textContent = '';
+                                }, 8000);
+                            });
+                    }
                 });
-            });
+            }
 
+            // ===== Hash Navigation =====
             function scrollToBlog() {
                 const blogSection = document.getElementById('blog');
                 if (blogSection) {
@@ -1560,10 +1740,7 @@
                 }
             }
             window.addEventListener('pageshow', function(event) {
-                if (event.persisted) {
-                    const hash = window.location.hash;
-                    if (hash === '#blog') scrollToBlog();
-                }
+                if (event.persisted && window.location.hash === '#blog') scrollToBlog();
             });
             window.addEventListener('hashchange', function() {
                 const hash = window.location.hash;
@@ -1572,10 +1749,11 @@
             });
             if (window.location.hash === '#blog') setTimeout(scrollToBlog, 300);
 
+            // ===== Service Worker (PWA) =====
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('/sw.js')
-                    .then(() => console.log('Service Worker registered successfully'))
-                    .catch((err) => console.warn('Service Worker registration failed:', err));
+                    .then(() => console.log('Service Worker registered'))
+                    .catch((err) => console.warn('Service Worker failed:', err));
             }
 
         });
