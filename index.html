@@ -13,10 +13,10 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
 
-    <!-- ===== CSP اصلاح‌شده (با پشتیبانی از همه منابع) ===== -->
+    <!-- ===== CSP اصلاح‌شده (بدون frame-ancestors و با پشتیبانی از Cloudflare) ===== -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
-        script-src 'self' 'nonce-abc123' https://unpkg.com https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://formspree.io;
+        script-src 'self' 'nonce-abc123' https://unpkg.com https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://formspree.io https://static.cloudflareinsights.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
         img-src 'self' data: https:;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
@@ -26,7 +26,6 @@
         object-src 'none';
         base-uri 'self';
         form-action 'self' https://formspree.io;
-        frame-ancestors 'self';
     ">
 
     <!-- ===== SEO Meta ===== -->
@@ -52,9 +51,10 @@
     <!-- ===== CANONICAL & ICONS & MANIFEST ===== -->
     <link rel="canonical" href="https://komrati.ir/">
     <link rel="icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <!-- حذف ارجاع به فایل‌های ۴۰۴ تا خطا ندهد -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> -->
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> -->
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> -->
     <link rel="manifest" href="/manifest.json">
 
     <!-- ===== PRECONNECT & PRELOAD ===== -->
@@ -62,8 +62,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//unpkg.com">
-    <!-- حذف preload تصویر برای جلوگیری از خطا -->
-    <!-- <link rel="preload" as="image" href="images/vakil.webp" fetchpriority="high"> -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap">
 
     <!-- ===== FONTS ===== -->
@@ -204,7 +202,7 @@
         }
     </script>
 
-    <!-- [سئو] 1. Attorney Schema (تایپ تخصصی برای وکلا) -->
+    <!-- [سئو] 1. Attorney Schema -->
     <script type="application/ld+json" nonce="abc123">
         {
             "@context": "https://schema.org",
@@ -272,7 +270,7 @@
         }
     </script>
 
-    <!-- [سئو] 2. WebSite (با SearchAction) -->
+    <!-- [سئو] 2. WebSite -->
     <script type="application/ld+json" nonce="abc123">
         {
             "@context": "https://schema.org",
@@ -315,31 +313,31 @@
                     "name": "بهترین وکیل پایه یک دادگستری در تنکابن چه مدارکی برای جلسه مشاوره نیاز دارد؟",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "در اولین جلسه مشاوره با وکیل در تنکابن، مدارک لازم شامل کارت ملی، شناسنامه و مدارک مرتبط با پرونده (مانند سند ملک، قرارداد، ابلاغیه قضایی) است. وکیل پایه یک دادگستری پس از بررسی مدارک، وضعیت حقوقی شما را تحلیل کرده و راهکار قانونی مناسب را بر اساس قوانین روز و رویه دادگاه‌های دادگستری تنکابن پیشنهاد می‌دهد."
+                        "text": "در اولین جلسه مشاوره با وکیل در تنکابن، مدارک لازم شامل کارت ملی، شناسنامه و مدارک مرتبط با پرونده (مانند سند ملک، قرارداد، ابلاغیه قضایی) است."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "وکیل طلاق در تنکابن هزینه وکالت (حق‌الوکاله) را چگونه محاسبه می‌کند؟",
+                    "name": "وکیل طلاق در تنکابن هزینه وکالت را چگونه محاسبه می‌کند؟",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "تعیین حق‌الوکاله بر اساس نوع پرونده (طلاق، کیفری، حقوقی یا ملکی)، میزان پیچیدگی، حجم کار و ارزش ریالی موضوع دعوا و تعرفه مصوب کانون وکلای دادگستری صورت می‌گیرد."
+                        "text": "تعیین حق‌الوکاله بر اساس نوع پرونده، پیچیدگی، حجم کار و تعرفه کانون وکلای دادگستری صورت می‌گیرد."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "آیا وکیل ملکی تنکابن امکان پیگیری غیرحضوری پرونده را فراهم می‌کند؟",
+                    "name": "آیا وکیل ملکی تنکابن پیگیری غیرحضوری پرونده را فراهم می‌کند؟",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "بله، مشاوره و پیگیری غیرحضوری پرونده‌های ملکی، خانواده و کیفری از طریق تماس تلفنی، پیام‌رسان‌هایی مانند واتساپ و تلگرام و همچنین جلسات آنلاین ویدئو کنفرانس ارائه می‌شود."
+                        "text": "بله، مشاوره و پیگیری غیرحضوری از طریق تماس، پیام‌رسان‌ها و جلسات آنلاین ارائه می‌شود."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "آیا وکیل پایه یک دادگستری در تنکابن پرونده‌های خارج از استان مازندران را قبول می‌کند؟",
+                    "name": "آیا وکیل پایه یک دادگستری در تنکابن پرونده‌های خارج از استان را قبول می‌کند؟",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "بله، با توجه به پروانه وکالت پایه یک دادگستری که امکان فعالیت در سراسر کشور را فراهم می‌کند، پذیرش و پیگیری پرونده‌های حقوقی و کیفری از تمامی استان‌های ایران میسر است."
+                        "text": "بله، با پروانه پایه یک امکان فعالیت در سراسر کشور وجود دارد، اما تمرکز اصلی بر تنکابن و مازندران است."
                     }
                 },
                 {
@@ -347,7 +345,7 @@
                     "name": "مدت زمان رسیدگی به پرونده در دادگستری تنکابن چقدر است؟",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "زمان رسیدگی به پرونده به عوامل متعددی از جمله نوع دعوا، پیچیدگی موضوع، شعب دادگاه، تعداد جلسات و زمان ابلاغ اوراق بستگی دارد."
+                        "text": "زمان رسیدگی به نوع دعوا، پیچیدگی و شعب دادگاه بستگی دارد و قابل پیش‌بینی دقیق نیست."
                     }
                 }
             ]
@@ -366,7 +364,7 @@
                     "item": {
                         "@type": "LegalService",
                         "name": "وکیل طلاق در تنکابن",
-                        "description": "طلاق توافقی، مهریه، نفقه و حضانت در تنکابن",
+                        "description": "طلاق توافقی، مهریه، نفقه و حضانت",
                         "provider": { "@id": "https://komrati.ir/#organization" },
                         "areaServed": { "@type": "City", "name": "Tonekabon" }
                     }
@@ -377,7 +375,7 @@
                     "item": {
                         "@type": "LegalService",
                         "name": "وکیل ملکی تنکابن",
-                        "description": "خلع ید، تصرف عدوانی، افراز و تخلیه در تنکابن",
+                        "description": "خلع ید، تصرف عدوانی، افراز و تخلیه",
                         "provider": { "@id": "https://komrati.ir/#organization" },
                         "areaServed": { "@type": "City", "name": "Tonekabon" }
                     }
@@ -398,11 +396,10 @@
     </script>
 
     <!-- ============================================= -->
-    <!-- ===== STYLES با CSS Variables ===== -->
+    <!-- ===== STYLES ===== -->
     <!-- ============================================= -->
     <style nonce="abc123">
         :root {
-            /* رنگ‌ها */
             --color-primary: #d4a13e;
             --color-primary-dark: #b88b2d;
             --color-primary-light: #e7c97a;
@@ -421,7 +418,6 @@
             --color-border-strong: rgba(255, 255, 255, 0.08);
             --color-border-hover: rgba(255, 255, 255, 0.06);
 
-            /* سایه‌ها */
             --shadow-sm: 0 6px 25px rgba(212, 161, 62, 0.4);
             --shadow-md: 0 15px 35px rgba(212, 161, 62, 0.35);
             --shadow-lg: 0 20px 45px rgba(212, 161, 62, 0.45);
@@ -429,7 +425,6 @@
             --shadow-card: 0 25px 60px rgba(0, 0, 0, 0.25);
             --shadow-header: 0 15px 40px rgba(0, 0, 0, 0.18);
 
-            /* فاصله‌ها */
             --spacing-xs: 8px;
             --spacing-sm: 16px;
             --spacing-md: 24px;
@@ -437,7 +432,6 @@
             --spacing-xl: 60px;
             --spacing-2xl: 100px;
 
-            /* شعاع‌ها */
             --radius-sm: 16px;
             --radius-md: 20px;
             --radius-lg: 24px;
@@ -446,7 +440,6 @@
             --radius-round: 50%;
             --radius-pill: 60px;
 
-            /* تایپوگرافی */
             --font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
             --font-weight-normal: 400;
             --font-weight-medium: 500;
@@ -455,7 +448,6 @@
             --font-weight-extrabold: 800;
             --font-weight-black: 900;
 
-            /* انیمیشن‌ها */
             --transition-fast: 0.3s ease;
             --transition: 0.35s ease;
             --transition-slow: 0.6s ease;
@@ -479,7 +471,6 @@
         button { font-family: inherit; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* ===== Accessibility: Skip Link ===== */
         .skip-link {
             position: absolute;
             top: -50px;
@@ -492,11 +483,7 @@
             border-radius: 0 0 0 var(--radius-sm);
             transition: top var(--transition-fast);
         }
-        .skip-link:focus {
-            top: 0;
-            outline: 3px solid var(--color-white);
-            outline-offset: 2px;
-        }
+        .skip-link:focus { top: 0; outline: 3px solid var(--color-white); outline-offset: 2px; }
 
         .sr-only {
             position: absolute;
@@ -904,7 +891,6 @@
             .service-card p { font-size: 14px; }
         }
 
-        /* ===== Reduced Motion ===== */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -914,7 +900,6 @@
             }
         }
 
-        /* ===== Print Styles ===== */
         @media print {
             header, .floating-whatsapp, #backToTop, .floating-card, .hero-buttons, .contact-form, #map { display: none !important; }
             body { background: white; color: black; }
@@ -925,7 +910,6 @@
 
 <body>
 
-    <!-- ===== SKIP LINK ===== -->
     <a href="#main-content" class="skip-link">پرش به محتوای اصلی</a>
 
     <!-- ===== HEADER ===== -->
@@ -992,7 +976,6 @@
             </div>
             <div class="hero-image" data-aos="fade-left">
                 <div class="image-frame">
-                    <!-- تصویر اصلی (بدون srcset برای جلوگیری از خطا) -->
                     <img src="images/vakil.webp"
                          alt="سید داود کمراتی - بهترین وکیل پایه یک دادگستری در تنکابن"
                          width="470" height="600" loading="eager" fetchpriority="high" decoding="async">
@@ -1007,7 +990,7 @@
         </div>
     </section>
 
-    <!-- ===== تخصص وکالت ===== -->
+    <!-- ===== EXPERTISE ===== -->
     <section id="expertise" aria-label="تخصص وکالت در تنکابن">
         <div class="container expertise-wrap" data-aos="fade-up">
             <span class="section-mini">تخصص و تجربه</span>
@@ -1293,6 +1276,7 @@
                 با مطالعه‌ی مقالات تخصصی، از آخرین قوانین و رویه‌های دادگاه‌ها در حوزه‌های خانواده، کیفری، ملکی و تجاری مطلع شوید.
             </p>
             <div class="blog-grid">
+                <!-- ۹ مقاله مشابه نسخه قبل -->
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
                     <span class="blog-tag">خانواده</span>
                     <h3><a href="blog/talaagh-tavaaghi.html">راهنمای جامع طلاق توافقی در تنکابن</a></h3>
@@ -1511,18 +1495,15 @@
     <!-- ===== SCRIPTS ===== -->
     <!-- ============================================= -->
     <script src="https://unpkg.com/aos@next/dist/aos.js" nonce="abc123"></script>
-    <!-- ⚠️ YOUR_SITE_KEY را با Site Key واقعی از https://www.google.com/recaptcha/admin جایگزین کنید -->
     <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY" nonce="abc123"></script>
 
     <script nonce="abc123">
         document.addEventListener('DOMContentLoaded', function() {
 
-            // ===== AOS Init =====
             if (typeof AOS !== 'undefined') {
                 AOS.init({ duration: 700, once: true, offset: 50, disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });
             }
 
-            // ===== تایپ‌رایتر =====
             const texts = [
                 'وکیل پایه یک دادگستری در تنکابن',
                 'متخصص دعاوی کیفری، خانواده و ملکی',
@@ -1554,7 +1535,6 @@
             }
             setTimeout(typeEffect, 800);
 
-            // ===== Counter Animation =====
             const counters = document.querySelectorAll('#statistics [data-count]');
             function animateCounter(el) {
                 const target = parseInt(el.getAttribute('data-count'), 10);
@@ -1579,7 +1559,6 @@
                 counters.forEach(c => observer.observe(c));
             }
 
-            // ===== Mobile Menu =====
             const toggleBtn = document.getElementById('mobileToggle');
             const navLinks = document.getElementById('navLinks');
             if (toggleBtn && navLinks) {
@@ -1601,7 +1580,6 @@
                 });
             }
 
-            // ===== FAQ Accordion =====
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const btn = item.querySelector('.faq-question');
@@ -1614,7 +1592,6 @@
                 }
             });
 
-            // ===== Header Scroll & Back to Top =====
             const header = document.getElementById('header');
             const backToTopBtn = document.getElementById('backToTop');
             let ticking = false;
@@ -1636,7 +1613,6 @@
                 });
             }
 
-            // ===== Active Nav Link on Scroll =====
             const sections = document.querySelectorAll('section[id]');
             let navTicking = false;
             window.addEventListener('scroll', function() {
@@ -1657,7 +1633,6 @@
                 }
             });
 
-            // ===== Contact Form =====
             const contactForm = document.getElementById('contactForm');
             const submitBtn = document.getElementById('submitBtn');
             const formStatus = document.getElementById('formStatus');
@@ -1670,13 +1645,11 @@
                     formStatus.className = 'form-status';
                     formStatus.textContent = '';
 
-                    // ⚠️ YOUR_SITE_KEY را با Site Key واقعی جایگزین کنید
                     if (typeof grecaptcha !== 'undefined' && typeof grecaptcha.execute === 'function') {
                         grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }).then(function(token) {
                             document.getElementById('g-recaptcha-response').value = token;
                             submitFormData(token);
                         }).catch(function() {
-                            // اگر reCAPTCHA لود نشد، بدون آن ارسال کن
                             submitFormData('');
                         });
                     } else {
@@ -1692,7 +1665,6 @@
                             message: formData.get('message') || 'ندارد',
                             'g-recaptcha-response': token
                         };
-                        // ⚠️ آدرس endpoint واقعی Formspree را جایگزین کنید
                         const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
                         fetch(FORMSPREE_URL, {
                                 method: 'POST',
@@ -1725,7 +1697,6 @@
                 });
             }
 
-            // ===== Hash Navigation =====
             function scrollToBlog() {
                 const blogSection = document.getElementById('blog');
                 if (blogSection) {
@@ -1742,7 +1713,6 @@
             });
             if (window.location.hash === '#blog') setTimeout(scrollToBlog, 300);
 
-            // ===== Service Worker (PWA) =====
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('/sw.js')
                     .then(() => console.log('Service Worker registered'))
