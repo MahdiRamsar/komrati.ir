@@ -1,25 +1,93 @@
+# ============================================================
+# 🔒 هدرهای امنیتی (شامل CSP اصلاح‌شده برای Statsfa)
+# ============================================================
 <IfModule mod_headers.c>
+    # HSTS (اجبار به HTTPS)
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # جلوگیری از نمایش سایت در iframe
     Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # جلوگیری از MIME-sniffing
     Header always set X-Content-Type-Options "nosniff"
+    
+    # سیاست ارجاع‌دهنده
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # محدودیت دسترسی به API‌های مرورگر
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # ============================================================
+    # 🔐 سیاست امنیتی محتوا (CSP) – با اضافه شدن statsfa
+    # ============================================================
+    Header always set Content-Security-Policy "
+        default-src 'self';
+        script-src 'self' 'nonce-abc123' https://unpkg.com https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://formspree.io https://static.cloudflareinsights.com https://statsfa.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+        img-src 'self' data: https:;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        connect-src 'self' https://formspree.io https://www.google.com https://statsfa.com;
+        frame-src https://www.google.com;
+        media-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self' https://formspree.io;
+    "
 </IfModule>
 
-# فشرده‌سازی
+# ============================================================
+# 🗜️ فشرده‌سازی (Gzip) برای افزایش سرعت بارگذاری
+# ============================================================
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json application/xml text/plain text/xml
+    AddOutputFilterByType DEFLATE image/svg+xml application/rss+xml application/atom+xml
 </IfModule>
 
-# کش مرورگر
+# ============================================================
+# 📦 کش مرورگر (برای کاهش درخواست‌های تکراری)
+# ============================================================
 <IfModule mod_expires.c>
     ExpiresActive On
+    
+    # تصاویر (یک سال)
     ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # فایل‌های CSS و JS (یک ماه)
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
+    
+    # فایل‌های HTML (یک روز)
+    ExpiresByType text/html "access plus 1 day"
 </IfModule>
 
-# HTTPS اجباری
+# ============================================================
+# 🔄 HTTPS اجباری (redirect تمام ترافیک به HTTPS)
+# ============================================================
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ============================================================
+# 🛡️ جلوگیری از دسترسی به فایل‌های مخفی (مثل .htaccess)
+# ============================================================
+<Files .htaccess>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# ============================================================
+# 🚫 جلوگیری از لیست شدن پوشه‌ها (Directory Listing)
+# ============================================================
+Options -Indexes
+
+# ============================================================
+# 📄 صفحات خطای سفارشی (اختیاری)
+# ============================================================
+# ErrorDocument 404 /404.html
+# ErrorDocument 403 /403.html
+# ErrorDocument 500 /500.html
