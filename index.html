@@ -43,8 +43,8 @@
     <meta name="language" content="Persian">
     <meta name="geo.region" content="IR-21">
     <meta name="geo.placename" content="Tonekabon">
-    <meta name="geo.position" content="36.8161;50.8738">
-    <meta name="ICBM" content="36.8161, 50.8738">
+    <meta name="geo.position" content="36.81597;50.88008">
+    <meta name="ICBM" content="36.81597, 50.88008">
     <link rel="alternate" hreflang="fa" href="https://komrati.ir/">
     <link rel="alternate" hreflang="x-default" href="https://komrati.ir/">
 
@@ -61,16 +61,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="preload" as="image" href="images/vakil.webp" fetchpriority="high">
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap">
 
     <!-- ===== FONTS ===== -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
 
     <!-- ===== FONT AWESOME ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 
     <!-- ===== AOS ===== -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
 
     <!-- ===== Open Graph ===== -->
     <meta property="og:locale" content="fa_IR">
@@ -135,8 +139,8 @@
             },
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 36.8161,
-                "longitude": 50.8738
+                "latitude": 36.81597,
+                "longitude": 50.88008
             },
             "openingHoursSpecification": [{
                 "@type": "OpeningHoursSpecification",
@@ -148,7 +152,7 @@
                 { "@type": "City", "name": "Tonekabon" },
                 { "@type": "AdministrativeArea", "name": "Mazandaran" }
             ],
-            "hasMap": "https://www.google.com/maps?q=36.8161,50.8738",
+            "hasMap": "https://www.google.com/maps?q=36.81597,50.88008",
             "sameAs": [
                 "https://www.instagram.com/komrati.law",
                 "https://t.me/komrati_law"
@@ -223,15 +227,15 @@
             },
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 36.8161,
-                "longitude": 50.8738
+                "latitude": 36.81597,
+                "longitude": 50.88008
             },
             "openingHours": "Sa-Th 09:00-18:00",
             "areaServed": [
                 { "@type": "City", "name": "Tonekabon" },
                 { "@type": "AdministrativeArea", "name": "Mazandaran" }
             ],
-            "hasMap": "https://www.google.com/maps?q=36.8161,50.8738",
+            "hasMap": "https://www.google.com/maps?q=36.81597,50.88008",
             "sameAs": [
                 "https://www.instagram.com/komrati.law",
                 "https://t.me/komrati_law"
@@ -395,9 +399,16 @@
     </script>
 
     <!-- ============================================= -->
-    <!-- ===== STYLES ===== -->
+    <!-- ===== STYLES (بهبود یافته با font-display) ===== -->
     <!-- ============================================= -->
     <style nonce="abc123">
+        @font-face {
+            font-family: 'Vazirmatn';
+            font-style: normal;
+            font-weight: 400 900;
+            font-display: swap;
+            src: url(https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap);
+        }
         :root {
             --color-primary: #d4a13e;
             --color-primary-dark: #b88b2d;
@@ -989,6 +1000,40 @@
         </div>
     </section>
 
+    <!-- ===== Quick Facts (برای GEO / AI Search) ===== -->
+    <div class="container">
+        <div class="quick-facts" data-aos="fade-up" data-aos-delay="100">
+            <div class="fact-item">
+                <span class="fact-icon"><i class="fas fa-gavel"></i></span>
+                <span class="fact-label">تخصص اصلی</span>
+                <span class="fact-value"><span>خانواده، ملکی، کیفری</span></span>
+            </div>
+            <div class="fact-item">
+                <span class="fact-icon"><i class="fas fa-calendar-alt"></i></span>
+                <span class="fact-label">سابقه</span>
+                <span class="fact-value"><span>۲۰+</span> سال</span>
+            </div>
+            <div class="fact-item">
+                <span class="fact-icon"><i class="fas fa-folder-open"></i></span>
+                <span class="fact-label">پرونده‌های مختومه</span>
+                <span class="fact-value"><span>۶۸۷</span> پرونده</span>
+            </div>
+            <div class="fact-item">
+                <span class="fact-icon"><i class="fas fa-star"></i></span>
+                <span class="fact-label">رضایت موکلان</span>
+                <span class="fact-value"><span>۴.۹</span> از ۵</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Quick Answer Box (برای AEO) ===== -->
+    <div class="container">
+        <div class="quick-answer-box" data-aos="fade-up" data-aos-delay="150">
+            <strong>📌 پاسخ کوتاه:</strong>
+            <p>بهترین وکیل در تنکابن کسی است که تخصص در حوزه مورد نظر شما (طلاق، ملکی، کیفری) داشته باشد، بیش از ۱۰ سال سابقه و شناخت کامل از رویه دادگستری تنکابن را داشته باشد. سید داود کمراتی با ۲۰ سال تجربه و ۷۱۵ پرونده، یکی از گزینه‌های برتر در تنکابن است.</p>
+        </div>
+    </div>
+
     <!-- ===== EXPERTISE ===== -->
     <section id="expertise" aria-label="تخصص وکالت در تنکابن">
         <div class="container expertise-wrap" data-aos="fade-up">
@@ -1020,37 +1065,37 @@
                     <div class="service-icon"><i class="fas fa-scale-balanced" aria-hidden="true"></i></div>
                     <h3>دعاوی حقوقی (مطالبه وجه، فسخ قرارداد و ...)</h3>
                     <p>در دعاوی حقوقی مانند <strong>مطالبه وجه، فسخ قرارداد، الزام به تنظیم سند رسمی، خسارت و مطالبه دیون</strong>، با تحلیل دقیق اسناد و مدارک و با استناد به قوانین مدنی و رویه‌ی دادگاه‌ها، راهکار مناسب را برای احقاق حق موکل ارائه می‌دهیم. از تنظیم دادخواست تا اجرای رأی، تمام مراحل به‌صورت تخصصی پیگیری می‌شود.</p>
-                    <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="#contact" aria-label="دریافت مشاوره حقوقی برای دعاوی حقوقی">دریافت مشاوره <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon"><i class="fas fa-gavel" aria-hidden="true"></i></div>
                     <h3>دعاوی کیفری (کلاهبرداری، سرقت، جعل و ...)</h3>
                     <p>در حوزه‌ی <strong>کیفری</strong>، با تسلط بر قوانین مجازات، آیین دادرسی کیفری و جرایم خاص (مانند <strong>کلاهبرداری، خیانت در امانت، سرقت، جعل اسناد، جرایم رایانه‌ای و مواد مخدر</strong>)، دفاعی اصولی و مستدل در مراحل تحقیق، دادسرا و دادگاه ارائه می‌شود. هدف کاهش مجازات یا تبرئه‌ی موکل با استفاده از دلایل و شواهد قانونی است.</p>
-                    <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="#contact" aria-label="دریافت مشاوره حقوقی برای دعاوی کیفری">دریافت مشاوره <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="service-card" id="services-divorce" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
                     <h3>وکیل طلاق در تنکابن (طلاق، مهریه، حضانت)</h3>
                     <p>پرونده‌های <strong>خانواده</strong> از حساسیت عاطفی و حقوقی بالایی برخوردارند. به عنوان <strong>وکیل طلاق در تنکابن</strong>، خدمات شامل <strong>طلاق (توافقی و غیرتوافقی)، مهریه، نفقه، حضانت فرزند، تمکین و اجرت‌المثل</strong> می‌شود. با رویکردی دلسوزانه و در عین حال قانونی، سعی در کاهش تنش‌ها و دستیابی به توافقی منصفانه یا اخذ رأی مناسب برای موکل داریم. <strong>مشاوره طلاق توافقی</strong> پیش از طرح دعوا، مسیر را برای شما روشن می‌کند.</p>
-                    <a href="#contact">مشاهده خدمات طلاق <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="#contact" aria-label="دریافت مشاوره وکیل طلاق در تنکابن">مشاهده خدمات طلاق <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="service-card" id="services-property" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon"><i class="fas fa-building" aria-hidden="true"></i></div>
                     <h3>وکیل ملکی تنکابن (خلع ید، افراز، تخلیه)</h3>
                     <p>دعاوی ملکی از پیچیده‌ترین پرونده‌ها هستند. به عنوان <strong>وکیل ملکی تنکابن</strong>، در زمینه‌های <strong>خلع ید، تصرف عدوانی، افراز و تقسیم ملک، تخلیه‌ی اجاره، سرقفلی، مشارکت در ساخت و دعاوی مربوط به اسناد مالکیت</strong> فعالیت داریم. با بررسی اسناد ثبتی، نقشه‌ها و مدارک، استراتژی مناسب برای دفاع از حقوق مالکانه‌ی موکل ارائه می‌شود.</p>
-                    <a href="#contact">مشاهده خدمات ملکی <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="#contact" aria-label="دریافت مشاوره وکیل ملکی تنکابن">مشاهده خدمات ملکی <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon"><i class="fas fa-file-signature" aria-hidden="true"></i></div>
                     <h3>تنظیم و بررسی قراردادهای تخصصی</h3>
                     <p>قراردادها نقش کلیدی در پیشگیری از دعاوی آینده دارند. خدمات ما شامل <strong>تنظیم، بازبینی و اصلاح انواع قراردادهای ملکی، تجاری، مشارکت مدنی، پیمانکاری، اجاره، وکالت و هر نوع توافقنامه‌ی اختصاصی</strong> است. با شناسایی مواد خطرناک و ابهام‌آمیز، قراردادی منصفانه و شفاف تدوین می‌شود که از حقوق طرفین به‌خوبی حمایت کند.</p>
-                    <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="#contact" aria-label="دریافت مشاوره برای تنظیم قرارداد">دریافت مشاوره <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
                 <article class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></div>
                     <h3>حقوق تجارت و اسناد تجاری (چک، سفته، ورشکستگی)</h3>
                     <p>در حوزه‌ی <strong>حقوق تجارت</strong>، به پرونده‌های مربوط به <strong>شرکت‌ها (تأسیس، انحلال، دعاوی سهامداران)، چک، سفته، برات، مطالبه‌ی وجه اسناد تجاری، ورشکستگی و اختلافات بازرگانی</strong> رسیدگی می‌شود. همچنین در داوری‌های تجاری و رسیدگی به دعاوی مربوط به ثبت شرکت‌ها و دفاتر تجاری، مشاوره و وکالت ارائه می‌گردد.</p>
-                    <a href="#contact">دریافت مشاوره <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                    <a href="#contact" aria-label="دریافت مشاوره حقوق تجارت">دریافت مشاوره <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </article>
             </div>
         </div>
@@ -1406,6 +1451,13 @@
                         <div><h4>آدرس دفتر</h4><p>تنکابن، خیابان اصلی، سه راه خرم آباد</p></div>
                     </div>
                     <div class="contact-box">
+                        <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+                        <div>
+                            <h4>مشاهده در نقشه</h4>
+                            <p><a href="https://www.google.com/maps?q=36.81597,50.88008" target="_blank" rel="noopener noreferrer">باز کردن در گوگل مپ</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-box">
                         <i class="fas fa-clock" aria-hidden="true"></i>
                         <div><h4>ساعات پاسخگویی</h4><p>شنبه تا پنج‌شنبه ۹ صبح تا ۶ عصر</p></div>
                     </div>
@@ -1447,7 +1499,13 @@
 
     <!-- ===== MAP ===== -->
     <section id="map" aria-label="نقشه دفتر وکالت در تنکابن">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3187.736183292671!2d50.6832192!3d36.8152166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8b3a6c0e68f60f%3A0x87b4b5dcd657c70f!2sTonekabon!5e0!3m2!1sen!2sus!4v1618912385082!5m2!1sen!2sus" loading="lazy" allowfullscreen title="نقشه دفتر وکالت سید داود کمراتی در تنکابن" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3187.736183292671!2d50.88008!3d36.81597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1618912385082" 
+            loading="lazy" 
+            allowfullscreen 
+            title="نقشه دفتر وکالت سید داود کمراتی در تنکابن" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </section>
 
     </main>
@@ -1517,8 +1575,8 @@
     <!-- ============================================= -->
     <!-- ===== SCRIPTS ===== -->
     <!-- ============================================= -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js" nonce="abc123"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY" nonce="abc123"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" nonce="abc123" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY" nonce="abc123" defer></script>
 
     <script nonce="abc123">
         document.addEventListener('DOMContentLoaded', function() {
