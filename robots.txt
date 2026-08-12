@@ -1,5 +1,31 @@
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /images/
+Allow: /assets/
+Allow: /icons/
+Allow: /favicon.ico
+Allow: /manifest.json
+Allow: /sw.js
+
 Disallow: /admin/
 Disallow: /login/
+Disallow: /api/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /vendor/
+
+# جلوگیری از ایندکس شدن صفحات با پارامترهای تکراری
+Disallow: /*?*
+Disallow: /*.pdf$
+Disallow: /*.zip$
+Disallow: /*.rar$
+
+# افزایش سرعت خزیدن با تعیین زمان بازگشت
+Crawl-delay: 5
+
+# نقشه سایت
 Sitemap: https://komrati.ir/sitemap.xml
