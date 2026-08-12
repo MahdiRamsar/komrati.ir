@@ -1,4 +1,4 @@
-const CACHE_NAME = 'komrati-v4';
+const CACHE_NAME = 'komrati-v5';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -6,7 +6,7 @@ const urlsToCache = [
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
     'https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap',
     '/manifest.json',
-    // مقالات (۱۰ مقاله)
+    // مقالات (۱۱ مقاله)
     '/blog/talaagh-tavaaghi.html',
     '/blog/kelahbari-interneti.html',
     '/blog/mehrieh-1405.html',
@@ -16,7 +16,8 @@ const urlsToCache = [
     '/blog/vahdat-877.html',
     '/blog/vahdat-878.html',
     '/blog/tahavolat-khanevadeh-1405.html',
-    '/blog/vahdat-879-mavad-mokhader.html'  // مقاله جدید: رأی وحدت رویه مواد مخدر
+    '/blog/vahdat-879-mavad-mokhader.html',
+    '/blog/toolsfile-online-tools.html'  // مقاله جدید: ۱۰ ابزار آنلاین رایگان برای وکلا
 ];
 
 self.addEventListener('install', event => {
