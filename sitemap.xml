@@ -71,7 +71,7 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- ===== مقالات (۱۰ مقاله) ===== -->
+  <!-- ===== مقالات (۱۱ مقاله) ===== -->
 
   <!-- ۱. راهنمای جامع طلاق توافقی در تنکابن -->
   <url>
@@ -145,9 +145,17 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- ۱۰. بررسی رأی وحدت رویه ۸۷۹ - عدم ممنوع‌الخروجی حمل مواد مخدر بدون قصد قاچاق (جدید) -->
+  <!-- ۱۰. بررسی رأی وحدت رویه ۸۷۹ - عدم ممنوع‌الخروجی حمل مواد مخدر بدون قصد قاچاق -->
   <url>
     <loc>https://komrati.ir/blog/vahdat-879-mavad-mokhader.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ۱۱. ۱۰ ابزار آنلاین رایگان که هر وکیل و کارشناس حقوقی به آن‌ها نیاز دارد (جدید) -->
+  <url>
+    <loc>https://komrati.ir/blog/toolsfile-online-tools.html</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
