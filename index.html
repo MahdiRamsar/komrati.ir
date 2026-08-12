@@ -64,17 +64,14 @@
     <link rel="preload" as="image" href="images/vakil.webp" fetchpriority="high">
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap">
 
-    <!-- ===== FONTS ===== -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+    <!-- ===== FONTS (بارگذاری استاندارد برای اطمینان) ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- ===== FONT AWESOME ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+    <!-- ===== FONT AWESOME (بارگذاری استاندارد برای نمایش صحیح آیکون‌ها) ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- ===== AOS ===== -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 
     <!-- ===== Open Graph ===== -->
     <meta property="og:locale" content="fa_IR">
@@ -399,7 +396,7 @@
     </script>
 
     <!-- ============================================= -->
-    <!-- ===== STYLES (بهبود یافته با font-display) ===== -->
+    <!-- ===== STYLES (همراه با اصلاحات بخش‌های جدید) ===== -->
     <!-- ============================================= -->
     <style nonce="abc123">
         @font-face {
@@ -823,6 +820,69 @@
         }
         #backToTop:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
+        /* ============================================= */
+        /* ===== بخش‌های جدید (AEO و GEO) ===== */
+        /* ============================================= */
+        
+        /* Quick Facts (برای GEO / AI Search) */
+        .quick-facts {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid rgba(212,161,62,0.15);
+            border-radius: var(--radius-lg);
+            padding: 30px 35px;
+            margin: 40px auto 50px;
+            max-width: 880px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+        .quick-facts .fact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .quick-facts .fact-item .fact-icon {
+            font-size: 28px;
+            color: var(--color-primary);
+        }
+        .quick-facts .fact-item .fact-label {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            font-weight: var(--font-weight-medium);
+        }
+        .quick-facts .fact-item .fact-value {
+            font-size: 18px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-white);
+        }
+        .quick-facts .fact-item .fact-value span {
+            color: var(--color-primary);
+        }
+
+        /* Quick Answer Box (برای AEO) */
+        .quick-answer-box {
+            background: #1e293b;
+            padding: 20px 28px;
+            border-radius: var(--radius-sm);
+            border-right: 5px solid var(--color-primary);
+            margin-bottom: 30px;
+            max-width: 880px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .quick-answer-box strong {
+            color: var(--color-primary);
+            font-size: 15px;
+        }
+        .quick-answer-box p {
+            color: var(--color-text-light);
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 6px 0 0;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width:1024px) {
             .hero-grid { grid-template-columns: 1fr; gap: 50px; text-align: center; }
@@ -841,6 +901,7 @@
             .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .stats-summary { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .quick-facts { grid-template-columns: repeat(2, 1fr); padding: 24px; }
         }
         @media (max-width:768px) {
             .nav-links {
@@ -876,6 +937,11 @@
             .chart-value { font-size: 12px; }
             .floating-whatsapp { bottom: 80px; left: 16px; width: 50px; height: 50px; font-size: 26px; }
             #backToTop { bottom: 20px; left: 16px; padding: 12px 16px; font-size: 18px; }
+            .quick-facts { grid-template-columns: 1fr 1fr; padding: 16px; gap: 16px; }
+            .quick-facts .fact-item .fact-icon { font-size: 22px; }
+            .quick-facts .fact-item .fact-value { font-size: 16px; }
+            .quick-answer-box { padding: 16px 20px; }
+            .quick-answer-box p { font-size: 15px; }
         }
         @media (max-width:480px) {
             .hero-content h1 { font-size: 32px; }
@@ -899,6 +965,7 @@
             .section-subtitle { font-size: 15px; }
             .service-card h3 { font-size: 18px; }
             .service-card p { font-size: 14px; }
+            .quick-facts { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
         }
 
         @media (prefers-reduced-motion: reduce) {
